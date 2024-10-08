@@ -26,8 +26,9 @@ function App() {
   }
   return (
     <div className="App">
-      <header className="App-header">
+      <header className="App-Matias Sayanes">
         <img src={logo} className="App-logo" alt="logo" />
+        <h1> Colin Barry </h1>
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
