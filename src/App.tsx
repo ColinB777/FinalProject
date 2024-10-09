@@ -29,6 +29,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <h1> Colin Barry </h1>
       <h1> Derek Johnson </h1>
+      <h1>Samuel Zheng</h1>
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
           <h1>Matias Sayanes</h1>
@@ -41,7 +42,7 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+
       <Form>
         <Form.Label>API Key:</Form.Label>
         <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
