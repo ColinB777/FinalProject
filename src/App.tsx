@@ -26,11 +26,12 @@ function App() {
   }
   return (
     <div className="App">
-      <header className="App-header">
-       <h1>Derek Johnson</h1> 
         <img src={logo} className="App-logo" alt="logo" />
+        <h1> Colin Barry </h1>
+      <h1> Derek Johnson </h1>
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
+          <h1>Matias Sayanes</h1>
         </p>
         <a
           className="App-link"
