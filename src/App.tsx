@@ -29,20 +29,19 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <h1> Colin Barry </h1>
       <h1> Derek Johnson </h1>
-      <h1>Samuel Zheng</h1>
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
           <h1>Matias Sayanes</h1>
         </p>
         <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+        className="App-link"
+        href="https://reactjs.org"
+        target="_blank"
+        rel="noopener noreferrer"
         >
-          Learn React
-        </a>
+        Learn React
 
+        </a>
       <Form>
         <Form.Label>API Key:</Form.Label>
         <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
