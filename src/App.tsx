@@ -3,7 +3,7 @@ import './App.css';
 import { Button, Form } from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import {Detailed_quiz} from "./Detailed"
-import {Basic_quiz} from "./simpleInterface"
+import {SimpleInterface} from "./simpleInterface"
 
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
@@ -47,7 +47,7 @@ function App() {
       </Button>
       <Routes>
         <Route path="/detailed_quiz" element={<Detailed_quiz />} />
-        <Route path="/basic_quiz" element={<Basic_quiz />} />
+        <Route path="/basic_quiz" element={<SimpleInterface/>} />
       </Routes>
     </Router>
     </div>
