@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import { Button, Form } from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
-import {Detailed_quiz} from "./Detailed"
+import {Detailedquiz} from "./Detailed"
 import {SimpleInterface} from "./simpleInterface"
 
 
@@ -46,7 +46,7 @@ function App() {
       <Link to="/basic_quiz">Quiz</Link>
       </Button>
       <Routes>
-        <Route path="/detailed_quiz" element={<Detailed_quiz />} />
+        <Route path="/detailed_quiz" element={<Detailedquiz />} />
         <Route path="/basic_quiz" element={<SimpleInterface/>} />
       </Routes>
     </Router>
