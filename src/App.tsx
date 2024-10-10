@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { Button, Form } from 'react-bootstrap';
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import {Detailed_quiz} from "./Detailed"
+import {Basic_quiz} from "./simpleInterface"
+
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -25,22 +28,10 @@ function App() {
     setKey(event.target.value);
   }
   return (
-    <div className="App">
+    <div className="App" style={{background:'lime'}}>
+    <Router>
       <header className="App">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1> Colin Barry </h1>
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-          <h1>Matias Sayanes</h1>
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h4> Colin Barry,Matias Sayanes,Samuel Zheng,Derek Johnson </h4>
       </header>
       <Form>
         <Form.Label>API Key:</Form.Label>
@@ -48,8 +39,20 @@ function App() {
         <br></br>
         <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
       </Form>
+      <Button style={{background:'white'}}>
+      <Link to="/detailed_quiz" style={{color:'magenta'}}>Detailed quiz</Link>
+      </Button>
+      <Button  style={{background:'white'}}>
+      <Link to="/basic_quiz">Quiz</Link>
+      </Button>
+      <Routes>
+        <Route path="/detailed_quiz" element={<Detailed_quiz />} />
+        <Route path="/basic_quiz" element={<Basic_quiz />} />
+      </Routes>
+    </Router>
     </div>
   );
 }
+
 
 export default App;
