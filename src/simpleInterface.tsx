@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './simple.css';
-import { Button, Form } from 'react-bootstrap';
+
 
 export function SimpleInterface(): JSX.Element {
     const [answers, setAnswers] = useState({
