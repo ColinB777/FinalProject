@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './simple.css';
 import { Button, Form } from 'react-bootstrap';
 
-export function simpleInterface(): JSX.Element {
+export function SimpleInterface(): JSX.Element {
     const [answers, setAnswers] = useState({
         ques1: 'val1',
         ques2: 'val1',
