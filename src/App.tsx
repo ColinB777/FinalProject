@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Button, Form } from 'react-bootstrap';
-import { simpleInterface } from "./simpleInterface";
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -28,12 +27,8 @@ function App() {
   return (
     <div className="App">
         <img src={logo} className="App-logo" alt="logo" />
-<<<<<<< HEAD
-        
-=======
         <h1> Colin Barry </h1>
       <h1> Derek Johnson </h1>
->>>>>>> 2873c9a60dfbe5348536773a9b66eeb7b2303675
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
           <h1>Matias Sayanes</h1>
