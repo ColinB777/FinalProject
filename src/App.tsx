@@ -28,7 +28,7 @@ function App() {
     setKey(event.target.value);
   }
   return (
-    <div className="App" style={{background:'lime'}}>
+    <div className="App" style={{background:'#98FF98'}}>
     <Router>
       <header className="App">
         <h4> Colin Barry,Matias Sayanes,Samuel Zheng,Derek Johnson </h4>
@@ -40,10 +40,10 @@ function App() {
         <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
       </Form>
       <Button style={{background:'white'}}>
-      <Link to="/detailed_quiz" style={{color:'magenta'}}>Detailed quiz</Link>
+      <Link to="/detailed_quiz" style={{color:'magenta'}}>Detailed Career Assesment</Link>
       </Button>
-      <Button  style={{background:'white'}}>
-      <Link to="/basic_quiz">Quiz</Link>
+      <Button  style={{background:'white'}} >
+      <Link to="/basic_quiz">Basic Career Assesment</Link>
       </Button>
       <Routes>
         <Route path="/detailed_quiz" element={<Detailedquiz />} />
