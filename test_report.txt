@@ -37,7 +37,7 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (116 ms)
+  ✕ renders learn react link (98 ms)
 
   ● renders learn react link
 
@@ -48,7 +48,7 @@ FAIL src/App.test.tsx
       [36m<div>[39m
         [36m<div[39m
           [33mclass[39m=[32m"App"[39m
-          [33mstyle[39m=[32m"background: lime;"[39m
+          [33mstyle[39m=[32m"background: rgb(152, 255, 152);"[39m
         [36m>[39m
           [36m<header[39m
             [33mclass[39m=[32m"App"[39m
@@ -78,29 +78,33 @@ FAIL src/App.test.tsx
               [0mSubmit[0m
             [36m</button>[39m
           [36m</form>[39m
-          [36m<button[39m
-            [33mclass[39m=[32m"btn btn-primary"[39m
-            [33mstyle[39m=[32m"background: white;"[39m
-            [33mtype[39m=[32m"button"[39m
+          [36m<div[39m
+            [33mstyle[39m=[32m"align-items: center;"[39m
           [36m>[39m
-            [36m<a[39m
-              [33mhref[39m=[32m"/detailed_quiz"[39m
-              [33mstyle[39m=[32m"color: magenta;"[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"btn btn-primary"[39m
+              [33mstyle[39m=[32m"background: white; margin: 10px;"[39m
+              [33mtype[39m=[32m"button"[39m
             [36m>[39m
-              [0mDetailed quiz[0m
-            [36m</a>[39m
-          [36m</button>[39m
-          [36m<button[39m
-            [33mclass[39m=[32m"btn btn-primary"[39m
-            [33mstyle[39m=[32m"background: white;"[39m
-            [33mtype[39m=[32m"button"[39m
-          [36m>[39m
-            [36m<a[39m
-              [33mhref[39m=[32m"/basic_quiz"[39m
+              [36m<a[39m
+                [33mhref[39m=[32m"/detailed_quiz"[39m
+                [33mstyle[39m=[32m"color: magenta;"[39m
+              [36m>[39m
+                [0mDetailed Career Assesment[0m
+              [36m</a>[39m
+            [36m</button>[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"btn btn-primary"[39m
+              [33mstyle[39m=[32m"background: white; margin: 10px;"[39m
+              [33mtype[39m=[32m"button"[39m
             [36m>[39m
-              [0mQuiz[0m
-            [36m</a>[39m
-          [36m</button>[39m
+              [36m<a[39m
+                [33mhref[39m=[32m"/basic_quiz"[39m
+              [36m>[39m
+                [0mBasic Career Assesment[0m
+              [36m</a>[39m
+            [36m</button>[39m
+          [36m</div>[39m
         [36m</div>[39m
       [36m</div>[39m
     [36m</body>[39m
@@ -136,7 +140,7 @@ All files            |   19.35 |    16.66 |      10 |      20 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.866 s
+Time:        2.78 s
 Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
