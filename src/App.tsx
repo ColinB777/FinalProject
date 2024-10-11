@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { Button, Form } from 'react-bootstrap';
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import {Detailedquiz} from "./Detailed"
+import {SimpleInterface} from "./simpleInterface"
+
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -20,11 +23,6 @@ function App() {
     window.location.reload(); //when making a mistake and changing the key again, I found that I have to reload the whole site before openai refreshes what it has stores for the local storage variable
   }
 
-  function buttonTest()
-  {
-    alert("Hello World");
-  }
-
   //whenever there's a change it'll store the api key in a local state called key but it won't be set in the local storage until the user clicks the submit button
   function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
     setKey(event.target.value);
@@ -34,7 +32,6 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <h1> Colin Barry </h1>
       <h1> Derek Johnson </h1>
-      <Button className="Home Page" onClick={buttonTest}> Home</Button>
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
           <h1>Matias Sayanes</h1>
@@ -49,14 +46,31 @@ function App() {
         Learn React
 
         </a>
+    <div className="App" style={{background:'lime'}}>
+    <Router>
+      <header className="App">
+        <h4> Colin Barry,Matias Sayanes,Samuel Zheng,Derek Johnson </h4>
+      </header>
       <Form>
         <Form.Label>API Key:</Form.Label>
         <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
         <br></br>
         <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
       </Form>
+      <Button style={{background:'white'}}>
+      <Link to="/detailed_quiz" style={{color:'magenta'}}>Detailed quiz</Link>
+      </Button>
+      <Button  style={{background:'white'}}>
+      <Link to="/basic_quiz">Quiz</Link>
+      </Button>
+      <Routes>
+        <Route path="/detailed_quiz" element={<Detailedquiz />} />
+        <Route path="/basic_quiz" element={<SimpleInterface/>} />
+      </Routes>
+    </Router>
     </div>
   );
 }
+
 
 export default App;
