@@ -39,12 +39,14 @@ function App() {
         <br></br>
         <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
       </Form>
-      <Button style={{background:'white'}}>
+      <div style={{alignItems:'center'}}>
+      <Button style={{background:'white',margin:10,}}>
       <Link to="/detailed_quiz" style={{color:'magenta'}}>Detailed Career Assesment</Link>
       </Button>
-      <Button  style={{background:'white'}} >
+      <Button  style={{background:'white',margin:10}} >
       <Link to="/basic_quiz">Basic Career Assesment</Link>
       </Button>
+      </div>
       <Routes>
         <Route path="/detailed_quiz" element={<Detailedquiz />} />
         <Route path="/basic_quiz" element={<SimpleInterface/>} />
