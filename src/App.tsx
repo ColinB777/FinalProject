@@ -23,16 +23,21 @@ function App() {
     window.location.reload(); //when making a mistake and changing the key again, I found that I have to reload the whole site before openai refreshes what it has stores for the local storage variable
   }
 
+  function testButtonPrint()
+  {
+    alert("Sending back to home page... (TEST)");
+  }
+
   //whenever there's a change it'll store the api key in a local state called key but it won't be set in the local storage until the user clicks the submit button
   function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
     setKey(event.target.value);
   }
   return (
     <div className="App">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={'logo.svg'} className="App-logo" alt="logo" />
         <h1> Colin Barry </h1>
       <h1> Derek Johnson </h1>
-      <Button>style=[{background:'White'}]> Home</Button>
+      <Button type="button" style={{background:'blue', margin:10}} onClick={testButtonPrint}> Home</Button>
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
           <h1>Matias Sayanes</h1>
@@ -72,6 +77,7 @@ function App() {
       </Routes>
     </Router>
     </div>
+  </div>
   );
 }
 
