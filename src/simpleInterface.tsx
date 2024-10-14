@@ -8,7 +8,7 @@ export function SimpleInterface(): React.JSX.Element {
     const [fourthAnswer, setFourthAnswer] = useState<string>("ex13");
     const [fifthAnswer, setFifthAnswer] = useState<string>("ex17");
     const [sixthAnswer, setSixthAnswer] = useState<string>("ex21");
-    const [seventhAnswer, setSeventhAnswers] = useState<string>("ex25");
+    const [seventhAnswer, setSeventhAnswer] = useState<string>("ex25");
 
     const firstAnswers = ["ex1", "ex2", "ex3", "ex4"];
     const secondAnswers = ["ex5", "ex6", "ex7", "ex8"];
@@ -128,7 +128,7 @@ export function SimpleInterface(): React.JSX.Element {
                         name="sixthAnswer"
                         label={Answer}
                         onChange={(e) => {
-                            setFifthAnswer(e.target.value);
+                            setSixthAnswer(e.target.value);
                         }}
                         checked={sixthAnswer === Answer}
                         value={Answer}
@@ -147,7 +147,7 @@ export function SimpleInterface(): React.JSX.Element {
                         name="seventhAnswer"
                         label={Answer}
                         onChange={(e) => {
-                            setFifthAnswer(e.target.value);
+                            setSeventhAnswer(e.target.value);
                         }}
                         checked={seventhAnswer === Answer}
                         value={Answer}
