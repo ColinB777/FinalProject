@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import {useState } from "react";
 import { Form, FormGroup } from "react-bootstrap";
 
 export function Detailedquiz() {
@@ -13,7 +13,7 @@ export function Detailedquiz() {
   
   //Updates the answer of the question which the user responded
   function updateAnswer(event: string, index:number) {
-    const updatedQlist=qList.map((question:Question,i:number)=>(i==index ? {...question, answer:event}:question))
+    const updatedQlist=qList.map((question:Question,i:number)=>(i===index ? {...question, answer:event}:question))
     setQlist(updatedQlist);
   }
     //displays the questions and a text input box to each to answer them 
