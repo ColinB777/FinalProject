@@ -23,12 +23,17 @@ function App() {
     window.location.reload(); //when making a mistake and changing the key again, I found that I have to reload the whole site before openai refreshes what it has stores for the local storage variable
   }
 
+  function testButtonPrint()
+  {
+    alert("Sending back to home page... (TEST)");
+  }
+  
   //whenever there's a change it'll store the api key in a local state called key but it won't be set in the local storage until the user clicks the submit button
   function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
     setKey(event.target.value);
   }
   return (
-    <div className="App" style={{background:'lime'}}>
+    <div className="App" style={{background:'#98FF98'}}>
     <Router>
       <header className="App">
         <h4> Colin Barry,Matias Sayanes,Samuel Zheng,Derek Johnson </h4>
@@ -39,12 +44,15 @@ function App() {
         <br></br>
         <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
       </Form>
-      <Button style={{background:'white'}}>
-      <Link to="/detailed_quiz" style={{color:'magenta'}}>Detailed quiz</Link>
+      <Button type="button" style={{background:'blue', margin:10}} onClick={testButtonPrint}> Home</Button>
+      <div style={{alignItems:'center'}}>
+      <Button style={{background:'white',margin:10,}}>
+      <Link to="/detailed_quiz" style={{color:'magenta'}}>Detailed Career Assesment</Link>
       </Button>
-      <Button  style={{background:'white'}}>
-      <Link to="/basic_quiz">Quiz</Link>
+      <Button  style={{background:'white',margin:10}} >
+      <Link to="/basic_quiz">Basic Career Assesment</Link>
       </Button>
+      </div>
       <Routes>
         <Route path="/detailed_quiz" element={<Detailedquiz />} />
         <Route path="/basic_quiz" element={<SimpleInterface/>} />
