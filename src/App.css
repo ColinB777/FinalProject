@@ -1,6 +1,4 @@
-.App {
-  text-align: center;
-}
+
 
 .App-logo {
   height: 40vmin;
@@ -35,4 +33,50 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+#Career-Btn{
+  
+  width:275px;
+  height: 200px;
+  background: linear-gradient(90deg, rgba(29,147,50,1) 0%, rgba(5,149,32,1) 19%, rgba(5,149,32,1) 89%, rgba(29,147,50,1) 100%);
+  padding:20px;
+  font-size: 22px;
+  font-weight:bold;
+  text-align: center;
+  overflow-wrap: break-word;
+  align-items: auto;
+  border-radius: 20px;
+  border:none;
+}
+
+body{
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  background-image:url(images/leaves.jpg);
+  background-size:cover;
+  background:#98ff98;
+}
+
+
+#column{
+  float:left;
+  width:50%;
+  padding:10px;
+  height:300px;
+}
+
+#row::after{
+  content:"";
+  display:table;
+  clear:both;
+}
+
+#quiz-description{
+  text-align: center;
+  text-wrap:balance;
+  border-top-style: solid;
+  border-color: #00674f;
+  padding-top: 10px;
+
 }
