@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import { Form } from "react-bootstrap";
+import React, { useState } from 'react';
+import './simple.css';
+
 
 export function SimpleInterface(): React.JSX.Element {
     const [firstAnswer, setFirstAnswer] = useState<string>("ex1");
