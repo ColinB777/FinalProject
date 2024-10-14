@@ -34,10 +34,9 @@ function App() {
   }
   return (
     <div className="App">
-        <img src={'logo.svg'} className="App-logo" alt="logo" />
+        <img src={logo} className="App-logo" alt="logo" />
         <h1> Colin Barry </h1>
       <h1> Derek Johnson </h1>
-      <Button type="button" style={{background:'blue', margin:10}} onClick={testButtonPrint}> Home</Button>
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
           <h1>Matias Sayanes</h1>
@@ -52,32 +51,13 @@ function App() {
         Learn React
 
         </a>
-    <div className="App" style={{background:'lime'}}>
-    <Router>
-      <header className="App">
-        <h4> Colin Barry,Matias Sayanes,Samuel Zheng,Derek Johnson </h4>
-      </header>
       <Form>
         <Form.Label>API Key:</Form.Label>
         <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
         <br></br>
         <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
       </Form>
-      <div style={{alignItems:'center'}}>
-      <Button style={{background:'white',margin:10,}}>
-      <Link to="/detailed_quiz" style={{color:'magenta'}}>Detailed Career Assesment</Link>
-      </Button>
-      <Button  style={{background:'white',margin:10}} >
-      <Link to="/basic_quiz">Basic Career Assesment</Link>
-      </Button>
-      </div>
-      <Routes>
-        <Route path="/detailed_quiz" element={<Detailedquiz />} />
-        <Route path="/basic_quiz" element={<SimpleInterface/>} />
-      </Routes>
-    </Router>
     </div>
-  </div>
   );
 }
 
