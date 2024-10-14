@@ -2,6 +2,42 @@
 > starter_helpi@0.1.0 test
 > react-scripts test --coverage
 
+  console.error
+    Warning: validateDOMNesting(...): <h1> cannot appear as a descendant of <p>.
+        at h1
+        at p
+        at div
+        at App (/home/runner/work/FinalProject/FinalProject/src/App.tsx:18:33)
+
+      4 |
+      5 | test('renders learn react link', () => {
+    > 6 |   render(<App />);
+        |         ^
+      7 |   const linkElement = screen.getByText(/learn react/i);
+      8 |   expect(linkElement).toBeInTheDocument();
+      9 | });
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:86:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:60:7)
+      at validateDOMNesting (node_modules/react-dom/cjs/react-dom.development.js:10849:7)
+      at createInstance (node_modules/react-dom/cjs/react-dom.development.js:10930:5)
+      at completeWork (node_modules/react-dom/cjs/react-dom.development.js:22187:28)
+      at completeUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:26593:16)
+      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:26568:5)
+      at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:26466:5)
+      at renderRootSync (node_modules/react-dom/cjs/react-dom.development.js:26434:7)
+      at performConcurrentWorkOnRoot (node_modules/react-dom/cjs/react-dom.development.js:25738:74)
+      at flushActQueue (node_modules/react/cjs/react.development.js:2667:24)
+      at act (node_modules/react/cjs/react.development.js:2582:11)
+      at node_modules/@testing-library/react/dist/act-compat.js:63:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
+      at render (node_modules/@testing-library/react/dist/pure.js:246:10)
+      at Object.<anonymous> (src/App.test.tsx:6:9)
+      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
+      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
+      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
+      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
+
   console.warn
     No routes matched location "/"
 
@@ -36,107 +72,23 @@
       at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
-FAIL src/App.test.tsx
-  ✕ renders learn react link (95 ms)
-
-  ● renders learn react link
-
-    TestingLibraryElementError: Unable to find an element with the text: /learn react/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
-
-    Ignored nodes: comments, script, style
-    [36m<body>[39m
-      [36m<div>[39m
-        [36m<div[39m
-          [33mclass[39m=[32m"App"[39m
-          [33mstyle[39m=[32m"background: lime;"[39m
-        [36m>[39m
-          [36m<header[39m
-            [33mclass[39m=[32m"App"[39m
-          [36m>[39m
-            [36m<h4>[39m
-              [0m Colin Barry,Matias Sayanes,Samuel Zheng,Derek Johnson [0m
-            [36m</h4>[39m
-          [36m</header>[39m
-          [36m<form[39m
-            [33mclass[39m=[32m""[39m
-          [36m>[39m
-            [36m<label[39m
-              [33mclass[39m=[32m"form-label"[39m
-            [36m>[39m
-              [0mAPI Key:[0m
-            [36m</label>[39m
-            [36m<input[39m
-              [33mclass[39m=[32m"form-control"[39m
-              [33mplaceholder[39m=[32m"Insert API Key Here"[39m
-              [33mtype[39m=[32m"password"[39m
-            [36m/>[39m
-            [36m<br />[39m
-            [36m<button[39m
-              [33mclass[39m=[32m"Submit-Button btn btn-primary"[39m
-              [33mtype[39m=[32m"button"[39m
-            [36m>[39m
-              [0mSubmit[0m
-            [36m</button>[39m
-          [36m</form>[39m
-          [36m<button[39m
-            [33mclass[39m=[32m"btn btn-primary"[39m
-            [33mstyle[39m=[32m"background: white;"[39m
-            [33mtype[39m=[32m"button"[39m
-          [36m>[39m
-            [36m<a[39m
-              [33mhref[39m=[32m"/detailed_quiz"[39m
-              [33mstyle[39m=[32m"color: magenta;"[39m
-            [36m>[39m
-              [0mDetailed quiz[0m
-            [36m</a>[39m
-          [36m</button>[39m
-          [36m<button[39m
-            [33mclass[39m=[32m"btn btn-primary"[39m
-            [33mstyle[39m=[32m"background: white;"[39m
-            [33mtype[39m=[32m"button"[39m
-          [36m>[39m
-            [36m<a[39m
-              [33mhref[39m=[32m"/basic_quiz"[39m
-            [36m>[39m
-              [0mQuiz[0m
-            [36m</a>[39m
-          [36m</button>[39m
-        [36m</div>[39m
-      [36m</div>[39m
-    [36m</body>[39m
-
-       5 | test('renders learn react link', () => {
-       6 |   render(<App />);
-    >  7 |   const linkElement = screen.getByText(/learn react/i);
-         |                              ^
-       8 |   expect(linkElement).toBeInTheDocument();
-       9 | });
-      10 |
-
-      at Object.getElementError (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/config.js:37:19)
-      at node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:76:38
-      at node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:52:17
-      at getByText (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:95:19)
-      at Object.<anonymous> (src/App.test.tsx:7:30)
-      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
-      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
-      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
-      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
+PASS src/App.test.tsx
+  ✓ renders learn react link (154 ms)
 
 ---------------------|---------|----------|---------|---------|-------------------
 File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ---------------------|---------|----------|---------|---------|-------------------
-All files            |   19.35 |    16.66 |      10 |      20 |                   
- App.tsx             |      60 |       50 |   33.33 |      60 | 14,22-28          
+All files            |   18.75 |    16.66 |    9.09 |   19.35 |                   
+ App.tsx             |   54.54 |       50 |      25 |   54.54 | 14,22-33          
  Detailed.tsx        |       0 |      100 |       0 |       0 | 3                 
  index.tsx           |       0 |      100 |     100 |       0 | 7-19              
  reportWebVitals.ts  |       0 |        0 |       0 |       0 | 3-10              
  simpleInterface.tsx |       0 |      100 |       0 |       0 | 6-28              
 ---------------------|---------|----------|---------|---------|-------------------
-Test Suites: 1 failed, 1 total
-Tests:       1 failed, 1 total
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
 Snapshots:   0 total
-Time:        2.782 s
+Time:        3.007 s
 Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
