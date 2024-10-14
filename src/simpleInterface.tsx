@@ -4,13 +4,13 @@ import { Form } from 'react-bootstrap';
 
 
 export function SimpleInterface(): React.JSX.Element {
-    const [firstAnswer, setFirstAnswer] = useState<string>("ex1");
-    const [secondAnswer, setSecondAnswer] = useState<string>("ex5");
-    const [thirdAnswer, setThirdAnswer] = useState<string>("ex9");
-    const [fourthAnswer, setFourthAnswer] = useState<string>("ex13");
-    const [fifthAnswer, setFifthAnswer] = useState<string>("ex17");
-    const [sixthAnswer, setSixthAnswer] = useState<string>("ex21");
-    const [seventhAnswer, setSeventhAnswer] = useState<string>("ex25");
+    const [firstAnswer, setFirstAnswer] = useState<string>("");
+    const [secondAnswer, setSecondAnswer] = useState<string>("");
+    const [thirdAnswer, setThirdAnswer] = useState<string>("");
+    const [fourthAnswer, setFourthAnswer] = useState<string>("");
+    const [fifthAnswer, setFifthAnswer] = useState<string>("");
+    const [sixthAnswer, setSixthAnswer] = useState<string>("");
+    const [seventhAnswer, setSeventhAnswer] = useState<string>("");
 
     const firstAnswers = ["ex1", "ex2", "ex3", "ex4"];
     const secondAnswers = ["ex5", "ex6", "ex7", "ex8"];
