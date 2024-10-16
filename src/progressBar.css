@@ -1,0 +1,15 @@
+h2 {
+    border: 5px solid red;
+    border-radius: 10px;
+    padding: 5px;
+    color: blue;
+}
+
+@keyframes bar-increase {
+    0% {left: 0px}
+    100% {right: 0px}
+}
+
+div {
+    height: 5px;
+}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import './progressBar.css'
 import { Button, Form } from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import {Detailedquiz} from "./Detailed"
@@ -38,6 +39,7 @@ function App() {
         <h1> Colin Barry </h1>
       <h1> Derek Johnson </h1>
       <Button type="button" style={{background:'blue', margin:10}} onClick={testButtonPrint}> Home</Button>
+      <h2>Progress Bar!</h2>
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
           <h1>Matias Sayanes</h1>
