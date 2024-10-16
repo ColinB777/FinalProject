@@ -28,7 +28,7 @@ function App() {
   {
     alert("Sending back to home page... (TEST)");
   }
-
+  
   //whenever there's a change it'll store the api key in a local state called key but it won't be set in the local storage until the user clicks the submit button
   function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
     setKey(event.target.value);
@@ -65,6 +65,7 @@ function App() {
         <br></br>
         <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
       </Form>
+      <Button type="button" style={{background:'blue', margin:10}} onClick={testButtonPrint}> Home</Button>
       <div style={{alignItems:'center'}}>
       <Button style={{background:'white',margin:10,}}>
       <Link to="/detailed_quiz" style={{color:'magenta'}}>Detailed Career Assesment</Link>
@@ -79,7 +80,6 @@ function App() {
       </Routes>
     </Router>
     </div>
-  </div>
   );
 }
 
