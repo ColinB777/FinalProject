@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import './simple.css';
-import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
-import { Button, Form } from 'react-bootstrap';
-import App from './App';
+import {Form } from 'react-bootstrap';
 
 
 export function SimpleInterface(): React.JSX.Element {
