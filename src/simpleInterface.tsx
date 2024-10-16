@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './simple.css';
-import { Form } from 'react-bootstrap';
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import { Button, Form } from 'react-bootstrap';
+import App from './App';
 
 
 export function SimpleInterface(): React.JSX.Element {
@@ -23,31 +25,30 @@ export function SimpleInterface(): React.JSX.Element {
 
     return (
         <div>
-            <div>
-                <h4>First Set of Radio Buttons</h4>
+            <div id = "firstSet">
+                <h4>Question 1</h4>
                 {firstAnswers.map((Answer: string, i) => (
                     <Form.Check
-                        style={{ backgroundColor: "Yellow" }}
-                        inline
                         key={`first-${i}`}
                         type="radio"
                         name="firstAnswer"
+                        className = "radioButton"
                         label={Answer}
                         onChange={(e) => {
                             setFirstAnswer(e.target.value);
                         }}
                         checked={firstAnswer === Answer}
                         value={Answer}
+                        style={{ display: "flex", paddingLeft:600}}
                     />
                 ))}
                 <div>You have chosen: {firstAnswer}</div>
             </div>
 
             <div style={{ marginTop: "20px" }}>
-                <h4>Second Set of Radio Buttons</h4>
+                <h4>Question 2</h4>
                 {secondAnswers.map((Answer: string, i) => (
                     <Form.Check
-                        style={{ backgroundColor: "Yellow" }}
                         inline
                         key={`second-${i}`}
                         type="radio"
@@ -58,15 +59,15 @@ export function SimpleInterface(): React.JSX.Element {
                         }}
                         checked={secondAnswer === Answer}
                         value={Answer}
+                        style={{ display: "flex", paddingLeft:600}}
                     />
                 ))}
                 <div>You have chosen: {secondAnswer}</div>
             </div>
             <div style={{ marginTop: "20px" }}>
-                <h4>Third Set of Radio Buttons</h4>
+                <h4>Question 3</h4>
                 {thirdAnswers.map((Answer: string, i) => (
                     <Form.Check
-                        style={{ backgroundColor: "Yellow" }}
                         inline
                         key={`third-${i}`}
                         type="radio"
@@ -77,15 +78,15 @@ export function SimpleInterface(): React.JSX.Element {
                         }}
                         checked={thirdAnswer === Answer}
                         value={Answer}
+                        style={{ display: "flex", paddingLeft:600}}
                     />
                 ))}
                 <div>You have chosen: {thirdAnswer}</div>
             </div>
             <div style={{ marginTop: "20px" }}>
-                <h4>Fourth Set of Radio Buttons</h4>
+                <h4>Question 4</h4>
                 {fourthAnswers.map((Answer: string, i) => (
                     <Form.Check
-                        style={{ backgroundColor: "Yellow" }}
                         inline
                         key={`fourth-${i}`}
                         type="radio"
@@ -96,15 +97,15 @@ export function SimpleInterface(): React.JSX.Element {
                         }}
                         checked={fourthAnswer === Answer}
                         value={Answer}
+                        style={{ display: "flex", paddingLeft:600}}
                     />
                 ))}
                 <div>You have chosen: {fourthAnswer}</div>
             </div>
             <div style={{ marginTop: "20px" }}>
-                <h4>Fifth Set of Radio Buttons</h4>
+                <h4>Question 5</h4>
                 {fifthAnswers.map((Answer: string, i) => (
                     <Form.Check
-                        style={{ backgroundColor: "Yellow" }}
                         inline
                         key={`fifth-${i}`}
                         type="radio"
@@ -115,15 +116,15 @@ export function SimpleInterface(): React.JSX.Element {
                         }}
                         checked={fifthAnswer === Answer}
                         value={Answer}
+                        style={{ display: "flex", paddingLeft:600}}
                     />
                 ))}
                 <div>You have chosen: {fifthAnswer}</div>
             </div>
             <div style={{ marginTop: "20px" }}>
-                <h4>Sixth Set of Radio Buttons</h4>
+                <h4>Question 6</h4>
                 {sixthAnswers.map((Answer: string, i) => (
                     <Form.Check
-                        style={{ backgroundColor: "Yellow" }}
                         inline
                         key={`sixth-${i}`}
                         type="radio"
@@ -134,15 +135,15 @@ export function SimpleInterface(): React.JSX.Element {
                         }}
                         checked={sixthAnswer === Answer}
                         value={Answer}
+                        style={{ display: "flex", paddingLeft:600}}
                     />
                 ))}
                 <div>You have chosen: {sixthAnswer}</div>
             </div>
             <div style={{ marginTop: "20px" }}>
-                <h4>Seventh Set of Radio Buttons</h4>
+                <h4>Question 7</h4>
                 {seventhAnswers.map((Answer: string, i) => (
                     <Form.Check
-                        style={{ backgroundColor: "Yellow" }}
                         inline
                         key={`seventh-${i}`}
                         type="radio"
@@ -153,10 +154,12 @@ export function SimpleInterface(): React.JSX.Element {
                         }}
                         checked={seventhAnswer === Answer}
                         value={Answer}
+                        style={{ display: "flex", paddingLeft:600}}
                     />
                 ))}
                 <div>You have chosen: {seventhAnswer}</div>
             </div>
+            <footer> </footer>
         </div>
 
         
