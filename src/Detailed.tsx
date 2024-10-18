@@ -1,4 +1,5 @@
 import {useState } from "react";
+import './detailed.css';
 import { Form, FormGroup } from "react-bootstrap";
 
 export function Detailedquiz() {
