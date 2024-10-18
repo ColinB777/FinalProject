@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import './progressBar.css'
-import { Button, Form } from 'react-bootstrap';
+import { Button, Form} from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import {Detailedquiz} from "./Detailed"
 import {SimpleInterface} from "./simpleInterface"
@@ -17,6 +17,7 @@ if (prevKey !== null) {
 
 export function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
+  const [barState, setBar] = useState<number>(0);
   
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
@@ -38,9 +39,6 @@ export function App() {
     <Router>
       <header className="App">
         <h4> Colin Barry,Matias Sayanes,Samuel Zheng,Derek Johnson </h4>
-        <div id="bar">
-          
-        </div>
       </header>
       <Form>
         <Form.Label>API Key:</Form.Label>
@@ -49,6 +47,14 @@ export function App() {
         <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
       </Form>
       <Button type="button" style={{background:'blue', margin:10}} onClick={testButtonPrint}> Home</Button>
+
+      
+      <Button onClick={() => setBar(barState + 25)}> Increase</Button>
+      <span>{barState} </span>
+      <div id="bar">
+        <div className="progress" style={{width: barState}}></div>
+      </div>
+
       <div style={{alignItems:'center'}}>
       <Button style={{background:'white',margin:10,}}>
       <Link to="/detailed_quiz" style={{color:'magenta'}}>Detailed Career Assesment</Link>
