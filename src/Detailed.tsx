@@ -23,7 +23,11 @@ export function Detailedquiz() {
       {qList.map((question:Question,i:number) =>(
       <FormGroup>
       <Form.Label>{question.body}</Form.Label>
-      <Form.Control value={question.answer} onChange={(e)=>updateAnswer(e.target.value,i)} style={{width:1000}} />
+      <Form.Control 
+      as = "textarea"
+      value={question.answer} 
+      onChange={(e)=>updateAnswer(e.target.value,i)} 
+      style={{maxWidth:1000, marginLeft:250, height:100}} />
       <span>Current Answer={question.answer}</span>
       </FormGroup>
       ))}
