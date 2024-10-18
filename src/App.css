@@ -1,6 +1,4 @@
-.App {
-  text-align: center;
-}
+
 
 .App-logo {
   height: 40vmin;
@@ -35,4 +33,80 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.Career-Btn{
+  
+  width:275px;
+  height: 200px;
+  background:white;
+  margin:20px;
+  /*background: linear-gradient(90deg, rgba(29,147,50,1) 0%, rgba(5,149,32,1) 19%, rgba(5,149,32,1) 89%, rgba(29,147,50,1) 100%);*/
+  padding:10px;
+  font-size: 22px;
+  font-weight:bold;
+  text-align: center;
+  overflow-wrap: break-word;
+  align-items: auto;
+  border-radius: 20px;
+  border:none;
+}
+
+hr{
+  height:1px;
+}
+
+
+body{
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  background-size:cover;
+  background:#98ff98;
+}
+
+
+#column{
+  float:left;
+  width:50%;
+  padding:10px;
+  height:300px;
+}
+
+#row::after{
+  content:"";
+  display:table;
+  clear:both;
+}
+
+#quiz-description{
+  text-align: center;
+  text-wrap:balance;
+  border-top-style: solid;
+  border-color: #00674f;
+  padding-top: 10px;
+
+}
+
+footer{
+  font-size:12px;
+  height: 100px;
+}
+
+.page-bottom{
+  padding:10px;
+  height:105px;
+  position: relative;
+  font-size: 10px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  text-align: center;
+  border-top:10px;
+}
+
+.Submit-Button{
+  width:70px;
+  font-size: 10px;
+  text-align:center;
 }
