@@ -35,7 +35,8 @@ export function App() {
     setKey(event.target.value);
   }
   return (
-    <div className="App" style={{background:'lime'}}>
+    <body>
+    <div className="App">
     <Router>
       <header className="App">
         <h1>Career Helpi</h1>
@@ -77,7 +78,7 @@ export function App() {
     </Router>
 
     <div className = "page-bottom">
-    <footer>Colin Barry,Matias Sayanes,Samuel Zheng,Derek Johnson</footer>
+    {/*<footer>Colin Barry,Matias Sayanes,Samuel Zheng,Derek Johnson</footer>*/}
 
     <Form>
         <Form.Label style = {{fontSize:10}}>API Key:</Form.Label>
@@ -88,7 +89,7 @@ export function App() {
       </div>
 
     </div>
-    
+    </body>
   );
 }
 

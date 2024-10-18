@@ -37,7 +37,6 @@
 
 .Career-Btn{
   
-  color:green;
   width:275px;
   height: 200px;
   background:white;
@@ -90,11 +89,13 @@ body{
 
 footer{
   font-size:12px;
+  height: 100px;
 }
 
 .page-bottom{
-  height:150px;
-  position: fixed;
+  padding:10px;
+  height:105px;
+  position: relative;
   font-size: 10px;
   left: 0;
   bottom: 0;
