@@ -10,7 +10,15 @@ export function Detailedquiz() {
   }
   //state that both hold the questions to be displayed and
   //the answer inputted to each question
-  const [qList,setQlist]= useState<Question[]>([{body:"q1",answer:""},{body:"q2",answer:""}]);
+  const [qList,setQlist]= useState<Question[]>([
+    {body:"1.What are your core strengths? (Think about skills, talents, or areas where you consistently excel, both professionally and personally.)",answer:""},
+    {body:"2.What are your interests and passions? (What activities or subjects excite you and keep you engaged, even when you’re not being paid?)",answer:""},
+    {body:"3.What work environment do you thrive in? (Do you prefer a structured or flexible environment? Do you work better alone or in teams?)",answer:""},
+    {body:"4.What are your long-term career goals? (Where do you see yourself in 5, 10, or 20 years? Do you aspire to leadership roles, or would you prefer to be a specialist?)",answer:""},
+    {body:"5.What are your values and priorities in a job?(Is work-life balance important to you? Do you seek financial security, creativity, or the opportunity to make a difference?)",answer:""},
+    {body:"6.What type of work drains or energizes you? (What tasks or responsibilities feel exhausting versus those that feel exciting and fulfilling?)",answer:""},
+    {body:"7.What is your preferred learning style? (Do you prefer learning by doing, studying theory, or through hands-on experience? How do you like to grow professionally?)",answer:""}
+  ]);
   
   //Updates the answer of the question which the user responded
   function updateAnswer(event: string, index:number) {
@@ -28,8 +36,8 @@ export function Detailedquiz() {
       <h2>Detailed_quiz</h2>
       <Button onClick={PauseButton}>Pause</Button>
       {qList.map((question:Question,i:number) =>(
-      <FormGroup>
-      <Form.Label>{question.body}</Form.Label>
+      <FormGroup style={{marginTop:"5%"}}>
+      <h5>{question.body}</h5>
       <Form.Control 
       as = "textarea"
       value={question.answer} 
