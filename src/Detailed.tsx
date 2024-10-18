@@ -1,4 +1,5 @@
 import {useState } from "react";
+import './detailed.css';
 import { Button, Form, FormGroup } from "react-bootstrap";
 
 export function Detailedquiz() {
