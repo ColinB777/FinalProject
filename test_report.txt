@@ -37,7 +37,7 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (98 ms)
+  ✕ renders learn react link (114 ms)
 
   ● renders learn react link
 
@@ -48,7 +48,7 @@ FAIL src/App.test.tsx
       [36m<div>[39m
         [36m<div[39m
           [33mclass[39m=[32m"App"[39m
-          [33mstyle[39m=[32m"background: rgb(152, 255, 152);"[39m
+          [33mstyle[39m=[32m"background: lime;"[39m
         [36m>[39m
           [36m<header[39m
             [33mclass[39m=[32m"App"[39m
@@ -85,6 +85,24 @@ FAIL src/App.test.tsx
           [36m>[39m
             [0m Home[0m
           [36m</button>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"btn btn-primary"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0m Increase[0m
+          [36m</button>[39m
+          [36m<span>[39m
+            [0m0[0m
+            [0m [0m
+          [36m</span>[39m
+          [36m<div[39m
+            [33mid[39m=[32m"bar"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"progress"[39m
+              [33mstyle[39m=[32m"width: 0px;"[39m
+            [36m/>[39m
+          [36m</div>[39m
           [36m<div[39m
             [33mstyle[39m=[32m"align-items: center;"[39m
           [36m>[39m
@@ -137,8 +155,8 @@ FAIL src/App.test.tsx
 ---------------------|---------|----------|---------|---------|-------------------
 File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ---------------------|---------|----------|---------|---------|-------------------
-All files            |   10.34 |     12.5 |    3.84 |   10.52 |                   
- App.tsx             |   54.54 |       50 |      25 |   54.54 | 14,22-33          
+All files            |   11.66 |     12.5 |     3.7 |   11.86 |                   
+ App.tsx             |   53.84 |       50 |      20 |   53.84 | 15,24-35,52       
  Detailed.tsx        |       0 |        0 |       0 |       0 | 12-29             
  index.tsx           |       0 |      100 |     100 |       0 | 7-19              
  reportWebVitals.ts  |       0 |        0 |       0 |       0 | 3-10              
@@ -147,7 +165,7 @@ All files            |   10.34 |     12.5 |    3.84 |   10.52 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.862 s
+Time:        2.894 s
 Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
