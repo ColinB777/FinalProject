@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
-import { Button, Form } from 'react-bootstrap';
+import './progressBar.css'
+import { Button, Form} from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import {Detailedquiz} from "./Detailed"
 import {SimpleInterface} from "./simpleInterface"
@@ -14,8 +15,9 @@ if (prevKey !== null) {
   keyData = JSON.parse(prevKey);
 }
 
-function App() {
+export function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
+  const [barState, setBar] = useState<number>(0);
   
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
@@ -33,7 +35,7 @@ function App() {
     setKey(event.target.value);
   }
   return (
-    <div className="App">
+    <div className="App" style={{background:'lime'}}>
     <Router>
       <header className="App">
         <h1>Career Helpi</h1>
@@ -43,6 +45,14 @@ function App() {
       <div>
       <Button type="button" style={{background:'blue', margin:10}} onClick={testButtonPrint}> Home</Button>
       </div>
+
+      
+      <Button onClick={() => setBar(barState + 25)}> Increase</Button>
+      <span>{barState} </span>
+      <div id="bar">
+        <div className="progress" style={{width: barState}}></div>
+      </div>
+
       <div style={{alignItems:'center'}}>
         
 
