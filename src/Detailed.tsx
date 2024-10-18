@@ -1,6 +1,6 @@
 import {useState } from "react";
 import './detailed.css';
-import { Form, FormGroup } from "react-bootstrap";
+import { Button, Form, FormGroup } from "react-bootstrap";
 
 export function Detailedquiz() {
   //This type will help to organize the data
@@ -17,10 +17,16 @@ export function Detailedquiz() {
     const updatedQlist=qList.map((question:Question,i:number)=>(i===index ? {...question, answer:event}:question))
     setQlist(updatedQlist);
   }
+  //Pause button
+  function PauseButton(){
+    alert("The quiz is paused, Click 'ok' to resume");
+  }
+
     //displays the questions and a text input box to each to answer them 
     //using map function
     return(<div>
       <h2>Detailed_quiz</h2>
+      <Button onClick={PauseButton}>Pause</Button>
       {qList.map((question:Question,i:number) =>(
       <FormGroup>
       <Form.Label>{question.body}</Form.Label>
