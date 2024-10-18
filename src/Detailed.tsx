@@ -33,16 +33,16 @@ export function Detailedquiz() {
     //displays the questions and a text input box to each to answer them 
     //using map function
     return(<div>
-      <h2>Detailed_quiz</h2>
+      <h1>Detailed Quiz</h1>
       <Button onClick={PauseButton}>Pause</Button>
       {qList.map((question:Question,i:number) =>(
-      <FormGroup style={{marginTop:"5%"}}>
+      <FormGroup className="Question_Box">
       <h5>{question.body}</h5>
       <Form.Control 
       as = "textarea"
       value={question.answer} 
       onChange={(e)=>updateAnswer(e.target.value,i)} 
-      style={{maxWidth:1000, marginLeft:250, height:100}} />
+      style={{maxWidth:700, marginLeft:250, height:100}} />
       <span>Current Answer={question.answer}</span>
       </FormGroup>
       ))}
