@@ -34,30 +34,13 @@ function App() {
     setKey(event.target.value);
   }
   return (
-    <div className="App">
-        <img src={'logo.svg'} className="App-logo" alt="logo" />
-        <h1> Colin Barry </h1>
-      <h1> Derek Johnson </h1>
-      <Button type="button" style={{background:'blue', margin:10}} onClick={testButtonPrint}> Home</Button>
-      <h2>Progress Bar!</h2>
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-          <h1>Matias Sayanes</h1>
-          <h1> Samuel Zheng </h1>
-        </p>
-        <a
-        className="App-link"
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-        >
-        Learn React
-
-        </a>
     <div className="App" style={{background:'lime'}}>
     <Router>
       <header className="App">
         <h4> Colin Barry,Matias Sayanes,Samuel Zheng,Derek Johnson </h4>
+        <div id="bar">
+          
+        </div>
       </header>
       <Form>
         <Form.Label>API Key:</Form.Label>
@@ -80,7 +63,6 @@ function App() {
       </Routes>
     </Router>
     </div>
-  </div>
   );
 }
 
