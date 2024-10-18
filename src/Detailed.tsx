@@ -1,4 +1,5 @@
 import {useState } from "react";
+import './detailed.css';
 import { Form, FormGroup } from "react-bootstrap";
 
 export function Detailedquiz() {
@@ -23,7 +24,7 @@ export function Detailedquiz() {
       {qList.map((question:Question,i:number) =>(
       <FormGroup>
       <Form.Label>{question.body}</Form.Label>
-      <Form.Control value={question.answer} onChange={(e)=>updateAnswer(e.target.value,i)} style={{width:1000}} />
+      <Form.Control value={question.answer} onChange={(e)=>updateAnswer(e.target.value,i)}/>
       <span>Current Answer={question.answer}</span>
       </FormGroup>
       ))}

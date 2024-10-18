@@ -1,3 +1,7 @@
 .questionList {
     padding-right: 50%;
 }
+
+#simple_question{
+    background-color:none;
+}

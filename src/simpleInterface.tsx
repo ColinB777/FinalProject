@@ -26,8 +26,7 @@ export function SimpleInterface(): React.JSX.Element {
             <div>
                 <h4>First Set of Radio Buttons</h4>
                 {firstAnswers.map((Answer: string, i) => (
-                    <Form.Check
-                        style={{ backgroundColor: "Yellow" }}
+                    <Form.Check className = "simple_question"
                         inline
                         key={`first-${i}`}
                         type="radio"
@@ -47,7 +46,7 @@ export function SimpleInterface(): React.JSX.Element {
                 <h4>Second Set of Radio Buttons</h4>
                 {secondAnswers.map((Answer: string, i) => (
                     <Form.Check
-                        style={{ backgroundColor: "Yellow" }}
+                        className = "simple_question"
                         inline
                         key={`second-${i}`}
                         type="radio"
@@ -66,7 +65,7 @@ export function SimpleInterface(): React.JSX.Element {
                 <h4>Third Set of Radio Buttons</h4>
                 {thirdAnswers.map((Answer: string, i) => (
                     <Form.Check
-                        style={{ backgroundColor: "Yellow" }}
+                        className = "simple_question"
                         inline
                         key={`third-${i}`}
                         type="radio"
@@ -85,7 +84,7 @@ export function SimpleInterface(): React.JSX.Element {
                 <h4>Fourth Set of Radio Buttons</h4>
                 {fourthAnswers.map((Answer: string, i) => (
                     <Form.Check
-                        style={{ backgroundColor: "Yellow" }}
+                        className = "simple_question"                        
                         inline
                         key={`fourth-${i}`}
                         type="radio"
@@ -104,7 +103,7 @@ export function SimpleInterface(): React.JSX.Element {
                 <h4>Fifth Set of Radio Buttons</h4>
                 {fifthAnswers.map((Answer: string, i) => (
                     <Form.Check
-                        style={{ backgroundColor: "Yellow" }}
+                        className = "simple_question"                        
                         inline
                         key={`fifth-${i}`}
                         type="radio"
@@ -123,7 +122,7 @@ export function SimpleInterface(): React.JSX.Element {
                 <h4>Sixth Set of Radio Buttons</h4>
                 {sixthAnswers.map((Answer: string, i) => (
                     <Form.Check
-                        style={{ backgroundColor: "Yellow" }}
+                        className = "simple_question"
                         inline
                         key={`sixth-${i}`}
                         type="radio"
@@ -142,7 +141,7 @@ export function SimpleInterface(): React.JSX.Element {
                 <h4>Seventh Set of Radio Buttons</h4>
                 {seventhAnswers.map((Answer: string, i) => (
                     <Form.Check
-                        style={{ backgroundColor: "Yellow" }}
+                        className = "simple_question"                        
                         inline
                         key={`seventh-${i}`}
                         type="radio"

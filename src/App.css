@@ -35,12 +35,15 @@
   }
 }
 
-#Career-Btn{
+.Career-Btn{
   
+  color:green;
   width:275px;
   height: 200px;
-  background: linear-gradient(90deg, rgba(29,147,50,1) 0%, rgba(5,149,32,1) 19%, rgba(5,149,32,1) 89%, rgba(29,147,50,1) 100%);
-  padding:20px;
+  background:white;
+  margin:20px;
+  /*background: linear-gradient(90deg, rgba(29,147,50,1) 0%, rgba(5,149,32,1) 19%, rgba(5,149,32,1) 89%, rgba(29,147,50,1) 100%);*/
+  padding:10px;
   font-size: 22px;
   font-weight:bold;
   text-align: center;
@@ -50,10 +53,14 @@
   border:none;
 }
 
+hr{
+  height:1px;
+}
+
+
 body{
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
-  background-image:url(images/leaves.jpg);
   background-size:cover;
   background:#98ff98;
 }
@@ -79,4 +86,26 @@ body{
   border-color: #00674f;
   padding-top: 10px;
 
+}
+
+footer{
+  font-size:12px;
+}
+
+.page-bottom{
+  height:150px;
+  position: fixed;
+  font-size: 10px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  text-align: center;
+  border-top:10px;
+}
+
+.Submit-Button{
+  width:70px;
+  font-size: 10px;
+  text-align:center;
 }
