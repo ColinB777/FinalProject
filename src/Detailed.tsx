@@ -19,7 +19,8 @@ export function Detailedquiz() {
     {body:"6.What type of work drains or energizes you? (What tasks or responsibilities feel exhausting versus those that feel exciting and fulfilling?)",answer:""},
     {body:"7.What is your preferred learning style? (Do you prefer learning by doing, studying theory, or through hands-on experience? How do you like to grow professionally?)",answer:""}
   ]);
-  
+  //Const to check you answer all questions
+  const allAnswered = Object.values(qList).every((answer) => answer.answer.trim() !== '');
   //Updates the answer of the question which the user responded
   function updateAnswer(event: string, index:number) {
     const updatedQlist=qList.map((question:Question,i:number)=>(i===index ? {...question, answer:event}:question))
@@ -46,7 +47,7 @@ export function Detailedquiz() {
       <span>Current Answer={question.answer}</span>
       </FormGroup>
       ))}
-      
+      <Button disabled={!allAnswered}>Submit your answers.</Button>
     </div> 
     );
 }
