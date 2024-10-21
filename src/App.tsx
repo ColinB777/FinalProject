@@ -35,6 +35,7 @@ export function App() {
     setKey(event.target.value);
   }
   return (
+    
     <body>
     <div className="App">
     <Router>
@@ -74,6 +75,7 @@ export function App() {
       <Routes>
         <Route path="/detailed_quiz" element={<Detailedquiz />} />
         <Route path="/basic_quiz" element={<SimpleInterface/>} />
+        <Route path="/Home" element={<App/>} />
       </Routes>
     </Router>
 
