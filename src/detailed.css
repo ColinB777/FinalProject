@@ -1,5 +1,12 @@
-.custom_text_box{
-    width: 1000px;
-    height: 300px;
+.Question_Box{
+    background-color:rgb(90, 177, 4);
+    margin-top: 1%;
+    padding:50px;
+    margin-left: 15%;
+    margin-right: 15%;
+    border-radius: 15px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
+
 
