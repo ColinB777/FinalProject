@@ -35,14 +35,16 @@ export function Detailedquiz() {
     return(<div>
       <h1>Detailed Quiz</h1>
       <Button onClick={PauseButton}>Pause</Button>
+
       {qList.map((question:Question,i:number) =>(
       <FormGroup className="Question_Box">
-      <h5>{question.body}</h5>
+        <h5>{question.body}</h5>
+      <div className = "text_area">
       <Form.Control 
-      as = "textarea"
-      value={question.answer} 
-      onChange={(e)=>updateAnswer(e.target.value,i)} 
-      style={{maxWidth:700, marginLeft:"23%", height:100}} />
+        as = "textarea"
+        value={question.answer} 
+        onChange={(e)=>updateAnswer(e.target.value,i)} />
+      </div>
       <span>Current Answer={question.answer}</span>
       </FormGroup>
       ))}
