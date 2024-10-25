@@ -27,7 +27,7 @@ export function Detailedquiz() {
       as = "textarea"
       value={question.answer} 
       onChange={(e)=>updateAnswer(e.target.value,i)} 
-      style={{maxWidth:1000, marginLeft:250, height:100}} />
+      style={{maxWidth: "60%", marginLeft: "20%"}} />
       <span>Current Answer={question.answer}</span>
       </FormGroup>
       ))}
