@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './simple.css';
-import {Form } from 'react-bootstrap';
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import { Button, Form } from 'react-bootstrap';
 
 
 export function SimpleInterface(): React.JSX.Element {
@@ -40,7 +41,7 @@ export function SimpleInterface(): React.JSX.Element {
                         }}
                         checked={firstAnswer === Answer}
                         value={Answer}
-                        style={{ display: "flex", paddingLeft:600}}
+                        style={{ display: "flex", paddingLeft:"40%"}}
                     />
                 ))}
                 <div>You have chosen: {firstAnswer}</div>
@@ -60,7 +61,7 @@ export function SimpleInterface(): React.JSX.Element {
                         }}
                         checked={secondAnswer === Answer}
                         value={Answer}
-                        style={{ display: "flex", paddingLeft:600}}
+                        style={{ display: "flex", paddingLeft:"40%"}}
                     />
                 ))}
                 <div>You have chosen: {secondAnswer}</div>
@@ -79,7 +80,7 @@ export function SimpleInterface(): React.JSX.Element {
                         }}
                         checked={thirdAnswer === Answer}
                         value={Answer}
-                        style={{ display: "flex", paddingLeft:600}}
+                        style={{ display: "flex", paddingLeft:"40%"}}
                     />
                 ))}
                 <div>You have chosen: {thirdAnswer}</div>
@@ -98,7 +99,7 @@ export function SimpleInterface(): React.JSX.Element {
                         }}
                         checked={fourthAnswer === Answer}
                         value={Answer}
-                        style={{ display: "flex", paddingLeft:600}}
+                        style={{ display: "flex", paddingLeft:"40%"}}
                     />
                 ))}
                 <div>You have chosen: {fourthAnswer}</div>
@@ -117,7 +118,7 @@ export function SimpleInterface(): React.JSX.Element {
                         }}
                         checked={fifthAnswer === Answer}
                         value={Answer}
-                        style={{ display: "flex", paddingLeft:600}}
+                        style={{ display: "flex", paddingLeft:"40%"}}
                     />
                 ))}
                 <div>You have chosen: {fifthAnswer}</div>
@@ -136,7 +137,7 @@ export function SimpleInterface(): React.JSX.Element {
                         }}
                         checked={sixthAnswer === Answer}
                         value={Answer}
-                        style={{ display: "flex", paddingLeft:600}}
+                        style={{ display: "flex",paddingLeft:"40%"}}
                     />
                 ))}
                 <div>You have chosen: {sixthAnswer}</div>
@@ -155,12 +156,14 @@ export function SimpleInterface(): React.JSX.Element {
                         }}
                         checked={seventhAnswer === Answer}
                         value={Answer}
-                        style={{ display: "flex", paddingLeft:600}}
+                        style={{ display: "flex", paddingLeft:"40%",}}
                     />
                 ))}
                 <div>You have chosen: {seventhAnswer}</div>
             </div>
-            <footer> </footer>
+            <footer> <Button  style={{background:'white',margin:10}} >
+      <Link to="/SimpleQuestions/test">test</Link>
+      </Button></footer>
         </div>
 
         
