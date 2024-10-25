@@ -44,31 +44,30 @@ export function App() {
         <hr></hr>
       </header>
 
-      <div>
-      <Button type="button" style={{background:'blue', margin:10}} onClick={testButtonPrint}> Home</Button>
-      </div>
 
-      
+      {/*
       <Button onClick={() => setBar(barState + 25)}> Increase</Button>
       <span>{barState} </span>
       <div id="bar">
         <div className="progress" style={{width: barState}}></div>
       </div>
-
+      */}
       <div style={{alignItems:'center'}}>
-        
 
-      <div>
+      <div className = 'menu bar'>
       <Button className = "Career-Btn">
       <Link to="/detailed_quiz">Detailed Career Assesment</Link>
       </Button>
 
+    
+      <Button type="button" style={{background:'blue', margin:10}} onClick={testButtonPrint}> Home</Button>
+    
 
       <Button className = "Career-Btn" >
       <Link to="/basic_quiz">Basic Career Assesment</Link>
       </Button>
       </div>
-
+<hr></hr>
       </div>
 
 
