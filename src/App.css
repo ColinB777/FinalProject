@@ -36,12 +36,10 @@
 }
 
 .Career-Btn{
-  
-  width:275px;
-  height: 200px;
+  width:30%;
+  height: 10%;
   background:white;
   margin:20px;
-  /*background: linear-gradient(90deg, rgba(29,147,50,1) 0%, rgba(5,149,32,1) 19%, rgba(5,149,32,1) 89%, rgba(29,147,50,1) 100%);*/
   padding:10px;
   font-size: 22px;
   font-weight:bold;
@@ -50,6 +48,10 @@
   align-items: auto;
   border-radius: 20px;
   border:none;
+}
+
+.Career-Btn:hover{
+  color:#282c34;
 }
 
 hr{
@@ -109,4 +111,10 @@ footer{
   width:70px;
   font-size: 10px;
   text-align:center;
+}
+
+#menu-bar{
+  position:fixed;
+  top:0;
+  width:100%;
 }

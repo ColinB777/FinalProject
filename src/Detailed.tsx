@@ -20,7 +20,8 @@ export function Detailedquiz() {
     //displays the questions and a text input box to each to answer them 
     //using map function
     return(<div>
-      <h2>Detailed_quiz</h2>
+      <h2>Detailed Assessment</h2>
+      <p>The detailed assessment is a longer version of a quiz giving the user an in-depth answer as to the career that would fit their preferences through free response questions.</p>
       {qList.map((question:Question,i:number) =>(
       <FormGroup>
       <Form.Label>{question.body}</Form.Label>
