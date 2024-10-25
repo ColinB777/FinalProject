@@ -45,10 +45,6 @@ export function SimpleInterface(): React.JSX.Element {
             </div>
 
             <div style={{ marginTop: "20px" }}>
-                
-                <div>You have chosen: {secondAnswer}</div>
-            </div>
-            <div style={{ marginTop: "20px" }}>
                 <h4>Question 3</h4>
                 {thirdAnswers.map((Answer: string, i) => (
                     <Form.Check

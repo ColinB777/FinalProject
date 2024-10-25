@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import {Detailedquiz} from "./Detailed"
 import {SimpleInterface} from "./simpleInterface"
 import { SecondQuestion } from './SimpleQuestions/secondQuestion';
+import{ThirdQuestion} from './SimpleQuestions/thirdQuestion';
 
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
@@ -76,6 +77,7 @@ export function App() {
         <Route path="/detailed_quiz" element={<Detailedquiz />} />
         <Route path="/basic_quiz" element={<SimpleInterface/>} />
         <Route path ="/SimpleQuestions/secondQuestion" element = {<SecondQuestion/>} />
+        <Route path ="/SimpleQuestions/thirdQuestion" element = {<ThirdQuestion/>} />
       </Routes>
     </Router>
 
