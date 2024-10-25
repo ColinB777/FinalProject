@@ -45,22 +45,7 @@ export function SimpleInterface(): React.JSX.Element {
             </div>
 
             <div style={{ marginTop: "20px" }}>
-                <h4>Question 2</h4>
-                {secondAnswers.map((Answer: string, i) => (
-                    <Form.Check
-                        inline
-                        key={`second-${i}`}
-                        type="radio"
-                        name="secondAnswer"
-                        label={Answer}
-                        onChange={(e) => {
-                            setSecondAnswer(e.target.value);
-                        }}
-                        checked={secondAnswer === Answer}
-                        value={Answer}
-                        style={{ display: "flex", paddingLeft:"40%"}}
-                    />
-                ))}
+                
                 <div>You have chosen: {secondAnswer}</div>
             </div>
             <div style={{ marginTop: "20px" }}>
@@ -159,7 +144,7 @@ export function SimpleInterface(): React.JSX.Element {
                 <div>You have chosen: {seventhAnswer}</div>
             </div>
             <footer> <Button  style={{background:'white',margin:10}} >
-      <Link to="/SimpleQuestions/test">test</Link>
+      <Link to="/SimpleQuestions/SecondQuestion">Next Question</Link>
       </Button></footer>
         </div>
 
