@@ -13,7 +13,7 @@ let keyData = "";
 const saveKeyData = "MYKEY";
 const prevKey = localStorage.getItem(saveKeyData); //so it'll look like: MYKEY: <api_key_value here> in the local storage when you inspect
 if (prevKey !== null) {
-  keyData = JSON.parse(prevKey);
+  keyData = prevKey;
 }
 
 export function App() {
