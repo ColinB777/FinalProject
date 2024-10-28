@@ -4,6 +4,7 @@ import './progressBar.css'
 import { Button, Form} from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import {Detailedquiz} from "./Detailed"
+import { HomeTest } from './Home';
 import {SimpleInterface} from "./simpleInterface"
 
 
@@ -88,6 +89,9 @@ export function App() {
         <br></br>
         <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
       </Form>
+      <a href="Detailed.tsx" onClick={() => HomeTest()}className="button-class">
+        Next Page
+      </a>
       </div>
 
     </div>
