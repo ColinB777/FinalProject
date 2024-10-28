@@ -26,11 +26,6 @@ export function App() {
     localStorage.setItem(saveKeyData, JSON.stringify(key));
     window.location.reload(); //when making a mistake and changing the key again, I found that I have to reload the whole site before openai refreshes what it has stores for the local storage variable
   }
-
-  function testButtonPrint()
-  {
-    alert("Sending back to home page... (TEST)");
-  }
   
   //whenever there's a change it'll store the api key in a local state called key but it won't be set in the local storage until the user clicks the submit button
   function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
@@ -40,12 +35,11 @@ export function App() {
     
     <body>
     <div className="App">
-    <Router>
+    <Router> 
       <header className="App">
         <h1>Career Helpi</h1>
         <hr></hr>
       </header>
-
 
       {/*
       <Button onClick={() => setBar(barState + 25)}> Increase</Button>
@@ -55,14 +49,15 @@ export function App() {
       </div>
       */}
       <div style={{alignItems:'center'}}>
-
       <div className = 'menu bar'>
       <Button className = "Career-Btn">
       <Link to="/detailed_quiz">Detailed Career Assesment</Link>
       </Button>
 
     
-      <Button type="button" style={{background:'blue', margin:10}} onClick={testButtonPrint}> Home</Button>
+      <Button style={{background:'white', margin:10}}>
+        <Link to="/">Home</Link>
+      </Button>
     
 
       <Button className = "Career-Btn" >
@@ -72,11 +67,9 @@ export function App() {
 <hr></hr>
       </div>
 
-
       <Routes>
         <Route path="/detailed_quiz" element={<Detailedquiz />} />
         <Route path="/basic_quiz" element={<SimpleInterface/>} />
-        <Route path="/Home" element={<App/>} />
       </Routes>
     </Router>
 
@@ -89,9 +82,6 @@ export function App() {
         <br></br>
         <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
       </Form>
-      <a href="Detailed.tsx" onClick={() => HomeTest()}className="button-class">
-        Next Page
-      </a>
       </div>
 
     </div>
