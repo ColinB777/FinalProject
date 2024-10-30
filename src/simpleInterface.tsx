@@ -24,13 +24,13 @@ export function SimpleInterface(): React.JSX.Element {
 
     return (
         <div>
-            <div id = "firstSet">
             <h1>Basic Assessment</h1>
             <p>The basic career assessment is a compact, quicker version of the quiz which will allow users to get a narrowed down answer based on the preferences of the user through multiple choice.</p>
 
-                <h4>Question 1</h4>
+            <div className = "simple_question">
+                <h5>1. I prefer working in a structured office environment rather than being outdoors.</h5>
                 {firstAnswers.map((Answer: string, i) => (
-                    <Form.Check
+                    <Form.Check 
                         key={`first-${i}`}
                         type="radio"
                         name="firstAnswer"
@@ -47,8 +47,8 @@ export function SimpleInterface(): React.JSX.Element {
                 <div>You have chosen: {firstAnswer}</div>
             </div>
 
-            <div style={{ marginTop: "20px" }}>
-                <h4>Question 2</h4>
+            <div className = "simple_question">
+                <h5>2. I enjoy working with numbers and analyzing data.</h5>
                 {secondAnswers.map((Answer: string, i) => (
                     <Form.Check
                         inline
@@ -66,8 +66,8 @@ export function SimpleInterface(): React.JSX.Element {
                 ))}
                 <div>You have chosen: {secondAnswer}</div>
             </div>
-            <div style={{ marginTop: "20px" }}>
-                <h4>Question 3</h4>
+            <div className = "simple_question">
+                <h5>3.Making a positive impact on others motivates me in my work.</h5>
                 {thirdAnswers.map((Answer: string, i) => (
                     <Form.Check
                         inline
@@ -85,8 +85,8 @@ export function SimpleInterface(): React.JSX.Element {
                 ))}
                 <div>You have chosen: {thirdAnswer}</div>
             </div>
-            <div style={{ marginTop: "20px" }}>
-                <h4>Question 4</h4>
+            <div className = "simple_question">
+                <h5>4. prefer communicating in person rather than through digital means.</h5>
                 {fourthAnswers.map((Answer: string, i) => (
                     <Form.Check
                         inline
@@ -104,8 +104,8 @@ export function SimpleInterface(): React.JSX.Element {
                 ))}
                 <div>You have chosen: {fourthAnswer}</div>
             </div>
-            <div style={{ marginTop: "20px" }}>
-                <h4>Question 5</h4>
+            <div className = "simple_question">
+                <h5>5. I am comfortable taking risks in my work and trying new things.</h5>
                 {fifthAnswers.map((Answer: string, i) => (
                     <Form.Check
                         inline
@@ -123,8 +123,8 @@ export function SimpleInterface(): React.JSX.Element {
                 ))}
                 <div>You have chosen: {fifthAnswer}</div>
             </div>
-            <div style={{ marginTop: "20px" }}>
-                <h4>Question 6</h4>
+            <div className = "simple_question">
+                <h5>6. I believe higher education is essential for my career success.</h5>
                 {sixthAnswers.map((Answer: string, i) => (
                     <Form.Check
                         inline
@@ -142,8 +142,8 @@ export function SimpleInterface(): React.JSX.Element {
                 ))}
                 <div>You have chosen: {sixthAnswer}</div>
             </div>
-            <div style={{ marginTop: "20px" }}>
-                <h4>Question 7</h4>
+            <div className = "simple_question">
+                <h5>7.  I prefer solving problems by following a systematic approach rather than thinking creatively.</h5>
                 {seventhAnswers.map((Answer: string, i) => (
                     <Form.Check
                         inline
