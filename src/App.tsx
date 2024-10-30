@@ -5,8 +5,12 @@ import { Button, Form} from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import {Detailedquiz} from "./Detailed"
 import {SimpleInterface} from "./simpleInterface"
-import { SecondQuestion } from './SimpleQuestions/secondQuestion';
-import{ThirdQuestion} from './SimpleQuestions/thirdQuestion';
+import { SecondQuestion } from './SimpleQuestions/2';
+import{ThirdQuestion} from './SimpleQuestions/3';
+import{FourthQuestion} from './SimpleQuestions/4';
+import{FifthQuestion} from './SimpleQuestions/5';
+import{SixthQuestion} from './SimpleQuestions/6';
+import { SeventhQuestion } from './SimpleQuestions/7';
 
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
@@ -78,6 +82,10 @@ export function App() {
         <Route path="/basic_quiz" element={<SimpleInterface/>} />
         <Route path ="/SimpleQuestions/secondQuestion" element = {<SecondQuestion/>} />
         <Route path ="/SimpleQuestions/thirdQuestion" element = {<ThirdQuestion/>} />
+        <Route path ="/SimpleQuestions/fourthQuestion" element = {<FourthQuestion/>} />
+        <Route path ="/SimpleQuestions/fifthQuestion" element = {<FifthQuestion/>} />
+        <Route path ="/SimpleQuestions/sixthQuestion" element = {<SixthQuestion/>} />
+        <Route path ="/SimpleQuestions/seventhQuestion" element = {<SeventhQuestion/>} />
       </Routes>
     </Router>
 

@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';
-export function ThirdQuestion(): React.JSX.Element {
-    const [thirdAnswer, setThirdAnswer] = useState<string>("");
-    const thirdAnswers = ["ex9", "ex10", "ex11", "ex12"];
+import './questions.css';
+export function SecondQuestion(): React.JSX.Element {
+    const [secondAnswer, setSecondAnswer] = useState<string>("");
+    const secondAnswers = ["ex5", "ex6", "ex7", "ex8"];
     return (
         <div id = "secondQues">        
-            <h4>Question 3</h4>
-                {thirdAnswers.map((Answer: string, i) => (
+            <h4>Question 2</h4>
+                {secondAnswers.map((Answer: string, i) => (
                     <Form.Check
                         inline
                         key={`second-${i}`}
@@ -15,15 +16,18 @@ export function ThirdQuestion(): React.JSX.Element {
                         name="secondAnswer"
                         label={Answer}
                         onChange={(e) => {
-                            setThirdAnswer(e.target.value);
+                            setSecondAnswer(e.target.value);
                         }}
-                        checked={thirdAnswer === Answer}
+                        checked={secondAnswer === Answer}
                         value={Answer}
                         style={{ display: "flex", paddingLeft:"40%"}}
                     />
                 ))}
-                <div>You have chosen: {thirdAnswer}</div>
+                <div>You have chosen: {secondAnswer}</div>
+                <footer> <Button  style={{background:'white',margin:10}} >
+      <Link to="/SimpleQuestions/ThirdQuestion">Next Question</Link>
+      </Button></footer>
+
                 </div>
-                
             );
 }
