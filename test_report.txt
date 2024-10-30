@@ -39,7 +39,7 @@
   console.error
     Warning: validateDOMNesting(...): <body> cannot appear as a child of <div>.
         at body
-        at App (/home/runner/work/FinalProject/FinalProject/src/App.tsx:19:33)
+        at App (/home/runner/work/FinalProject/FinalProject/src/App.tsx:21:33)
 
       4 |
       5 | test('renders learn react link', () => {
@@ -71,7 +71,7 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (159 ms)
+  ✕ renders learn react link (117 ms)
 
   ● renders learn react link
 
@@ -92,37 +92,12 @@ FAIL src/App.test.tsx
               [36m</h1>[39m
               [36m<hr />[39m
             [36m</header>[39m
-            [36m<div>[39m
-              [36m<button[39m
-                [33mclass[39m=[32m"btn btn-primary"[39m
-                [33mstyle[39m=[32m"background: blue; margin: 10px;"[39m
-                [33mtype[39m=[32m"button"[39m
-              [36m>[39m
-                [0m Home[0m
-              [36m</button>[39m
-            [36m</div>[39m
-            [36m<button[39m
-              [33mclass[39m=[32m"btn btn-primary"[39m
-              [33mtype[39m=[32m"button"[39m
-            [36m>[39m
-              [0m Increase[0m
-            [36m</button>[39m
-            [36m<span>[39m
-              [0m0[0m
-              [0m [0m
-            [36m</span>[39m
-            [36m<div[39m
-              [33mid[39m=[32m"bar"[39m
-            [36m>[39m
-              [36m<div[39m
-                [33mclass[39m=[32m"progress"[39m
-                [33mstyle[39m=[32m"width: 0px;"[39m
-              [36m/>[39m
-            [36m</div>[39m
             [36m<div[39m
               [33mstyle[39m=[32m"align-items: center;"[39m
             [36m>[39m
-              [36m<div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"menu bar"[39m
+              [36m>[39m
                 [36m<button[39m
                   [33mclass[39m=[32m"Career-Btn btn btn-primary"[39m
                   [33mtype[39m=[32m"button"[39m
@@ -131,6 +106,17 @@ FAIL src/App.test.tsx
                     [33mhref[39m=[32m"/detailed_quiz"[39m
                   [36m>[39m
                     [0mDetailed Career Assesment[0m
+                  [36m</a>[39m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"btn btn-primary"[39m
+                  [33mstyle[39m=[32m"background: white; margin: 10px;"[39m
+                  [33mtype[39m=[32m"button"[39m
+                [36m>[39m
+                  [36m<a[39m
+                    [33mhref[39m=[32m"/"[39m
+                  [36m>[39m
+                    [0mHome[0m
                   [36m</a>[39m
                 [36m</button>[39m
                 [36m<button[39m
@@ -144,6 +130,7 @@ FAIL src/App.test.tsx
                   [36m</a>[39m
                 [36m</button>[39m
               [36m</div>[39m
+              [36m<hr />[39m
             [36m</div>[39m
             [36m<div[39m
               [33mclass[39m=[32m"page-bottom"[39m
@@ -195,20 +182,24 @@ FAIL src/App.test.tsx
       at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
----------------------|---------|----------|---------|---------|-------------------
-File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
----------------------|---------|----------|---------|---------|-------------------
-All files            |   11.47 |     12.5 |    3.57 |   11.66 |                   
- App.tsx             |   53.84 |       50 |      20 |   53.84 | 15,24-35,51       
- Detailed.tsx        |       0 |        0 |       0 |       0 | 13-44             
- index.tsx           |       0 |      100 |     100 |       0 | 7-19              
- reportWebVitals.ts  |       0 |        0 |       0 |       0 | 3-10              
- simpleInterface.tsx |       0 |      100 |       0 |       0 | 7-151             
----------------------|---------|----------|---------|---------|-------------------
+----------------------|---------|----------|---------|---------|-------------------
+File                  | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+----------------------|---------|----------|---------|---------|-------------------
+All files             |    8.97 |     8.33 |    3.03 |    9.33 |                   
+ src                  |    9.09 |     8.33 |    3.12 |    9.45 |                   
+  App.tsx             |      60 |       50 |   33.33 |      60 | 17,26-32          
+  Detailed.tsx        |    3.84 |        0 |       0 |    4.34 | 18-125            
+  Home.tsx            |       0 |      100 |       0 |       0 | 3                 
+  index.tsx           |       0 |      100 |     100 |       0 | 7-19              
+  reportWebVitals.ts  |       0 |        0 |       0 |       0 | 3-10              
+  simpleInterface.tsx |       0 |      100 |       0 |       0 | 8-155             
+ src/SimpleQuestions  |       0 |      100 |       0 |       0 |                   
+  test.tsx            |       0 |      100 |       0 |       0 | 2                 
+----------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.983 s
+Time:        3.116 s
 Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
