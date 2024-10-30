@@ -4,9 +4,9 @@ import './progressBar.css'
 import { Button, Form} from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import {Detailedquiz} from "./Detailed"
-import { HomeTest } from './Home';
+// import { HomeTest } from './Home';
 import {SimpleInterface} from "./simpleInterface"
-import { Test } from './SimpleQuestions/test';
+// import { Test } from './SimpleQuestions/test';
 
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
@@ -19,7 +19,7 @@ if (prevKey !== null) {
 
 export function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
-  const [barState, setBar] = useState<number>(0);
+  // const [barState, setBar] = useState<number>(0);
   
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
