@@ -4,6 +4,7 @@ import './progressBar.css'
 import { Button, Form} from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import {Detailedquiz} from "./Detailed"
+// import { HomeTest } from './Home';
 import {SimpleInterface} from "./simpleInterface"
 import { SecondQuestion } from './SimpleQuestions/2';
 import{ThirdQuestion} from './SimpleQuestions/3';
@@ -18,22 +19,17 @@ let keyData = "";
 const saveKeyData = "MYKEY";
 const prevKey = localStorage.getItem(saveKeyData); //so it'll look like: MYKEY: <api_key_value here> in the local storage when you inspect
 if (prevKey !== null) {
-  keyData = JSON.parse(prevKey);
+  keyData = prevKey;
 }
 
 export function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
-  const [barState, setBar] = useState<number>(0);
+  // const [barState, setBar] = useState<number>(0);
   
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
     localStorage.setItem(saveKeyData, JSON.stringify(key));
     window.location.reload(); //when making a mistake and changing the key again, I found that I have to reload the whole site before openai refreshes what it has stores for the local storage variable
-  }
-
-  function testButtonPrint()
-  {
-    alert("Sending back to home page... (TEST)");
   }
   
   //whenever there's a change it'll store the api key in a local state called key but it won't be set in the local storage until the user clicks the submit button
@@ -41,41 +37,40 @@ export function App() {
     setKey(event.target.value);
   }
   return (
+    
     <body>
     <div className="App">
-    <Router>
+    <Router> 
       <header className="App">
         <h1>Career Helpi</h1>
         <hr></hr>
       </header>
 
-      <div>
-      <Button type="button" style={{background:'blue', margin:10}} onClick={testButtonPrint}> Home</Button>
-      </div>
-
-      
+      {/*
       <Button onClick={() => setBar(barState + 25)}> Increase</Button>
       <span>{barState} </span>
       <div id="bar">
         <div className="progress" style={{width: barState}}></div>
       </div>
-
+      */}
       <div style={{alignItems:'center'}}>
-        
-
-      <div>
+      <div className = 'menu bar'>
       <Button className = "Career-Btn">
       <Link to="/detailed_quiz">Detailed Career Assesment</Link>
       </Button>
 
+    
+      <Button style={{background:'white', margin:10}}>
+        <Link to="/">Home</Link>
+      </Button>
+    
 
       <Button className = "Career-Btn" >
       <Link to="/basic_quiz">Basic Career Assesment</Link>
       </Button>
       </div>
-
+<hr></hr>
       </div>
-
 
       <Routes>
         <Route path="/detailed_quiz" element={<Detailedquiz />} />
