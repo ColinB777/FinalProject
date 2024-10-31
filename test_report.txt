@@ -2,6 +2,11 @@
 > starter_helpi@0.1.0 test
 > react-scripts test --coverage
 
+  console.log
+
+
+      at Object.<anonymous> (src/App.tsx:24:9)
+
   console.warn
     No routes matched location "/"
 
@@ -39,7 +44,7 @@
   console.error
     Warning: validateDOMNesting(...): <body> cannot appear as a child of <div>.
         at body
-        at App (/home/runner/work/FinalProject/FinalProject/src/App.tsx:26:33)
+        at App (/home/runner/work/FinalProject/FinalProject/src/App.tsx:28:33)
 
       4 |
       5 | test('renders learn react link', () => {
@@ -71,7 +76,7 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (117 ms)
+  ✕ renders learn react link (108 ms)
 
   ● renders learn react link
 
@@ -185,9 +190,9 @@ FAIL src/App.test.tsx
 ----------------------|---------|----------|---------|---------|-------------------
 File                  | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ----------------------|---------|----------|---------|---------|-------------------
-All files             |    8.43 |     8.33 |    2.63 |    8.75 |                   
- src                  |    13.2 |     8.33 |       5 |      14 |                   
-  App.tsx             |      60 |       50 |   33.33 |      60 | 22,31-37          
+All files             |    9.52 |     8.33 |    2.63 |    9.87 |                   
+ src                  |   14.81 |     8.33 |       5 |   15.68 |                   
+  App.tsx             |   63.63 |       50 |   33.33 |   63.63 | 22,33-39          
   Detailed.tsx        |    3.84 |        0 |       0 |    4.34 | 18-125            
   Home.tsx            |       0 |      100 |       0 |       0 | 3                 
   index.tsx           |       0 |      100 |     100 |       0 | 7-19              
@@ -204,7 +209,7 @@ All files             |    8.43 |     8.33 |    2.63 |    8.75 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.175 s
+Time:        3.287 s
 Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
