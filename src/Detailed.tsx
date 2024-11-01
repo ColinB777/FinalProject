@@ -3,7 +3,7 @@ import './detailed.css';
 import { Button, Form, FormGroup } from "react-bootstrap";
 import { OpenAI } from "openai";
 
-const key=localStorage.getItem("MYKEY")
+const key=localStorage.getItem("MYKEY");
 
 
 export function Detailedquiz() {
@@ -45,7 +45,7 @@ export function Detailedquiz() {
     if (key){
       const openai = new OpenAI({
         organization: "org-EbrOwGpWn6qnLdFwzPY4qAsR",
-        apiKey:key,
+        apiKey:JSON.parse(key),
         dangerouslyAllowBrowser: true
       });
       const completion = await openai.chat.completions.create({
