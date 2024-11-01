@@ -165,7 +165,6 @@ export function SimpleInterface(): React.JSX.Element {
       <Link to="/SimpleQuestions/test">test</Link>
       </Button></footer>
         </div>
-
         
     );
 }
