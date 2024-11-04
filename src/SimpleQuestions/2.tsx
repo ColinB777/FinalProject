@@ -5,6 +5,10 @@ import '../simple.css';
 export function SecondQuestion(): React.JSX.Element {
     const [secondAnswer, setSecondAnswer] = useState<string>("");
     const secondAnswers = ["Strongly Agree", "Agree", "Neutral", "Disagree", "Strongly Disagree"];
+    let blankQuestion = false;
+    if (secondAnswer === "") {
+        blankQuestion = true 
+    }
     return (      
             
         <div>
@@ -35,7 +39,7 @@ export function SecondQuestion(): React.JSX.Element {
                 </div>
                 <div>You have chosen: {secondAnswer}</div>
                 
-                <footer> <Button  style={{background:'white',margin:10}} >
+                <footer> <Button disabled={blankQuestion} style={{background:'white',margin:10}} >
       <Link to="/SimpleQuestions/ThirdQuestion">Next Question</Link>
       </Button></footer>
 
