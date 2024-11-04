@@ -36,7 +36,7 @@ export function SimpleInterface(): React.JSX.Element {
                 <footer> <Button  style={{background:'white',margin:10}} >
       <Link to="/SimpleQuestions/SecondQuestion">Next Question</Link>
       </Button></footer>
-                </div>
-                
-            );
+        </div>
+        
+    );
 }
