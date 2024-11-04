@@ -7,6 +7,10 @@ import { Button, Form } from 'react-bootstrap';
 export function SimpleInterface(): React.JSX.Element {
     const [firstAnswer, setFirstAnswer] = useState<string>("");
     const firstAnswers = ["Strongly Agree", "Agree", "Neutral", "Disagree", "Strongly Disagree"];
+    let blankQuestion = false;
+    if (firstAnswer === "") {
+        blankQuestion = true 
+    }
     return (
         <div>
         <div>
@@ -33,7 +37,9 @@ export function SimpleInterface(): React.JSX.Element {
                 </div>
                 
                 <div>You have chosen: {firstAnswer}</div>
-                <footer> <Button  style={{background:'white',margin:10}} >
+                
+                
+                <footer> <Button disabled={blankQuestion} style={{background:'white',margin:10}} >
       <Link to="/SimpleQuestions/SecondQuestion">Next Question</Link>
       </Button></footer>
                 </div>
