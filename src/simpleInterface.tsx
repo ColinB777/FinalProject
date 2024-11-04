@@ -30,6 +30,7 @@ export function SimpleInterface(): React.JSX.Element {
                     />
                 ))}
                 </div>
+                
                 <div>You have chosen: {firstAnswer}</div>
                 <footer> <Button  style={{background:'white',margin:10}} >
       <Link to="/SimpleQuestions/SecondQuestion">Next Question</Link>
