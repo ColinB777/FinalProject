@@ -8,11 +8,13 @@ export function SimpleInterface(): React.JSX.Element {
     const [firstAnswer, setFirstAnswer] = useState<string>("");
     const firstAnswers = ["Strongly Agree", "Agree", "Neutral", "Disagree", "Strongly Disagree"];
     return (
-            <div id = "firstSet">
+        <div>
+        <div>
             <h1>Basic Assessment</h1>
             <p>The basic career assessment is a compact, quicker version of the quiz which will allow users to get a narrowed down answer based on the preferences of the user through multiple choice.</p>
-
-                <h4>I feel most fulfilled when working on tasks that allow me to be creative and explore new ideas.</h4>
+        </div>
+    <div className = "simple_question">        
+        <h4>I prefer jobs with clear routines and structured tasks over roles that are highly flexible or unpredictable.</h4>
                 {firstAnswers.map((Answer: string, i) => (
                     <Form.Check
                         inline
