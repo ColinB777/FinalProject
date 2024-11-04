@@ -27,6 +27,7 @@ console.log(keyData);
 export function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
   // const [barState, setBar] = useState<number>(0);
+  const [buttonState, setVisible] = useState<boolean>(true);
   
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
@@ -38,6 +39,13 @@ export function App() {
   function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
     setKey(event.target.value);
   }
+
+  function hideButtons()
+  {
+    setVisible(!buttonState);
+  }
+
+
   return (
     
     <body>
@@ -57,17 +65,18 @@ export function App() {
       */}
       <div style={{alignItems:'center'}}>
       <div className = 'menu bar'>
-      <Button className = "Career-Btn">
+        
+
+      <Button className = "Career-Btn" id="HIDE_DETAILED" hidden={buttonState} onClick={hideButtons}>
       <Link to="/detailed_quiz">Detailed Career Assesment</Link>
       </Button>
 
-    
-      <Button style={{background:'white', margin:10}}>
+      <Button style={{background:'white', margin:10}} id="HOME" onClick={hideButtons}>
         <Link to="/">Home</Link>
       </Button>
     
 
-      <Button className = "Career-Btn" >
+      <Button className = "Career-Btn" id="HIDE_BASIC" hidden={buttonState} onClick={hideButtons}>
       <Link to="/basic_quiz">Basic Career Assesment</Link>
       </Button>
       </div>
