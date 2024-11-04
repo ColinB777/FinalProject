@@ -4,10 +4,10 @@ import { Button, Form } from 'react-bootstrap';
 import './questions.css';
 export function SecondQuestion(): React.JSX.Element {
     const [secondAnswer, setSecondAnswer] = useState<string>("");
-    const secondAnswers = ["ex5", "ex6", "ex7", "ex8"];
+    const secondAnswers = ["Strongly Agree", "Agree", "Neutral", "Disagree", "Strongly Disagree"];
     return (
         <div id = "secondQues">        
-            <h4>Question 2</h4>
+            <h4>I am comfortable taking on leadership roles and making important decisions in a team.</h4>
                 {secondAnswers.map((Answer: string, i) => (
                     <Form.Check
                         inline

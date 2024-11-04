@@ -77,7 +77,7 @@ export function Detailedquiz() {
             },
         ],
         temperature:0.2,
-        max_tokens:650
+        max_tokens:850
       });
       //debugging purposes
       console.log(completion.choices[0].message.content);

@@ -4,10 +4,10 @@ import { Button, Form } from 'react-bootstrap';
 import './questions.css';
 export function SeventhQuestion(): React.JSX.Element {
     const [seventhAnswer, setSeventhAnswer] = useState<string>("");
-    const seventhAnswers = ["ex17", "ex18", "ex19", "ex20"];
+    const seventhAnswers = ["Strongly Agree", "Agree", "Neutral", "Disagree", "Strongly Disagree"];
     return (
         <div id = "seventhQues">        
-            <h4>Question 7</h4>
+            <h4>I am motivated by the potential to earn a high salary and achieve financial security in my work.</h4>
                 {seventhAnswers.map((Answer: string, i) => (
                     <Form.Check
                         inline

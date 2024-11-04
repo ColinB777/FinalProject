@@ -4,10 +4,10 @@ import { Button, Form } from 'react-bootstrap';
 import './questions.css';
 export function ThirdQuestion(): React.JSX.Element {
     const [thirdAnswer, setThirdAnswer] = useState<string>("");
-    const thirdAnswers = ["ex9", "ex10", "ex11", "ex12"];
+    const thirdAnswers = ["Strongly Agree", "Agree", "Neutral", "Disagree", "Strongly Disagree"];
     return (
         <div id = "thirdQues">        
-            <h4>Question 3</h4>
+            <h4>I prefer jobs with clear routines and structured tasks over roles that are highly flexible or unpredictable.</h4>
                 {thirdAnswers.map((Answer: string, i) => (
                     <Form.Check
                         inline
