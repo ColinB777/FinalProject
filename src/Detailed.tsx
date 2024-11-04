@@ -38,10 +38,20 @@ export function Detailedquiz() {
   function updateAnswer(event: string, index:number) {
     const updatedQlist=qList.map((question:Question,i:number)=>(i===index ? {...question, answer:event}:question))
     setQlist(updatedQlist);
+    let retString:string="";
+    qList.forEach((question:Question)=> 
+    retString=retString
+    .concat(question.body.substring(0,question.body.indexOf("?")+1))
+    .concat("\n")
+    .concat(question.answer)
+    .concat("\n\n"))
+    setMSG(retString);
+    //debugging purposes
   }
 
   //This will submit the API Request and get the assesment if succesful
   async function APIRequest(){
+    console.log(msgtoAI);
     if (key){
       const openai = new OpenAI({
         organization: "org-EbrOwGpWn6qnLdFwzPY4qAsR",
@@ -77,7 +87,7 @@ export function Detailedquiz() {
             },
         ],
         temperature:0.2,
-        max_tokens:650
+        max_tokens:850
       });
       //debugging purposes
       console.log(completion.choices[0].message.content);
@@ -91,16 +101,6 @@ export function Detailedquiz() {
   //This funtion will handle the answers submission 
   //by creating a string of the questions and their respective answers
   function submitAnswers(){
-    let retString:string="";
-    qList.forEach((question:Question)=> 
-    retString=retString
-    .concat(question.body.substring(0,question.body.indexOf("?")+1))
-    .concat("\n")
-    .concat(question.answer)
-    .concat("\n\n"))
-    setMSG(retString);
-    //debugging purposes
-    console.log(msgtoAI);
     APIRequest().then((report) => setReport(report));
   }
 
