@@ -12,7 +12,8 @@ export function SimpleInterface(): React.JSX.Element {
             <h1>Basic Assessment</h1>
             <p>The basic career assessment is a compact, quicker version of the quiz which will allow users to get a narrowed down answer based on the preferences of the user through multiple choice.</p>
 
-                <h4>Question 1</h4>
+            <div className = "simple_question">
+                <h5>1. I prefer working in a structured office environment rather than being outdoors.</h5>
                 {firstAnswers.map((Answer: string, i) => (
                     <Form.Check
                         inline
@@ -28,6 +29,8 @@ export function SimpleInterface(): React.JSX.Element {
                         style={{ display: "flex", paddingLeft:"40%"}}
                     />
                 ))}
+                </div>
+                
                 <div>You have chosen: {firstAnswer}</div>
                 <footer> <Button  style={{background:'white',margin:10}} >
       <Link to="/SimpleQuestions/SecondQuestion">Next Question</Link>
