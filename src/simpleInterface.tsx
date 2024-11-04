@@ -28,6 +28,8 @@ export function SimpleInterface(): React.JSX.Element {
                         style={{ display: "flex", paddingLeft:"40%"}}
                     />
                 ))}
+                </div>
+                
                 <div>You have chosen: {firstAnswer}</div>
                 <footer> <Button  style={{background:'white',margin:10}} >
       <Link to="/SimpleQuestions/SecondQuestion">Next Question</Link>

@@ -1,9 +1,22 @@
 .questionList {
     padding-right: 50%;
+    background-color: #ffa0a0 ;
+
 }
 
-#simple_question{
-    background-color:none;
+#radioButton{
+    background-color: #ffa0a0 ;
+
+}
+.simple_question{
+    background-color: #ffa0a0 ;
+    text-align: 50%;
+    margin-top: 1%;
+    padding:50px;
+    margin-left: 15%;
+    margin-right: 15%;
+    border-radius: 15px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 
