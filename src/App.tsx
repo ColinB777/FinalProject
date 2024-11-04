@@ -56,13 +56,13 @@ export function App() {
         <hr></hr>
       </header>
 
-      {/*
-      <Button onClick={() => setBar(barState + 25)}> Increase</Button>
-      <span>{barState} </span>
+      
+      {/* <Button onClick={() => setBar(barState + 25)}> Increase</Button>
+      <span>{} </span>
       <div id="bar">
-        <div className="progress" style={{width: barState}}></div>
-      </div>
-      */}
+        <div className="progress" style={{width: barState + "%"}}></div>
+      </div> */}
+     
       <div style={{alignItems:'center'}}>
       <div className = 'menu bar'>
         
