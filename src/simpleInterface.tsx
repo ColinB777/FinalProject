@@ -14,7 +14,7 @@ export function SimpleInterface(): React.JSX.Element {
             <p>The basic career assessment is a compact, quicker version of the quiz which will allow users to get a narrowed down answer based on the preferences of the user through multiple choice.</p>
         </div>
     <div className = "simple_question">        
-        <h4>I prefer jobs with clear routines and structured tasks over roles that are highly flexible or unpredictable.</h4>
+        <h4>1. I prefer jobs with clear routines and structured tasks over roles that are highly flexible or unpredictable.</h4>
                 {firstAnswers.map((Answer: string, i) => (
                     <Form.Check
                         inline

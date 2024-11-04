@@ -11,11 +11,11 @@ export function SecondQuestion(): React.JSX.Element {
 <div><h1>Basic Assessment</h1>
             <p>The basic career assessment is a compact, quicker version of the quiz which will allow users to get a narrowed down answer based on the preferences of the user through multiple choice.</p>
 </div>
-<h4>I am comfortable taking on leadership roles and making important decisions in a team.</h4>
+
         <div className = 'simple_question'>     
         
            
-            <h4>Question 2</h4>
+        <h4>2. I am comfortable taking on leadership roles and making important decisions in a team.</h4>
                 {secondAnswers.map((Answer: string, i) => (
                     <Form.Check
                         inline

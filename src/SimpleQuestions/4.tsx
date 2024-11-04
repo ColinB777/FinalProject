@@ -12,7 +12,7 @@ export function FourthQuestion(): React.JSX.Element {
                 <p>The basic career assessment is a compact, quicker version of the quiz which will allow users to get a narrowed down answer based on the preferences of the user through multiple choice.</p>
             </div>
         <div className = "simple_question">        
-            <h4>I enjoy interacting with people throughout my workday and thrive in social work environments.</h4>
+            <h4>4. I enjoy interacting with people throughout my workday and thrive in social work environments.</h4>
                 {fourthAnswers.map((Answer: string, i) => (
                     <Form.Check
                         inline
