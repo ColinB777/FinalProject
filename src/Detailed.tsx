@@ -28,8 +28,8 @@ export function Detailedquiz() {
   //state that holds the message used in the API request
   const [msgtoAI,setMSG]=useState<string>("");
 
-  //state that holds the assesment
-  const [Report,setReport]=useState<string>("");
+  //states that holds the assesment
+  const [Report,setReport]=useState<string[]>([]);
 
   //Const to check you answer all questions
   const allAnswered = Object.values(qList).every((answer) => answer.answer.trim() !== '');
@@ -91,7 +91,16 @@ export function Detailedquiz() {
       });
       //debugging purposes
       console.log(completion.choices[0].message.content);
-      return completion.choices?.[0]?.message?.content ?? "An error ocurred and failed to retrived answer";;
+      if(completion.choices[0].message.content){
+        return completion.choices[0].message.content;
+        // setReport(completion.choices[0].message.content);
+        // setReportSeg(Report.split("###").map(segment => `segment:${segment}`));
+      }
+      else{
+        return "An error ocurred and failed to retrived answer";
+      }
+
+      // return completion.choices?.[0]?.message?.content ?? "An error ocurred and failed to retrived answer";
     }
     else{
       return "Plese input an API key to proceed.";
@@ -100,9 +109,11 @@ export function Detailedquiz() {
 
   //This funtion will handle the answers submission 
   //by creating a string of the questions and their respective answers
-  function submitAnswers(){
-    APIRequest().then((report) => setReport(report));
+    function submitAnswers(){
+    APIRequest().then((report) => setReport(report.split("###").map(segment => `segment:${segment}`)))
   }
+
+  
 
   //Pause button
   function PauseButton(){
@@ -128,7 +139,13 @@ export function Detailedquiz() {
       </FormGroup>
       ))}
       <Button disabled={!allAnswered} onClick={submitAnswers}>Submit your answers.</Button>
-      <div>{Report}</div>
+      
+      {Report.map((segment:string,i:number) =>(
+        <div>
+          <h1>{segment.slice(0,segment.indexOf("\n"))}</h1>
+        </div>
+      
+      ))}
     </div> 
     );
 }
