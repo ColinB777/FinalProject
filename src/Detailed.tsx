@@ -93,14 +93,12 @@ export function Detailedquiz() {
       console.log(completion.choices[0].message.content);
       if(completion.choices[0].message.content){
         return completion.choices[0].message.content;
-        // setReport(completion.choices[0].message.content);
-        // setReportSeg(Report.split("###").map(segment => `segment:${segment}`));
       }
       else{
         return "An error ocurred and failed to retrived answer";
       }
 
-      // return completion.choices?.[0]?.message?.content ?? "An error ocurred and failed to retrived answer";
+     
     }
     else{
       return "Plese input an API key to proceed.";
@@ -110,7 +108,7 @@ export function Detailedquiz() {
   //This funtion will handle the answers submission 
   //by creating a string of the questions and their respective answers
     function submitAnswers(){
-    APIRequest().then((report) => setReport(report.split("###").map(segment => `segment:${segment}`)))
+    APIRequest().then((report) => setReport(report.split("###").map(segment => `${segment}`)))
   }
 
   
@@ -142,9 +140,9 @@ export function Detailedquiz() {
       
       {Report.map((segment:string,i:number) =>(
         <div>
-          <h1>{segment.slice(0,segment.indexOf("\n"))}</h1>
+          <h1>{(i === 0) ? "" : segment.slice(0,segment.indexOf("\n"))}</h1>
+          <span>{(i === 0) ? "": (segment.slice(segment.indexOf("\n")))}</span>
         </div>
-      
       ))}
     </div> 
     );
