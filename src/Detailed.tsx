@@ -3,6 +3,7 @@ import './detailed.css';
 import { Button, Form, FormGroup } from "react-bootstrap";
 import { OpenAI } from "openai";
 
+
 const key=localStorage.getItem("MYKEY");
 
 
@@ -80,7 +81,8 @@ export function Detailedquiz() {
               4.What are your long-term career goals? (Where do you see yourself in 5, 10, or 20 years? Do you aspire to leadership roles, or would you prefer to be a specialist?)
               5.What are your values and priorities in a job? (Is work-life balance important to you? Do you seek financial security, creativity, or the opportunity to make a difference?)
               6.What type of work drains or energizes you? (What tasks or responsibilities feel exhausting versus those that feel exciting and fulfilling?)
-              7.What is your preferred learning style? (Do you prefer learning by doing, studying theory, or through hands-on experience? How do you like to grow professionally?)`},
+              7.What is your preferred learning style? (Do you prefer learning by doing, studying theory, or through hands-on experience? How do you like to grow professionally?)
+              Make sure to divide into 3 sections: Assesment Summary, Recommended Career paths, and Conclusion`},
             {
                 role: "user",
                 content: msgtoAI,
@@ -138,10 +140,11 @@ export function Detailedquiz() {
       ))}
       <Button disabled={!allAnswered} onClick={submitAnswers}>Submit your answers.</Button>
       
-      {Report.map((segment:string,i:number) =>(
+      {Report.slice(1).map((segment:string,i:number) =>(
+
         <div>
-          <h1>{(i === 0) ? "" : segment.slice(0,segment.indexOf("\n"))}</h1>
-          <span>{(i === 0) ? "": (segment.slice(segment.indexOf("\n")))}</span>
+          <h1 style={{marginBottom:-30}}>{segment.slice(0,segment.indexOf("\n"))}</h1>
+          <span  style={{whiteSpace: "break-spaces"}}>{(segment.slice(segment.indexOf("\n")))}</span>
         </div>
       ))}
     </div> 
