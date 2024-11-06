@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './simple.css';
+import './progressBar.css';
 import { Link } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';
 
@@ -7,6 +8,7 @@ import { Button, Form } from 'react-bootstrap';
 export function SimpleInterface(): React.JSX.Element {
     const [firstAnswer, setFirstAnswer] = useState<string>("");
     const firstAnswers = ["Strongly Agree", "Agree", "Neutral", "Disagree", "Strongly Disagree"];
+    let progressValue = 0;
     let blankQuestion = false;
     if (firstAnswer === "") {
         blankQuestion = true 
@@ -16,6 +18,9 @@ export function SimpleInterface(): React.JSX.Element {
         <div>
             <h1>Basic Assessment</h1>
             <p>The basic career assessment is a compact, quicker version of the quiz which will allow users to get a narrowed down answer based on the preferences of the user through multiple choice.</p>
+            <div className='progressBorder'>
+                <div className='progressBar' style={{width: progressValue.toString() + '%'}}> {"%" + progressValue}</div>
+            </div>
         </div>
     <div className = "simple_question">        
         <h4>1. I prefer jobs with clear routines and structured tasks over roles that are highly flexible or unpredictable.</h4>
@@ -28,6 +33,13 @@ export function SimpleInterface(): React.JSX.Element {
                         label={Answer}
                         onChange={(e) => {
                             setFirstAnswer(e.target.value);
+                            if (e.target.checked)
+                            {
+                                progressValue += 10;
+                            }
+                            else {
+                                progressValue = 0;
+                            }
                         }}
                         checked={firstAnswer === Answer}
                         value={Answer}

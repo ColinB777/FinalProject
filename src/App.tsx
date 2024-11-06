@@ -4,7 +4,6 @@ import './progressBar.css'
 import { Button, Form} from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import {Detailedquiz} from "./Detailed"
-// import { HomeTest } from './Home';
 import {SimpleInterface} from "./simpleInterface"
 import { SecondQuestion } from './SimpleQuestions/2';
 import{ThirdQuestion} from './SimpleQuestions/3';
@@ -26,7 +25,6 @@ console.log(keyData);
 
 export function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
-  // const [barState, setBar] = useState<number>(0);
   const [buttonState, setVisible] = useState<boolean>(true);
   
   //sets the local storage item to the api key the user inputed
@@ -57,11 +55,7 @@ export function App() {
       </header>
 
       
-      {/* <Button onClick={() => setBar(barState + 25)}> Increase</Button>
-      <span>{} </span>
-      <div id="bar">
-        <div className="progress" style={{width: barState + "%"}}></div>
-      </div> */}
+
      
       <div style={{alignItems:'center'}}>
       <div className = 'menu bar'>
