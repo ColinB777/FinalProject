@@ -13,6 +13,8 @@ import{FifthQuestion} from './SimpleQuestions/5';
 import{SixthQuestion} from './SimpleQuestions/6';
 import { SeventhQuestion } from './SimpleQuestions/7';
 
+import { BsFillHouseFill } from "react-icons/bs";
+
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -72,7 +74,7 @@ export function App() {
       </Button>
 
       <Button className = "home-btn" id="HOME" onClick={hideButtons}>
-        <Link to="/">Home</Link>
+        <Link to="/"><BsFillHouseFill /></Link>
       </Button>
 
 
@@ -81,6 +83,7 @@ export function App() {
       </Button>
 
       </div>
+      <p></p>
 <hr></hr>
       </div>
 
