@@ -26,6 +26,9 @@ export function Detailedquiz() {
     {body:"7.What is your preferred learning style? (Do you prefer learning by doing, studying theory, or through hands-on experience? How do you like to grow professionally?)",answer:""}
   ]);
 
+  //Loading State that will help display loading animations
+  const [loading,setLoading]=useState<boolean>(false);
+
   //state that holds the message used in the API request
   const [msgtoAI,setMSG]=useState<string>("");
 
@@ -58,6 +61,8 @@ export function Detailedquiz() {
         apiKey:JSON.parse(key),
         dangerouslyAllowBrowser: true
       });
+      setLoading(true);
+      try{
       const completion = await openai.chat.completions.create({
         model: "gpt-4o-mini",
         messages: [
@@ -98,7 +103,10 @@ export function Detailedquiz() {
       else{
         return "An error ocurred and failed to retrived answer";
       }
-
+    }
+    finally{
+      setLoading(false);
+    }
      
     }
     else{
@@ -108,8 +116,8 @@ export function Detailedquiz() {
 
   //This funtion will handle the answers submission 
   //by creating a string of the questions and their respective answers
-    function submitAnswers(){
-    APIRequest().then((report) => setReport(report.split("###").map(segment => `${segment}`)))
+  function submitAnswers(){
+    APIRequest().then((report) => setReport(report.split("###").map(segment => `${segment}`)));
   }
 
   
@@ -141,6 +149,7 @@ export function Detailedquiz() {
       ))}
       <div className = "detailed_submit_btn" >
       <Button disabled={!allAnswered} onClick={submitAnswers}>Submit your answers.</Button>
+      {(loading) && <h1>Loading</h1>}
       
       {Report.slice(1).map((segment:string,i:number) =>(
 
