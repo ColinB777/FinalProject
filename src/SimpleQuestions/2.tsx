@@ -11,19 +11,12 @@ export function SecondQuestion(): React.JSX.Element {
     }
     return (      
             
+        
         <div>
-<<<<<<< HEAD
-            <div>
-                <h1>Basic Assessment</h1>
-                <p>The basic career assessment is a compact, quicker version of the quiz which will allow users to get a narrowed down answer based on the preferences of the user through multiple choice.</p>
-            </div>
-            
-=======
 <div><h1>Basic Assessment</h1>
             <p>The basic career assessment is a compact, quicker version of the quiz which will allow users to get a narrowed down answer based on the preferences of the user through multiple choice.</p>
 </div>
 
->>>>>>> e5f53a850fa33957d3ed56365e6d2811ebd28ccd
         <div className = 'simple_question'>     
         
            
