@@ -122,10 +122,12 @@ export function Detailedquiz() {
     //displays the questions and a text input box to each to answer them 
     //using map function
     return(<div>
+      {(allAnswered) ? <Confetti height={3*window.outerHeight} gravity={.5}  numberOfPieces={200}></Confetti> : null}
       <h1>Detailed Quiz</h1>
       <Button onClick={PauseButton}>Pause</Button>
 
       {qList.map((question:Question,i:number) =>(
+      
       <FormGroup className="Question_Box">
         <h5>{question.body}</h5>
       <div className = "text_area">
