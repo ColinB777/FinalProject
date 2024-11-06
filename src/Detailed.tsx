@@ -137,6 +137,7 @@ export function Detailedquiz() {
       <span>Current Answer={question.answer}</span>
       </FormGroup>
       ))}
+      <div className = "detailed_submit_btn" >
       <Button disabled={!allAnswered} onClick={submitAnswers}>Submit your answers.</Button>
       
       {Report.slice(1).map((segment:string,i:number) =>(
@@ -147,5 +148,6 @@ export function Detailedquiz() {
         </div>
       ))}
     </div> 
+    </div>
     );
 }

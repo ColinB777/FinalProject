@@ -5,7 +5,7 @@ import { Button, Form} from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import {Detailedquiz} from "./Detailed"
 // import { HomeTest } from './Home';
-import {SimpleInterface} from "./simpleInterface"
+import {SimpleInterface} from "./SimpleQuestions/1"
 import { SecondQuestion } from './SimpleQuestions/2';
 import{ThirdQuestion} from './SimpleQuestions/3';
 import{FourthQuestion} from './SimpleQuestions/4';
@@ -49,9 +49,9 @@ export function App() {
   return (
     
     <body>
-    <div className="App">
+    <div>
     <Router> 
-      <header className="App">
+      <header className = "title-header">
         <h1>Career Helpi</h1>
         <hr></hr>
       </header>
@@ -67,18 +67,19 @@ export function App() {
       <div className = 'menu bar'>
         
 
-      <Button className = "Career-Btn" id="HIDE_DETAILED" hidden={buttonState} onClick={hideButtons}>
+      <Button className = "Career-Btn" hidden={buttonState} onClick={hideButtons}>
       <Link to="/detailed_quiz">Detailed Career Assesment</Link>
       </Button>
 
-      <Button style={{background:'white', margin:10}} id="HOME" onClick={hideButtons}>
+      <Button className = "home-btn" id="HOME" onClick={hideButtons}>
         <Link to="/">Home</Link>
       </Button>
-    
+
 
       <Button className = "Career-Btn" id="HIDE_BASIC" hidden={buttonState} onClick={hideButtons}>
       <Link to="/basic_quiz">Basic Career Assesment</Link>
       </Button>
+
       </div>
 <hr></hr>
       </div>

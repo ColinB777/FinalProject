@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';
-import '../simple.css';
+import './simple.css';
 export function SixthQuestion(): React.JSX.Element {
     const [sixthAnswer, setSixthAnswer] = useState<string>("");
     const sixthAnswers = ["Strongly Agree", "Agree", "Neutral", "Disagree", "Strongly Disagree"];

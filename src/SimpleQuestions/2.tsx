@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';
-import '../simple.css';
+import './simple.css';
 export function SecondQuestion(): React.JSX.Element {
     const [secondAnswer, setSecondAnswer] = useState<string>("");
     const secondAnswers = ["Strongly Agree", "Agree", "Neutral", "Disagree", "Strongly Disagree"];
@@ -11,6 +11,7 @@ export function SecondQuestion(): React.JSX.Element {
     }
     return (      
             
+        
         <div>
 <div><h1>Basic Assessment</h1>
             <p>The basic career assessment is a compact, quicker version of the quiz which will allow users to get a narrowed down answer based on the preferences of the user through multiple choice.</p>
