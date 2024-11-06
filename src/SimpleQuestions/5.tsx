@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';
-import '../simple.css';
+import './simple.css';
 
 export function FifthQuestion(): React.JSX.Element {
     const [fifthAnswer, setFifthAnswer] = useState<string>("");
