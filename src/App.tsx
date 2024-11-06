@@ -5,7 +5,7 @@ import { Button, Form} from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import {Detailedquiz} from "./Detailed"
 // import { HomeTest } from './Home';
-import {SimpleInterface} from "./simpleInterface"
+import {SimpleInterface} from "./SimpleQuestions/1"
 import { SecondQuestion } from './SimpleQuestions/2';
 import{ThirdQuestion} from './SimpleQuestions/3';
 import{FourthQuestion} from './SimpleQuestions/4';
