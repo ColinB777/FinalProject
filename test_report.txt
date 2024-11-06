@@ -5,7 +5,7 @@
   console.log
 
 
-      at Object.<anonymous> (src/App.tsx:24:9)
+      at Object.<anonymous> (src/App.tsx:26:9)
 
   console.warn
     No routes matched location "/"
@@ -44,7 +44,7 @@
   console.error
     Warning: validateDOMNesting(...): <body> cannot appear as a child of <div>.
         at body
-        at App (/home/runner/work/FinalProject/FinalProject/src/App.tsx:28:33)
+        at App (/home/runner/work/FinalProject/FinalProject/src/App.tsx:30:33)
 
       4 |
       5 | test('renders learn react link', () => {
@@ -76,7 +76,7 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (107 ms)
+  ✕ renders learn react link (112 ms)
 
   ● renders learn react link
 
@@ -120,7 +120,22 @@ FAIL src/App.test.tsx
                   [36m<a[39m
                     [33mhref[39m=[32m"/"[39m
                   [36m>[39m
-                    [0mHome[0m
+                    [36m<svg[39m
+                      [33mfill[39m=[32m"currentColor"[39m
+                      [33mheight[39m=[32m"1em"[39m
+                      [33mstroke[39m=[32m"currentColor"[39m
+                      [33mstroke-width[39m=[32m"0"[39m
+                      [33mviewBox[39m=[32m"0 0 16 16"[39m
+                      [33mwidth[39m=[32m"1em"[39m
+                      [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                    [36m>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z"[39m
+                      [36m/>[39m
+                      [36m<path[39m
+                        [33md[39m=[32m"m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293z"[39m
+                      [36m/>[39m
+                    [36m</svg>[39m
                   [36m</a>[39m
                 [36m</button>[39m
                 [36m<button[39m
@@ -136,6 +151,7 @@ FAIL src/App.test.tsx
                   [36m</a>[39m
                 [36m</button>[39m
               [36m</div>[39m
+              [36m<p />[39m
               [36m<hr />[39m
             [36m</div>[39m
             [36m<div[39m
@@ -205,7 +221,7 @@ File                  | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line 
 ----------------------|---------|----------|---------|---------|-------------------
 All files             |    7.51 |     3.33 |    2.08 |    7.87 |                   
  src                  |   14.28 |     7.14 |    4.34 |   15.25 |                   
-  App.tsx             |   61.53 |       50 |      25 |   61.53 | 22,34-45          
+  App.tsx             |   61.53 |       50 |      25 |   61.53 | 24,36-47          
   Detailed.tsx        |    3.33 |        0 |       0 |    3.84 | 19-146            
   Home.tsx            |       0 |      100 |       0 |       0 | 3                 
   index.tsx           |       0 |      100 |     100 |       0 | 7-19              
@@ -223,5 +239,5 @@ All files             |    7.51 |     3.33 |    2.08 |    7.87 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.569 s
+Time:        3.388 s
 Ran all test suites.
