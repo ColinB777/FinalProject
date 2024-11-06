@@ -122,7 +122,7 @@ export function Detailedquiz() {
     //displays the questions and a text input box to each to answer them 
     //using map function
     return(<div>
-      {(allAnswered) ? <Confetti height={3*window.outerHeight} gravity={.5}  numberOfPieces={200}></Confetti> : null}
+      {(allAnswered) ? <Confetti height={3.1*window.outerHeight} gravity={.7}  numberOfPieces={200}></Confetti> : null}
       <h1>Detailed Quiz</h1>
       <Button onClick={PauseButton}>Pause</Button>
 
