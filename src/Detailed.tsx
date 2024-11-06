@@ -3,6 +3,7 @@ import './detailed.css';
 import { Button, Form, FormGroup } from "react-bootstrap";
 import { OpenAI } from "openai";
 
+
 const key=localStorage.getItem("MYKEY");
 
 
@@ -28,8 +29,8 @@ export function Detailedquiz() {
   //state that holds the message used in the API request
   const [msgtoAI,setMSG]=useState<string>("");
 
-  //state that holds the assesment
-  const [Report,setReport]=useState<string>("");
+  //states that holds the assesment
+  const [Report,setReport]=useState<string[]>([]);
 
   //Const to check you answer all questions
   const allAnswered = Object.values(qList).every((answer) => answer.answer.trim() !== '');
@@ -38,10 +39,20 @@ export function Detailedquiz() {
   function updateAnswer(event: string, index:number) {
     const updatedQlist=qList.map((question:Question,i:number)=>(i===index ? {...question, answer:event}:question))
     setQlist(updatedQlist);
+    let retString:string="";
+    qList.forEach((question:Question)=> 
+    retString=retString
+    .concat(question.body.substring(0,question.body.indexOf("?")+1))
+    .concat("\n")
+    .concat(question.answer)
+    .concat("\n\n"))
+    setMSG(retString);
+    //debugging purposes
   }
 
   //This will submit the API Request and get the assesment if succesful
   async function APIRequest(){
+    console.log(msgtoAI);
     if (key){
       const openai = new OpenAI({
         organization: "org-EbrOwGpWn6qnLdFwzPY4qAsR",
@@ -70,7 +81,8 @@ export function Detailedquiz() {
               4.What are your long-term career goals? (Where do you see yourself in 5, 10, or 20 years? Do you aspire to leadership roles, or would you prefer to be a specialist?)
               5.What are your values and priorities in a job? (Is work-life balance important to you? Do you seek financial security, creativity, or the opportunity to make a difference?)
               6.What type of work drains or energizes you? (What tasks or responsibilities feel exhausting versus those that feel exciting and fulfilling?)
-              7.What is your preferred learning style? (Do you prefer learning by doing, studying theory, or through hands-on experience? How do you like to grow professionally?)`},
+              7.What is your preferred learning style? (Do you prefer learning by doing, studying theory, or through hands-on experience? How do you like to grow professionally?)
+              Make sure to divide into 3 sections: Assesment Summary, Recommended Career paths, and Conclusion`},
             {
                 role: "user",
                 content: msgtoAI,
@@ -81,7 +93,14 @@ export function Detailedquiz() {
       });
       //debugging purposes
       console.log(completion.choices[0].message.content);
-      return completion.choices?.[0]?.message?.content ?? "An error ocurred and failed to retrived answer";;
+      if(completion.choices[0].message.content){
+        return completion.choices[0].message.content;
+      }
+      else{
+        return "An error ocurred and failed to retrived answer";
+      }
+
+     
     }
     else{
       return "Plese input an API key to proceed.";
@@ -90,19 +109,11 @@ export function Detailedquiz() {
 
   //This funtion will handle the answers submission 
   //by creating a string of the questions and their respective answers
-  function submitAnswers(){
-    let retString:string="";
-    qList.forEach((question:Question)=> 
-    retString=retString
-    .concat(question.body.substring(0,question.body.indexOf("?")+1))
-    .concat("\n")
-    .concat(question.answer)
-    .concat("\n\n"))
-    setMSG(retString);
-    //debugging purposes
-    console.log(msgtoAI);
-    APIRequest().then((report) => setReport(report));
+    function submitAnswers(){
+    APIRequest().then((report) => setReport(report.split("###").map(segment => `${segment}`)))
   }
+
+  
 
   //Pause button
   function PauseButton(){
@@ -128,7 +139,14 @@ export function Detailedquiz() {
       </FormGroup>
       ))}
       <Button disabled={!allAnswered} onClick={submitAnswers}>Submit your answers.</Button>
-      <div>{Report}</div>
+      
+      {Report.slice(1).map((segment:string,i:number) =>(
+
+        <div>
+          <h1 style={{marginBottom:-30}}>{segment.slice(0,segment.indexOf("\n"))}</h1>
+          <span  style={{whiteSpace: "break-spaces"}}>{(segment.slice(segment.indexOf("\n")))}</span>
+        </div>
+      ))}
     </div> 
     );
 }
