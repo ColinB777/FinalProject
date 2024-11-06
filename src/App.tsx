@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import {Detailedquiz} from "./Detailed"
 // import { HomeTest } from './Home';
 import {SimpleInterface} from "./simpleInterface"
-import { SecondQuestion } from './SimpleQuestions/2';
+import {SecondQuestion } from './SimpleQuestions/2';
 import{ThirdQuestion} from './SimpleQuestions/3';
 import{FourthQuestion} from './SimpleQuestions/4';
 import{FifthQuestion} from './SimpleQuestions/5';
@@ -59,11 +59,10 @@ export function App() {
       <Link to="/detailed_quiz">Detailed Career Assesment</Link>
       </Button>
 
-    
-      <Button style={{background:'white', margin:10}}>
+      <Button className = "home-btn" style={{background:'white', margin:15}}>
         <Link to="/">Home</Link>
       </Button>
-    
+
 
       <Button className = "Career-Btn" >
       <Link to="/basic_quiz">Basic Career Assesment</Link>

@@ -7,9 +7,10 @@ export function SecondQuestion(): React.JSX.Element {
     const secondAnswers = ["ex5", "ex6", "ex7", "ex8"];
     return (
         <div>
-<div><h1>Basic Assessment</h1>
-            <p>The basic career assessment is a compact, quicker version of the quiz which will allow users to get a narrowed down answer based on the preferences of the user through multiple choice.</p>
-</div>
+            <div>
+                <h1>Basic Assessment</h1>
+                <p>The basic career assessment is a compact, quicker version of the quiz which will allow users to get a narrowed down answer based on the preferences of the user through multiple choice.</p>
+            </div>
             
         <div className = 'simple_question'>     
         

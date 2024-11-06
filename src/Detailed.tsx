@@ -127,7 +127,10 @@ export function Detailedquiz() {
       <span>Current Answer={question.answer}</span>
       </FormGroup>
       ))}
+      <div className = "detailed_submit_btn" >
       <Button disabled={!allAnswered} onClick={submitAnswers}>Submit your answers.</Button>
+      </div>
+      
       <div>{Report}</div>
     </div> 
     );

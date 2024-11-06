@@ -36,7 +36,7 @@
 }
 
 .Career-Btn{
-  width:30%;
+  width:25%;
   height: 10%;
   background:white;
   margin:20px;
@@ -117,4 +117,21 @@ footer{
   position:fixed;
   top:0;
   width:100%;
+
 }
+
+.home-btn{
+  width:10%;
+  height: 10%;
+  background:red;
+  margin:20px;
+  padding:10px;
+  font-size: 22px;
+  font-weight:bold;
+  text-align: center;
+  overflow-wrap: break-word;
+  align-items: auto;
+  border-radius: 20px;
+  border:none;
+}
+
