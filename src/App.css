@@ -18,7 +18,7 @@
   height: 10%;
   background:white;
   margin:20px;
-  padding:10px;
+  padding:5px;
   font-size: 22px;
   font-weight:bold;
   text-align: center;
@@ -42,6 +42,7 @@ body{
   font-family: Helvetica, Arial, sans-serif;
   background-size:cover;
   background:#5df6a2;
+  /*background-image: url('images/detailed.jpg');*/
 }
 
 
@@ -75,7 +76,7 @@ footer{
 .page-bottom{
   padding:10px;
   height:105px;
-  position: relative;
+  position: fixed;
   font-size: 10px;
   left: 0;
   bottom: 0;
@@ -93,17 +94,17 @@ footer{
 
 #menu-bar{
   position:fixed;
-  top:0;
+  bottom:0;
   width:100%;
 
 }
 
 .home-btn{
-  width:10%;
+  width: 5%;
   height: 10%;
   background:white;
   margin:20px;
-  padding:10px;
+  padding:5px;
   font-size: 22px;
   font-weight:bold;
   text-align: center;
