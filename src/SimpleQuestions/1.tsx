@@ -3,6 +3,9 @@ import './simple.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';
 import { OpenAI } from "openai";
+import { BsArrowRightCircleFill } from "react-icons/bs";
+
+
 
 const key = localStorage.getItem("MYKEY");
 
@@ -75,8 +78,9 @@ export function SimpleInterface(): React.JSX.Element {
             <div>You have chosen: {firstAnswer}</div>
 
             <footer>
-                <Button disabled={blankQuestion} onClick={handleNextQuestion} style={{ background: 'white', margin: 10 }}>
-                    <Link to="/SimpleQuestions/SecondQuestion">Next Question</Link>
+                <Button className = "next-btn"disabled={blankQuestion} onClick={handleNextQuestion} style={{ background: 'white', margin: 10 }}>
+                    <Link to="/SimpleQuestions/SecondQuestion"> Next Question <BsArrowRightCircleFill />
+</Link>
                 </Button>
             </footer>
 

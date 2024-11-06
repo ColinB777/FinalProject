@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';
 import './simple.css';
+import { BsCheckCircleFill } from "react-icons/bs";
+
 
 export function SeventhQuestion(): React.JSX.Element {
     const [seventhAnswer, setSeventhAnswer] = useState<string>("");
@@ -39,7 +41,8 @@ export function SeventhQuestion(): React.JSX.Element {
 
                 
                 <footer> <Button disabled = {blankQuestion} style={{background:'white',margin:10}} >
-      <Link to="Results">Submit Answers</Link>
+      <Link to="Results">Submit Answers <BsCheckCircleFill />
+</Link>
       </Button></footer>
                 
                 </div>

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';
 import './simple.css';
+import { BsArrowRightCircleFill } from "react-icons/bs";
+
 export function SixthQuestion(): React.JSX.Element {
     const [sixthAnswer, setSixthAnswer] = useState<string>("");
     const sixthAnswers = ["Strongly Agree", "Agree", "Neutral", "Disagree", "Strongly Disagree"];
@@ -35,7 +37,7 @@ export function SixthQuestion(): React.JSX.Element {
                 </div>
                 <div>You have chosen: {sixthAnswer}</div>
                 <footer> <Button disabled = {blankQuestion} style={{background:'white',margin:10}} >
-      <Link to="/SimpleQuestions/SeventhQuestion">Next Question</Link>
+      <Link to="/SimpleQuestions/SeventhQuestion">Next Question <BsArrowRightCircleFill /></Link>
       </Button></footer>
                 </div>
                 
