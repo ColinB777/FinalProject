@@ -1,7 +1,7 @@
 .Question_Box{
-    background-color: #ffa0a0 ;
+    background-color: #7dbbb2 ;
     text-align: 50%;
-    margin-top: 1%;
+    margin-top: 3%;
     padding:50px;
     margin-left: 15%;
     margin-right: 15%;
@@ -12,6 +12,10 @@
 .page_bottom{
     padding:100%;
     align-items: center;
+}
+
+.detailed_submit_btn{
+    padding: 1rem;
 }
 
 
