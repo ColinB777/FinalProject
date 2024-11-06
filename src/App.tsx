@@ -19,12 +19,15 @@ let keyData = "";
 const saveKeyData = "MYKEY";
 const prevKey = localStorage.getItem(saveKeyData); //so it'll look like: MYKEY: <api_key_value here> in the local storage when you inspect
 if (prevKey !== null) {
-  keyData = prevKey;
+  keyData = JSON.parse(prevKey);
 }
+console.log(keyData);
+
 
 export function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
   // const [barState, setBar] = useState<number>(0);
+  const [buttonState, setVisible] = useState<boolean>(true);
   
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
@@ -36,6 +39,13 @@ export function App() {
   function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
     setKey(event.target.value);
   }
+
+  function hideButtons()
+  {
+    setVisible(!buttonState);
+  }
+
+
   return (
     
     <body>
@@ -46,25 +56,27 @@ export function App() {
         <hr></hr>
       </header>
 
-      {/*
-      <Button onClick={() => setBar(barState + 25)}> Increase</Button>
-      <span>{barState} </span>
+      
+      {/* <Button onClick={() => setBar(barState + 25)}> Increase</Button>
+      <span>{} </span>
       <div id="bar">
-        <div className="progress" style={{width: barState}}></div>
-      </div>
-      */}
+        <div className="progress" style={{width: barState + "%"}}></div>
+      </div> */}
+     
       <div style={{alignItems:'center'}}>
       <div className = 'menu bar'>
-      <Button className = "Career-Btn">
+        
+
+      <Button className = "Career-Btn" id="HIDE_DETAILED" hidden={buttonState} onClick={hideButtons}>
       <Link to="/detailed_quiz">Detailed Career Assesment</Link>
       </Button>
 
-      <Button className = "home-btn" style={{background:'white', margin:15}}>
+      <Button style={{background:'white', margin:10}} id="HOME" onClick={hideButtons}>
         <Link to="/">Home</Link>
       </Button>
 
 
-      <Button className = "Career-Btn" >
+      <Button className = "Career-Btn" id="HIDE_BASIC" hidden={buttonState} onClick={hideButtons}>
       <Link to="/basic_quiz">Basic Career Assesment</Link>
       </Button>
       </div>

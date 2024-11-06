@@ -4,7 +4,11 @@ import { Button, Form } from 'react-bootstrap';
 import '../simple.css';
 export function FourthQuestion(): React.JSX.Element {
     const [fourthAnswer, setFourthAnswer] = useState<string>("");
-    const fourthAnswers = ["ex13", "ex14", "ex15", "ex16"];
+    const fourthAnswers = ["Strongly Agree", "Agree", "Neutral", "Disagree", "Strongly Disagree"];
+    let blankQuestion = false;
+    if (fourthAnswer === "") {
+        blankQuestion = true 
+    }
     return (
         <div>
             <div>
@@ -12,7 +16,7 @@ export function FourthQuestion(): React.JSX.Element {
                 <p>The basic career assessment is a compact, quicker version of the quiz which will allow users to get a narrowed down answer based on the preferences of the user through multiple choice.</p>
             </div>
         <div className = "simple_question">        
-            <h4>Question 4</h4>
+            <h4>4. I enjoy interacting with people throughout my workday and thrive in social work environments.</h4>
                 {fourthAnswers.map((Answer: string, i) => (
                     <Form.Check
                         inline
@@ -30,7 +34,7 @@ export function FourthQuestion(): React.JSX.Element {
                 ))}
                 </div>
                 <div>You have chosen: {fourthAnswer}</div>
-                <footer> <Button  style={{background:'white',margin:10}} >
+                <footer> <Button disabled = {blankQuestion}  style={{background:'white',margin:10}} >
       <Link to="/SimpleQuestions/FifthQuestion">Next Question</Link>
       </Button></footer>
                 </div>

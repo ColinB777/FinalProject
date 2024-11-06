@@ -5,7 +5,11 @@ import '../simple.css';
 
 export function SeventhQuestion(): React.JSX.Element {
     const [seventhAnswer, setSeventhAnswer] = useState<string>("");
-    const seventhAnswers = ["ex17", "ex18", "ex19", "ex20"];
+    const seventhAnswers = ["Strongly Agree", "Agree", "Neutral", "Disagree", "Strongly Disagree"];
+    let blankQuestion = false;
+    if (seventhAnswer === "") {
+        blankQuestion = true 
+    }
     return (
         <div>
             <div>
@@ -13,7 +17,7 @@ export function SeventhQuestion(): React.JSX.Element {
                 <p>The basic career assessment is a compact, quicker version of the quiz which will allow users to get a narrowed down answer based on the preferences of the user through multiple choice.</p>
             </div>
         <div className = "simple_question">        
-            <h4>Question 7</h4>
+            <h4>7. I am motivated by the potential to earn a high salary and achieve financial security in my work.</h4>
                 {seventhAnswers.map((Answer: string, i) => (
                     <Form.Check
                         inline
@@ -34,8 +38,8 @@ export function SeventhQuestion(): React.JSX.Element {
                 <div>You have chosen: {seventhAnswer}</div>
 
                 
-                <footer> <Button  style={{background:'white',margin:10}} >
-      <Link to="Results">Next Question</Link>
+                <footer> <Button disabled = {blankQuestion} style={{background:'white',margin:10}} >
+      <Link to="Results">Submit Answers</Link>
       </Button></footer>
                 
                 </div>

@@ -5,7 +5,11 @@ import '../simple.css';
 
 export function ThirdQuestion(): React.JSX.Element {
     const [thirdAnswer, setThirdAnswer] = useState<string>("");
-    const thirdAnswers = ["ex9", "ex10", "ex11", "ex12"];
+    const thirdAnswers = ["Strongly Agree", "Agree", "Neutral", "Disagree", "Strongly Disagree"];
+    let blankQuestion = false;
+    if (thirdAnswer === "") {
+        blankQuestion = true 
+    }
     return (
         <div>
             <div>
@@ -13,7 +17,7 @@ export function ThirdQuestion(): React.JSX.Element {
                 <p>The basic career assessment is a compact, quicker version of the quiz which will allow users to get a narrowed down answer based on the preferences of the user through multiple choice.</p>
             </div>
         <div className = "simple_question">        
-            <h4>Question 3</h4>
+            <h4>3. I prefer jobs with clear routines and structured tasks over roles that are highly flexible or unpredictable.</h4>
                 {thirdAnswers.map((Answer: string, i) => (
                     <Form.Check
                         inline
@@ -31,7 +35,7 @@ export function ThirdQuestion(): React.JSX.Element {
                 ))}
                 </div>
                 <div>You have chosen: {thirdAnswer}</div>
-                <footer> <Button  style={{background:'white',margin:10}} >
+                <footer> <Button disabled = {blankQuestion} style={{background:'white',margin:10}} >
       <Link to="/SimpleQuestions/FourthQuestion">Next Question</Link>
       </Button></footer>
                 </div>
