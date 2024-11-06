@@ -2,7 +2,7 @@ import {useState } from "react";
 import './detailed.css';
 import { Button, Form, FormGroup } from "react-bootstrap";
 import { OpenAI } from "openai";
-
+import Confetti from "react-confetti";
 
 const key=localStorage.getItem("MYKEY");
 
@@ -55,7 +55,6 @@ export function Detailedquiz() {
     console.log(msgtoAI);
     if (key){
       const openai = new OpenAI({
-        organization: "org-EbrOwGpWn6qnLdFwzPY4qAsR",
         apiKey:JSON.parse(key),
         dangerouslyAllowBrowser: true
       });
