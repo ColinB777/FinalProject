@@ -2,7 +2,8 @@ import {useState } from "react";
 import './detailed.css';
 import { Button, Form, FormGroup } from "react-bootstrap";
 import { OpenAI } from "openai";
-
+import Confetti from "react-confetti";
+import gif from "./images/loading-gif.gif"
 
 const key=localStorage.getItem("MYKEY");
 
@@ -25,6 +26,9 @@ export function Detailedquiz() {
     {body:"6.What type of work drains or energizes you? (What tasks or responsibilities feel exhausting versus those that feel exciting and fulfilling?)",answer:""},
     {body:"7.What is your preferred learning style? (Do you prefer learning by doing, studying theory, or through hands-on experience? How do you like to grow professionally?)",answer:""}
   ]);
+
+  //Loading State that will help display loading animations
+  const [loading,setLoading]=useState<boolean>(false);
 
   //state that holds the message used in the API request
   const [msgtoAI,setMSG]=useState<string>("");
@@ -55,10 +59,11 @@ export function Detailedquiz() {
     console.log(msgtoAI);
     if (key){
       const openai = new OpenAI({
-        organization: "org-EbrOwGpWn6qnLdFwzPY4qAsR",
         apiKey:JSON.parse(key),
         dangerouslyAllowBrowser: true
       });
+      setLoading(true);
+      try{
       const completion = await openai.chat.completions.create({
         model: "gpt-4o-mini",
         messages: [
@@ -99,7 +104,10 @@ export function Detailedquiz() {
       else{
         return "An error ocurred and failed to retrived answer";
       }
-
+    }
+    finally{
+      setLoading(false);
+    }
      
     }
     else{
@@ -109,8 +117,8 @@ export function Detailedquiz() {
 
   //This funtion will handle the answers submission 
   //by creating a string of the questions and their respective answers
-    function submitAnswers(){
-    APIRequest().then((report) => setReport(report.split("###").map(segment => `${segment}`)))
+  function submitAnswers(){
+    APIRequest().then((report) => setReport(report.split("###").map(segment => `${segment}`)));
   }
 
   
@@ -123,10 +131,12 @@ export function Detailedquiz() {
     //displays the questions and a text input box to each to answer them 
     //using map function
     return(<div>
+      {(allAnswered) ? <Confetti height={3.1*window.outerHeight} gravity={.7}  numberOfPieces={200}></Confetti> : null}
       <h1>Detailed Quiz</h1>
       <Button onClick={PauseButton}>Pause</Button>
 
       {qList.map((question:Question,i:number) =>(
+      
       <FormGroup className="Question_Box">
         <h5>{question.body}</h5>
       <div className = "text_area">
@@ -140,9 +150,9 @@ export function Detailedquiz() {
       ))}
       <div className = "detailed_submit_btn" >
       <Button disabled={!allAnswered} onClick={submitAnswers}>Submit your answers.</Button>
+      {(loading) && <h1><div>Processing your answers and generating Assesment</div><img src={gif} alt="loading..." /></h1>}
       
       {Report.slice(1).map((segment:string,i:number) =>(
-
         <div>
           <h1 style={{marginBottom:-30}}>{segment.slice(0,segment.indexOf("\n"))}</h1>
           <span  style={{whiteSpace: "break-spaces"}}>{(segment.slice(segment.indexOf("\n")))}</span>
