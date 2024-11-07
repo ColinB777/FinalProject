@@ -3,6 +3,7 @@ import './detailed.css';
 import { Button, Form, FormGroup } from "react-bootstrap";
 import { OpenAI } from "openai";
 import Confetti from "react-confetti";
+import gif from "./images/loading-gif.gif"
 
 const key=localStorage.getItem("MYKEY");
 
@@ -149,10 +150,9 @@ export function Detailedquiz() {
       ))}
       <div className = "detailed_submit_btn" >
       <Button disabled={!allAnswered} onClick={submitAnswers}>Submit your answers.</Button>
-      {(loading) && <h1>Loading</h1>}
+      {(loading) && <h1><div>Processing your answers and generating Assesment</div><img src={gif} alt="loading..." /></h1>}
       
       {Report.slice(1).map((segment:string,i:number) =>(
-
         <div>
           <h1 style={{marginBottom:-30}}>{segment.slice(0,segment.indexOf("\n"))}</h1>
           <span  style={{whiteSpace: "break-spaces"}}>{(segment.slice(segment.indexOf("\n")))}</span>
