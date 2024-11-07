@@ -219,10 +219,10 @@ go away.[0m
 ----------------------|---------|----------|---------|---------|-------------------
 File                  | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ----------------------|---------|----------|---------|---------|-------------------
-All files             |    7.51 |     3.33 |    2.08 |    7.87 |                   
- src                  |   14.28 |     7.14 |    4.34 |   15.25 |                   
+All files             |    7.29 |     2.94 |    2.08 |    7.63 |                   
+ src                  |   13.43 |     5.55 |    4.34 |   14.28 |                   
   App.tsx             |   61.53 |       50 |      25 |   61.53 | 24,36-47          
-  Detailed.tsx        |    3.33 |        0 |       0 |    3.84 | 19-146            
+  Detailed.tsx        |    2.94 |        0 |       0 |    3.33 | 20-156            
   Home.tsx            |       0 |      100 |       0 |       0 | 3                 
   index.tsx           |       0 |      100 |     100 |       0 | 7-19              
   reportWebVitals.ts  |       0 |        0 |       0 |       0 | 3-10              
@@ -239,5 +239,5 @@ All files             |    7.51 |     3.33 |    2.08 |    7.87 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.388 s
+Time:        3.551 s
 Ran all test suites.
