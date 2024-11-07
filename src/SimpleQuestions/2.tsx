@@ -1,48 +1,44 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Button, Form } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+import { Form, Button } from 'react-bootstrap';
 import './simple.css';
-export function SecondQuestion(): React.JSX.Element {
-    const [secondAnswer, setSecondAnswer] = useState<string>("");
-    const secondAnswers = ["Strongly Agree", "Agree", "Neutral", "Disagree", "Strongly Disagree"];
-    let blankQuestion = false;
-    if (secondAnswer === "") {
-        blankQuestion = true 
-    }
-    return (      
-            
-        <div>
-<div><h1>Basic Assessment</h1>
-            <p>The basic career assessment is a compact, quicker version of the quiz which will allow users to get a narrowed down answer based on the preferences of the user through multiple choice.</p>
-</div>
 
-        <div className = 'simple_question'>     
-        
-           
-        <h4>2. I am comfortable taking on leadership roles and making important decisions in a team.</h4>
-                {secondAnswers.map((Answer: string, i) => (
-                    <Form.Check
-                        inline
-                        key={`second-${i}`}
-                        type="radio"
-                        name="secondAnswer"
-                        label={Answer}
-                        onChange={(e) => {
-                            setSecondAnswer(e.target.value);
-                        }}
-                        checked={secondAnswer === Answer}
-                        value={Answer}
-                        style={{ display: "flex", paddingLeft:"40%"}}
-                    />
-                ))}
+type QuestionProps = {
+    responses: { [key: string]: string };
+    setResponses: React.Dispatch<React.SetStateAction<{ [key: string]: string }>>;
+};
 
-                </div>
-                <div>You have chosen: {secondAnswer}</div>
-                
-                <footer> <Button disabled={blankQuestion} style={{background:'white',margin:10}} >
-      <Link to="/SimpleQuestions/ThirdQuestion">Next Question</Link>
-      </Button></footer>
+export default function Question2({ responses, setResponses }: QuestionProps): React.JSX.Element {
+    const [answer, setAnswer] = useState<string>("");
+    const navigate = useNavigate();
 
-                </div>
-            );
+    const options = ["Strongly Agree", "Agree", "Neutral", "Disagree", "Strongly Disagree"];
+    const blankQuestion = !answer;
+
+    const handleNext = () => {
+        setResponses(prev => ({ ...prev, question2: "I am comfortable taking on leadership roles and making important decisions in a team. " + answer }));
+        navigate("/SimpleQuestions/Question3");
+    };
+
+    return (
+        <div className="question-container">
+            <h4>2. I am comfortable taking on leadership roles and making important decisions in a team.</h4>
+            {options.map((option, i) => (
+                <Form.Check
+                    inline
+                    key={i}
+                    type="radio"
+                    name="question2"
+                    label={option}
+                    onChange={(e) => setAnswer(e.target.value)}
+                    checked={answer === option}
+                    value={option}
+                    aria-label={`option-${i}`}
+                />
+            ))}
+            <Button disabled={blankQuestion} onClick={handleNext} className="next-button">
+                Next
+            </Button>
+        </div>
+    );
 }
