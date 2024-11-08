@@ -43,6 +43,7 @@ export function App() {
   function hideButtons()
   {
     setVisible(!buttonState);
+    localStorage.setItem('barProg', '0');
   }
 
 
@@ -93,7 +94,7 @@ export function App() {
       </Routes>
     </Router>
 
-    <div className = "page-bottom">
+    <div className = "page-bottom" style={{height: 50}}>
     {/*<footer>Colin Barry,Matias Sayanes,Samuel Zheng,Derek Johnson</footer>*/}
 
     <Form>

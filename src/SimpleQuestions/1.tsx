@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './simple.css';
+import './SimpleQuestions/simple.css';
+import './progressBar.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';
 import { OpenAI } from "openai";

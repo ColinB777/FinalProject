@@ -21,6 +21,9 @@ export function SecondQuestion(): React.JSX.Element {
         
            
         <h4>2. I am comfortable taking on leadership roles and making important decisions in a team.</h4>
+        <div className='progressBorder'>
+            <div className='progressBar' style={{width: localStorage.getItem('barProg') + "%"}}></div>
+        </div>
                 {secondAnswers.map((Answer: string, i) => (
                     <Form.Check
                         inline
