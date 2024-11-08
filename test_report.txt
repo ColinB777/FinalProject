@@ -5,7 +5,7 @@
   console.log
 
 
-      at Object.<anonymous> (src/App.tsx:26:9)
+      at Object.<anonymous> (src/App.tsx:28:9)
 
   console.warn
     No routes matched location "/"
@@ -44,7 +44,7 @@
   console.error
     Warning: validateDOMNesting(...): <body> cannot appear as a child of <div>.
         at body
-        at App (/home/runner/work/FinalProject/FinalProject/src/App.tsx:30:33)
+        at App (/home/runner/work/FinalProject/FinalProject/src/App.tsx:32:33)
 
       4 |
       5 | test('renders learn react link', () => {
@@ -76,7 +76,7 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (113 ms)
+  ✕ renders learn react link (107 ms)
 
   ● renders learn react link
 
@@ -87,19 +87,34 @@ FAIL src/App.test.tsx
       [36m<div>[39m
         [36m<body>[39m
           [36m<div>[39m
-            [36m<header[39m
-              [33mclass[39m=[32m"title-header"[39m
-            [36m>[39m
-              [36m<h1>[39m
-                [0mCareer Helpi[0m
+            [36m<header>[39m
+              [36m<h1[39m
+                [33mclass[39m=[32m"title-header"[39m
+              [36m>[39m
+                [36m<svg[39m
+                  [33mfill[39m=[32m"currentColor"[39m
+                  [33mheight[39m=[32m"1em"[39m
+                  [33mstroke[39m=[32m"currentColor"[39m
+                  [33mstroke-width[39m=[32m"0"[39m
+                  [33mviewBox[39m=[32m"0 0 16 16"[39m
+                  [33mwidth[39m=[32m"1em"[39m
+                  [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                [36m>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M4.5 12a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5zm3 0a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5zm3 0a.5.5 0 0 1-.5-.5v-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-.5.5z"[39m
+                  [36m/>[39m
+                  [36m<path[39m
+                    [33md[39m=[32m"M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1"[39m
+                  [36m/>[39m
+                [36m</svg>[39m
+                [0m Career Helpi [0m
               [36m</h1>[39m
-              [36m<hr />[39m
             [36m</header>[39m
             [36m<div[39m
               [33mstyle[39m=[32m"align-items: center;"[39m
             [36m>[39m
               [36m<div[39m
-                [33mclass[39m=[32m"menu bar"[39m
+                [33mclass[39m=[32m"menu-bar"[39m
               [36m>[39m
                 [36m<button[39m
                   [33mclass[39m=[32m"Career-Btn btn btn-primary"[39m
@@ -151,8 +166,6 @@ FAIL src/App.test.tsx
                   [36m</a>[39m
                 [36m</button>[39m
               [36m</div>[39m
-              [36m<p />[39m
-              [36m<hr />[39m
             [36m</div>[39m
             [36m<div[39m
               [33mclass[39m=[32m"page-bottom"[39m
@@ -221,23 +234,23 @@ File                  | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line 
 ----------------------|---------|----------|---------|---------|-------------------
 All files             |    7.29 |     2.94 |    2.08 |    7.63 |                   
  src                  |   13.43 |     5.55 |    4.34 |   14.28 |                   
-  App.tsx             |   61.53 |       50 |      25 |   61.53 | 24,36-47          
+  App.tsx             |   61.53 |       50 |      25 |   61.53 | 26,38-49          
   Detailed.tsx        |    2.94 |        0 |       0 |    3.33 | 20-157            
   Home.tsx            |       0 |      100 |       0 |       0 | 3                 
   index.tsx           |       0 |      100 |     100 |       0 | 7-19              
   reportWebVitals.ts  |       0 |        0 |       0 |       0 | 3-10              
-  simpleInterface.tsx |       0 |        0 |       0 |       0 | 8-30              
+  simpleInterface.tsx |       0 |        0 |       0 |       0 | 10-32             
  src/SimpleQuestions  |    1.42 |        0 |       0 |    1.47 |                   
-  1.tsx               |    4.54 |        0 |       0 |       5 | 10-67             
-  2.tsx               |       0 |        0 |       0 |       0 | 6-32              
-  3.tsx               |       0 |        0 |       0 |       0 | 7-29              
-  4.tsx               |       0 |        0 |       0 |       0 | 6-28              
-  5.tsx               |       0 |        0 |       0 |       0 | 7-29              
-  6.tsx               |       0 |        0 |       0 |       0 | 6-28              
-  7.tsx               |       0 |        0 |       0 |       0 | 7-29              
+  1.tsx               |    4.54 |        0 |       0 |       5 | 13-70             
+  2.tsx               |       0 |        0 |       0 |       0 | 10-36             
+  3.tsx               |       0 |        0 |       0 |       0 | 9-31              
+  4.tsx               |       0 |        0 |       0 |       0 | 8-30              
+  5.tsx               |       0 |        0 |       0 |       0 | 8-30              
+  6.tsx               |       0 |        0 |       0 |       0 | 8-30              
+  7.tsx               |       0 |        0 |       0 |       0 | 9-31              
 ----------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.555 s
+Time:        3.455 s
 Ran all test suites.
