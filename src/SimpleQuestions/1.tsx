@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import './simple.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';
-import { OpenAI } from "openai";
-import { BsArrowRightCircleFill } from "react-icons/bs";
+
 
 
 
