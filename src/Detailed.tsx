@@ -5,7 +5,7 @@ import { OpenAI } from "openai";
 import Confetti from "react-confetti";
 import gif from "./images/loading-gif.gif"
 
-const key=localStorage.getItem("MYKEY");
+
 
 
 export function Detailedquiz() {
@@ -57,6 +57,7 @@ export function Detailedquiz() {
   //This will submit the API Request and get the assesment if succesful
   async function APIRequest(){
     console.log(msgtoAI);
+    const key =localStorage.getItem("MYKEY");
     if (key){
       const openai = new OpenAI({
         apiKey:JSON.parse(key),
