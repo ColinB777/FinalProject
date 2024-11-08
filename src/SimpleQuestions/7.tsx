@@ -1,50 +1,41 @@
+// Question7.tsx
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Button, Form } from 'react-bootstrap';
-import './simple.css';
-import { BsCheckCircleFill } from "react-icons/bs";
+import { useNavigate } from 'react-router-dom';
+import { Form, Button } from 'react-bootstrap';
 
 
-export function SeventhQuestion(): React.JSX.Element {
-    const [seventhAnswer, setSeventhAnswer] = useState<string>("");
-    const seventhAnswers = ["Strongly Agree", "Agree", "Neutral", "Disagree", "Strongly Disagree"];
-    let blankQuestion = false;
-    if (seventhAnswer === "") {
-        blankQuestion = true 
-    }
+type QuestionProps = {
+    responses: { [key: string]: string };
+    setResponses: React.Dispatch<React.SetStateAction<{ [key: string]: string }>>;
+};
+
+export default function Question7({ responses, setResponses }: QuestionProps): React.JSX.Element {
+    const [answer, setAnswer] = useState<string>("");
+    const options = ["Strongly Agree", "Agree", "Neutral", "Disagree", "Strongly Disagree"];
+    const navigate = useNavigate();
+
+    const handleFinish = async () => {
+        setResponses(prev => ({ ...prev, question7: "I am motivated by the potential to earn a high salary and achieve financial security in my work. "+ answer }));
+        navigate("/SimpleQuestions/Results")
+
+    };
+
     return (
         <div>
-            <div>
-                <h1>Basic Assessment</h1>
-                <p>The basic career assessment is a compact, quicker version of the quiz which will allow users to get a narrowed down answer based on the preferences of the user through multiple choice.</p>
-            </div>
-        <div className = "simple_question">        
-            <h4 style = {{fontWeight:'bold',paddingBottom:10}}>7. I am motivated by the potential to earn a high salary and achieve financial security in my work.</h4>
-                {seventhAnswers.map((Answer: string, i) => (
-                    <Form.Check
-                        inline
-                        key={`seventh-${i}`}
-                        type="radio"
-                        name="seventhAnswer"
-                        label={Answer}
-                        onChange={(e) => {
-                            setSeventhAnswer(e.target.value);
-                        }}
-                        checked={seventhAnswer === Answer}
-                        value={Answer}
-                        style={{ display: "flex", paddingLeft:"40%"}}
-                    />
-                ))}
-               
-                </div>
-                <div>You have chosen: {seventhAnswer}</div>
-
-                
-                <footer> <Button className = "next-btn" disabled = {blankQuestion} style={{background:'white',margin:10}} >
-      <Link to="Results">Submit Answers <BsCheckCircleFill />
-</Link>
-      </Button></footer>
-                
-                </div>
-            );
+            <h4>7. I am motivated by the potential to earn a high salary and achieve financial security in my work. </h4>
+            {options.map((option, i) => (
+                <Form.Check
+                    inline
+                    key={i}
+                    type="radio"
+                    name="question7"
+                    label={option}
+                    onChange={(e) => setAnswer(e.target.value)}
+                    checked={answer === option}
+                    value={option}
+                />
+            ))}
+            <Button disabled={!answer} onClick={handleFinish}>Get Career Assessment</Button>
+        </div>
+    );
 }
