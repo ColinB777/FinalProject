@@ -149,7 +149,7 @@ export function Detailedquiz() {
       </FormGroup>
       ))}
       <div className = "detailed_submit_btn" >
-      <Button disabled={!allAnswered} onClick={submitAnswers}>Submit your answers.</Button>
+      <Button disabled={!allAnswered || loading} onClick={submitAnswers}>Submit your answers.</Button>
       </div>
       {(loading) && <h1><div>Processing your answers and generating Assesment</div><img src={gif} alt="loading..." /></h1>}
       
