@@ -13,6 +13,12 @@ import Question5 from './SimpleQuestions/5';
 import Question6 from './SimpleQuestions/6';
 import Question7 from './SimpleQuestions/7';
 
+import { BsFillHouseFill } from "react-icons/bs";
+import { BsFileBarGraph } from "react-icons/bs";
+
+
+
+//local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
 const saveKeyData = "MYKEY";
 const prevKey = localStorage.getItem(saveKeyData); //so it'll look like: MYKEY: <api_key_value here> in the local storage when you inspect
@@ -43,18 +49,26 @@ export function App() {
 
   return (
     <body>
-      <div className="App">
-        <Router> 
-          <header className="App">
-            <h1>Career Helpi</h1>
-            <hr />
-          </header>
+    <div>
 
-          <div style={{ alignItems: 'center' }}>
-            <div className='menu bar'>
-              <Button className="Career-Btn" id="HIDE_DETAILED" hidden={buttonState} onClick={hideButtons}>
-                <Link to="/detailed_quiz">Detailed Career Assessment</Link>
-              </Button>
+    <Router> 
+      <header>
+      
+        <h1 className = "title-header"><BsFileBarGraph /> Career Helpi </h1>
+      </header>
+
+      
+      {/* <Button onClick={() => setBar(barState + 25)}> Increase</Button>
+      <span>{} </span>
+      <div id="bar">
+        <div className="progress" style={{width: barState + "%"}}></div>
+      </div> */}
+     
+      <div style={{alignItems:'center'}}>
+
+
+      <div className = 'menu-bar'>
+        
 
               <Button style={{ background: 'white', margin: 10 }} id="HOME" onClick={hideButtons}>
                 <Link to="/">Home</Link>

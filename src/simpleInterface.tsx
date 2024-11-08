@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './simple.css';
 import { Link } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';
+import { BsArrowRightCircleFill } from "react-icons/bs";
+
 
 
 export function SimpleInterface(): React.JSX.Element {

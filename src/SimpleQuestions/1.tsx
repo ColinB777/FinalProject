@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Form, Button } from 'react-bootstrap';
-import './simple.css'
+import './simple.css';
+import { Link, useNavigate } from 'react-router-dom';
+import { Button, Form } from 'react-bootstrap';
+import { OpenAI } from "openai";
+import { BsArrowRightCircleFill } from "react-icons/bs";
+
+
 
 type QuestionProps = {
     responses: { [key: string]: string };

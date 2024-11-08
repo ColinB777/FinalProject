@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
 import './simple.css';
+import { BsArrowRightCircleFill } from "react-icons/bs";
+
 
 type QuestionProps = {
     responses: { [key: string]: string };
