@@ -61,6 +61,7 @@ footer{
 .page-bottom{
   padding:10px;
   height:105px;
+  /* position: fixed; */
   /*position: fixed;*/
   font-size: 10px;
   left: 0;
