@@ -12,6 +12,8 @@ import{FifthQuestion} from './SimpleQuestions/5';
 import{SixthQuestion} from './SimpleQuestions/6';
 import { SeventhQuestion } from './SimpleQuestions/7';
 
+import { BsFillHouseFill } from "react-icons/bs";
+
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -47,9 +49,9 @@ export function App() {
   return (
     
     <body>
-    <div className="App">
+    <div>
     <Router> 
-      <header className="App">
+      <header className = "title-header">
         <h1>Career Helpi</h1>
         <hr></hr>
       </header>
@@ -61,19 +63,21 @@ export function App() {
       <div className = 'menu bar'>
         
 
-      <Button className = "Career-Btn" id="HIDE_DETAILED" hidden={buttonState} onClick={hideButtons}>
+      <Button className = "Career-Btn" hidden={buttonState} onClick={hideButtons}>
       <Link to="/detailed_quiz">Detailed Career Assesment</Link>
       </Button>
 
-      <Button style={{background:'white', margin:10}} id="HOME" onClick={hideButtons}>
-        <Link to="/">Home</Link>
+      <Button className = "home-btn" id="HOME" onClick={hideButtons}>
+        <Link to="/"><BsFillHouseFill /></Link>
       </Button>
-    
+
 
       <Button className = "Career-Btn" id="HIDE_BASIC" hidden={buttonState} onClick={hideButtons}>
       <Link to="/basic_quiz">Basic Career Assesment</Link>
       </Button>
+
       </div>
+      <p></p>
 <hr></hr>
       </div>
 
