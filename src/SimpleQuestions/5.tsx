@@ -1,45 +1,45 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Button, Form } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+import { Form, Button } from 'react-bootstrap';
 import './simple.css';
 import { BsArrowRightCircleFill } from "react-icons/bs";
 
-export function FifthQuestion(): React.JSX.Element {
-    const [fifthAnswer, setFifthAnswer] = useState<string>("");
-    const fourthAnswers = ["Strongly Agree", "Agree", "Neutral", "Disagree", "Strongly Disagree"];
-    let blankQuestion = false;
-    if (fifthAnswer === "") {
-        blankQuestion = true 
-    }
+type QuestionProps = {
+    responses: { [key: string]: string };
+    setResponses: React.Dispatch<React.SetStateAction<{ [key: string]: string }>>;
+};
+
+export default function Question5({ responses, setResponses }: QuestionProps): React.JSX.Element {
+    const [answer, setAnswer] = useState<string>("");
+    const navigate = useNavigate();
+
+    const options = ["Strongly Agree", "Agree", "Neutral", "Disagree", "Strongly Disagree"];
+    const blankQuestion = !answer;
+
+    const handleNext = () => {
+        setResponses(prev => ({ ...prev, question5: "It’s important to me to have a job that allows me to see tangible results from my efforts. " + answer }));
+        navigate("/SimpleQuestions/Question6");
+    };
+
     return (
-        <div>
-            <div>
-                <h1>Basic Assessment</h1>
-                <p>The basic career assessment is a compact, quicker version of the quiz which will allow users to get a narrowed down answer based on the preferences of the user through multiple choice.</p>
-            </div>
-        <div className = "simple_question">        
-            <h4 style = {{fontWeight:'bold',paddingBottom:10}}>5. It’s important to me to have a job that allows me to see tangible results from my efforts.</h4>
-                {fourthAnswers.map((Answer: string, i) => (
-                    <Form.Check
-                        inline
-                        key={`fifth-${i}`}
-                        type="radio"
-                        name="fifthAnswer"
-                        label={Answer}
-                        onChange={(e) => {
-                            setFifthAnswer(e.target.value);
-                        }}
-                        checked={fifthAnswer === Answer}
-                        value={Answer}
-                        style={{ display: "flex", paddingLeft:"40%"}}
-                    />
-                ))}
-                </div>
-                <div>You have chosen: {fifthAnswer}</div>
-                <footer> <Button className = "next-btn" disabled = {blankQuestion} style={{background:'white',margin:10}} >
-      <Link to="/SimpleQuestions/SixthQuestion">Next Question <BsArrowRightCircleFill /></Link>
-      </Button></footer>
-                </div>
-                
-            );
+        <div className="question-container">
+            <h4>5. It’s important to me to have a job that allows me to see tangible results from my efforts.</h4>
+            {options.map((option, i) => (
+                <Form.Check
+                    inline
+                    key={i}
+                    type="radio"
+                    name="question5"
+                    label={option}
+                    onChange={(e) => setAnswer(e.target.value)}
+                    checked={answer === option}
+                    value={option}
+                    aria-label={`option-${i}`}
+                />
+            ))}
+            <Button disabled={blankQuestion} onClick={handleNext} className="next-button">
+                Next
+            </Button>
+        </div>
+    );
 }
