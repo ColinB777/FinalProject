@@ -150,6 +150,7 @@ export function Detailedquiz() {
       ))}
       <div className = "detailed_submit_btn" >
       <Button disabled={!allAnswered} onClick={submitAnswers}>Submit your answers.</Button>
+      </div>
       {(loading) && <h1><div>Processing your answers and generating Assesment</div><img src={gif} alt="loading..." /></h1>}
       
       {Report.slice(1).map((segment:string,i:number) =>(
@@ -158,7 +159,7 @@ export function Detailedquiz() {
           <span  style={{whiteSpace: "break-spaces"}}>{(segment.slice(segment.indexOf("\n")))}</span>
         </div>
       ))}
-    </div> 
+    
     </div>
     );
 }
