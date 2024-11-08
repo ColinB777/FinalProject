@@ -12,6 +12,11 @@ import Question4 from './SimpleQuestions/4';
 import Question5 from './SimpleQuestions/5';
 import Question6 from './SimpleQuestions/6';
 import Question7 from './SimpleQuestions/7';
+import {Detailedquiz} from "./Detailed"
+// import { HomeTest } from './Home';
+
+
+import { BsFillHouseFill } from "react-icons/bs";
 
 let keyData = "";
 const saveKeyData = "MYKEY";
@@ -49,6 +54,12 @@ export function App() {
             <h1>Career Helpi</h1>
             <hr />
           </header>
+    <div>
+    <Router> 
+      <header className = "title-header">
+        <h1>Career Helpi</h1>
+        <hr></hr>
+      </header>
 
           <div style={{ alignItems: 'center' }}>
             <div className='menu bar'>
@@ -56,18 +67,25 @@ export function App() {
                 <Link to="/detailed_quiz">Detailed Career Assessment</Link>
               </Button>
 
-              <Button style={{ background: 'white', margin: 10 }} id="HOME" onClick={hideButtons}>
-                <Link to="/">Home</Link>
-              </Button>
+      <Button className = "Career-Btn" hidden={buttonState} onClick={hideButtons}>
+      <Link to="/detailed_quiz">Detailed Career Assesment</Link>
+      </Button>
 
-              <Button className="Career-Btn" id="HIDE_BASIC" hidden={buttonState} onClick={hideButtons}>
-                <Link to="/basic_quiz">Basic Career Assessment</Link>
-              </Button>
-            </div>
-            <hr />
-          </div>
+      <Button className = "home-btn" id="HOME" onClick={hideButtons}>
+        <Link to="/"><BsFillHouseFill /></Link>
+      </Button>
 
-          <Routes>
+
+      <Button className = "Career-Btn" id="HIDE_BASIC" hidden={buttonState} onClick={hideButtons}>
+      <Link to="/basic_quiz">Basic Career Assesment</Link>
+      </Button>
+
+      </div>
+      <p></p>
+<hr></hr>
+      </div>
+
+      <Routes>
           <Route path="/detailed_quiz" element={<Detailedquiz />} />
             <Route path="/basic_quiz" element={<Question1 responses={responses} setResponses={setResponses} />} />
             <Route path="/SimpleQuestions/Question2" element={<Question2 responses={responses} setResponses={setResponses} />} />
@@ -80,15 +98,18 @@ export function App() {
           </Routes>
         </Router>
 
-        <div className="page-bottom">
-          <Form>
-            <Form.Label style={{ fontSize: 10 }}>API Key:</Form.Label>
-            <Form.Control style={{ width: 300, fontSize: 10 }} type="password" placeholder="Insert API Key Here" onChange={changeKey} />
-            <br />
-            <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
-          </Form>
-        </div>
+    <div className = "page-bottom">
+    {/*<footer>Colin Barry,Matias Sayanes,Samuel Zheng,Derek Johnson</footer>*/}
+
+    <Form>
+        <Form.Label style = {{fontSize:10}}>API Key:</Form.Label>
+        <Form.Control style = {{width:300, fontSize:10}}type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
+        <br></br>
+        <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
+      </Form>
       </div>
+
+    </div>
     </body>
   );
 }
