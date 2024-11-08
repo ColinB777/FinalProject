@@ -14,6 +14,8 @@ import{SixthQuestion} from './SimpleQuestions/6';
 import { SeventhQuestion } from './SimpleQuestions/7';
 
 import { BsFillHouseFill } from "react-icons/bs";
+import { BsFileBarGraph } from "react-icons/bs";
+
 
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
@@ -52,10 +54,11 @@ export function App() {
     
     <body>
     <div>
+
     <Router> 
-      <header className = "title-header">
-        <h1>Career Helpi</h1>
-        <hr></hr>
+      <header>
+      
+        <h1 className = "title-header"><BsFileBarGraph /> Career Helpi </h1>
       </header>
 
       
@@ -66,7 +69,9 @@ export function App() {
       </div> */}
      
       <div style={{alignItems:'center'}}>
-      <div className = 'menu bar'>
+
+
+      <div className = 'menu-bar'>
         
 
       <Button className = "Career-Btn" hidden={buttonState} onClick={hideButtons}>
@@ -83,8 +88,8 @@ export function App() {
       </Button>
 
       </div>
-      <p></p>
-<hr></hr>
+
+
       </div>
 
       <Routes>
@@ -109,6 +114,8 @@ export function App() {
         <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
       </Form>
       </div>
+
+
 
     </div>
     </body>

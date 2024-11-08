@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';
 import './simple.css';
+import { BsArrowRightCircleFill } from "react-icons/bs";
+
 
 export function ThirdQuestion(): React.JSX.Element {
     const [thirdAnswer, setThirdAnswer] = useState<string>("");
@@ -17,7 +19,7 @@ export function ThirdQuestion(): React.JSX.Element {
                 <p>The basic career assessment is a compact, quicker version of the quiz which will allow users to get a narrowed down answer based on the preferences of the user through multiple choice.</p>
             </div>
         <div className = "simple_question">        
-            <h4>3. I prefer jobs with clear routines and structured tasks over roles that are highly flexible or unpredictable.</h4>
+            <h4 style = {{fontWeight:'bold',paddingBottom:10}}>3. I prefer jobs with clear routines and structured tasks over roles that are highly flexible or unpredictable.</h4>
                 {thirdAnswers.map((Answer: string, i) => (
                     <Form.Check
                         inline
@@ -35,8 +37,8 @@ export function ThirdQuestion(): React.JSX.Element {
                 ))}
                 </div>
                 <div>You have chosen: {thirdAnswer}</div>
-                <footer> <Button disabled = {blankQuestion} style={{background:'white',margin:10}} >
-      <Link to="/SimpleQuestions/FourthQuestion">Next Question</Link>
+                <footer> <Button className = "next-btn" disabled = {blankQuestion} style={{background:'white',margin:10}} >
+      <Link to="/SimpleQuestions/FourthQuestion">Next Question <BsArrowRightCircleFill /></Link>
       </Button></footer>
                 </div>
                 

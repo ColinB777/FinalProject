@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';
 import './simple.css';
+import { BsArrowRightCircleFill } from "react-icons/bs";
+
 export function FourthQuestion(): React.JSX.Element {
     const [fourthAnswer, setFourthAnswer] = useState<string>("");
     const fourthAnswers = ["Strongly Agree", "Agree", "Neutral", "Disagree", "Strongly Disagree"];
@@ -16,7 +18,7 @@ export function FourthQuestion(): React.JSX.Element {
                 <p>The basic career assessment is a compact, quicker version of the quiz which will allow users to get a narrowed down answer based on the preferences of the user through multiple choice.</p>
             </div>
         <div className = "simple_question">        
-            <h4>4. I enjoy interacting with people throughout my workday and thrive in social work environments.</h4>
+            <h4 style = {{fontWeight:'bold',paddingBottom:10}}>4. I enjoy interacting with people throughout my workday and thrive in social work environments.</h4>
                 {fourthAnswers.map((Answer: string, i) => (
                     <Form.Check
                         inline
@@ -34,8 +36,8 @@ export function FourthQuestion(): React.JSX.Element {
                 ))}
                 </div>
                 <div>You have chosen: {fourthAnswer}</div>
-                <footer> <Button disabled = {blankQuestion}  style={{background:'white',margin:10}} >
-      <Link to="/SimpleQuestions/FifthQuestion">Next Question</Link>
+                <footer> <Button className = "next-btn" disabled = {blankQuestion}  style={{background:'white',margin:10}} >
+      <Link to="/SimpleQuestions/FifthQuestion">Next Question <BsArrowRightCircleFill /></Link>
       </Button></footer>
                 </div>
                 
