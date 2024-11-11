@@ -5,7 +5,7 @@
   console.log
 
 
-      at Object.<anonymous> (src/App.tsx:30:9)
+      at Object.<anonymous> (src/App.tsx:29:9)
 
   console.warn
     No routes matched location "/"
@@ -44,7 +44,7 @@
   console.error
     Warning: validateDOMNesting(...): <body> cannot appear as a child of <div>.
         at body
-        at App (/home/runner/work/FinalProject/FinalProject/src/App.tsx:34:33)
+        at App (/home/runner/work/FinalProject/FinalProject/src/App.tsx:33:33)
 
       4 |
       5 | test('renders learn react link', () => {
@@ -76,7 +76,7 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (111 ms)
+  ✕ renders learn react link (110 ms)
 
   ● renders learn react link
 
@@ -169,6 +169,7 @@ FAIL src/App.test.tsx
             [36m</div>[39m
             [36m<div[39m
               [33mclass[39m=[32m"page-bottom"[39m
+              [33mstyle[39m=[32m"height: 50px;"[39m
             [36m>[39m
               [36m<form[39m
                 [33mclass[39m=[32m""[39m
@@ -217,26 +218,13 @@ FAIL src/App.test.tsx
       at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
-[0;33mOne of your dependencies, babel-preset-react-app, is importing the
-"@babel/plugin-proposal-private-property-in-object" package without
-declaring it in its dependencies. This is currently working because
-"@babel/plugin-proposal-private-property-in-object" is already in your
-node_modules folder for unrelated reasons, but it [1mmay break at any time[0;33m.
-
-babel-preset-react-app is part of the create-react-app project, [1mwhich
-is not maintianed anymore[0;33m. It is thus unlikely that this bug will
-ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
-your devDependencies to work around this error. This will make this message
-go away.[0m
-  
 ---------------------|---------|----------|---------|---------|-------------------
 File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ---------------------|---------|----------|---------|---------|-------------------
-All files            |    6.53 |        5 |    1.69 |    7.04 |                   
- src                 |   16.66 |     6.25 |       5 |   17.85 |                   
-  App.tsx            |   64.28 |       50 |      25 |   64.28 | 28,41-52          
+All files            |    6.53 |        5 |    1.72 |    7.04 |                   
+ src                 |   16.66 |     6.25 |    5.26 |   17.85 |                   
+  App.tsx            |      60 |       50 |      25 |      60 | 27,39-51          
   Detailed.tsx       |    2.94 |        0 |       0 |    3.33 | 20-157            
-  Home.tsx           |       0 |      100 |       0 |       0 | 3                 
   index.tsx          |       0 |      100 |     100 |       0 | 7-19              
   reportWebVitals.ts |       0 |        0 |       0 |       0 | 3-10              
  src/SimpleQuestions |       0 |        0 |       0 |       0 |                   
@@ -252,5 +240,17 @@ All files            |    6.53 |        5 |    1.69 |    7.04 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.346 s
+Time:        3.25 s
 Ran all test suites.
+[0;33mOne of your dependencies, babel-preset-react-app, is importing the
+"@babel/plugin-proposal-private-property-in-object" package without
+declaring it in its dependencies. This is currently working because
+"@babel/plugin-proposal-private-property-in-object" is already in your
+node_modules folder for unrelated reasons, but it [1mmay break at any time[0;33m.
+
+babel-preset-react-app is part of the create-react-app project, [1mwhich
+is not maintianed anymore[0;33m. It is thus unlikely that this bug will
+ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
+your devDependencies to work around this error. This will make this message
+go away.[0m
+  
