@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import './progressBar.css'
-import { Button, Form} from 'react-bootstrap';
+import { Button, Container, Form} from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import {Detailedquiz} from "./Detailed"
 import { Question1 } from "./SimpleQuestions/1";
@@ -15,6 +15,9 @@ import { Results } from './SimpleQuestions/Results';
 
 import { BsFillHouseFill } from "react-icons/bs";
 import { BsFileBarGraph } from "react-icons/bs";
+
+import TypewriterComponent from './Typewriter';
+
 
 
 
@@ -55,8 +58,9 @@ export function App() {
   return (
     
     <body>
+      <Container className = "app_container">
+      <BsFileBarGraph className = "logo"/> 
     <div>
-
     <Router> 
       <header>
       
@@ -86,6 +90,32 @@ export function App() {
       </Button>
 
       </div>
+
+      <div id = "Typewriter">
+      <TypewriterComponent />
+
+      </div>
+
+
+      <Container className = "description_flexbox" >
+        <h3 style = {{paddingTop:25,fontWeight:'lighter',letterSpacing:3}}>What is The Difference Between the Simple and Detailed Quiz?</h3>
+
+        
+        <div className = "inner_description_flexbox">
+        <h4 style = {{fontWeight:'bolder', paddingTop:15}}>Basic</h4>
+        <p>The basic career assessment is a compact, quicker version of the quiz 
+          which will allow users to get a narrowed down answer based on the preferences 
+          of the user through multiple choice.</p>
+        </div>
+
+
+        <div className = "inner_description_flexbox">
+        <h4 style = {{fontWeight:'bolder', paddingTop:15}}>Detailed</h4>
+        <p>The basic career assessment is a compact, quicker version of the quiz 
+          which will allow users to get a narrowed down answer based on the preferences 
+          of the user through multiple choice.</p>
+        </div>
+      </Container>
 
 
       </div>
@@ -117,6 +147,7 @@ export function App() {
 
 
     </div>
+    </Container>
     </body>
   );
 }
