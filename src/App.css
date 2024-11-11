@@ -9,7 +9,7 @@
 */
 
 .title-header{
-  font-family: Trebuchet,Helvetica, Arial, sans-serif;
+  font-family: 'Trebuchet', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 3em;
   font-weight: lighter;
   letter-spacing: 10px;
@@ -17,12 +17,13 @@
 }
 
 .Career-Btn{
-  width:25%;
-  height: 10%;
+  font-family: 'Trebuchet', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  width: 45%;
+  height: 50%;
   background:white;
   margin:20px;
   padding:5px;
-  font-size: 130%;
+  font-size: 100%;
   font-weight:bold;
   text-align: center;
   overflow-wrap: break-word;
@@ -37,7 +38,7 @@
 
 body{
   text-align: center;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Trebuchet', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   background-size:cover;
   background:#F4F1DE;
 }
@@ -99,13 +100,15 @@ footer{
 }
 
 .description_flexbox{
+  height:auto;
   background-color: #3D405B;
   color:white;
   flex-direction: row;
   border-radius: 20px;
-  margin:auto%;
+  margin:auto;
   align-items: center;
-
+  margin-top:5%;
+  margin-bottom:5%;
 }
 
 .inner_description_flexbox{
@@ -115,7 +118,7 @@ footer{
   margin:2%;
   display:inline-block;
   flex-direction: row;
-  font-family: Trebuchet,Helvetica, Arial, sans-serif;
+  font-family: 'Trebuchet', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-weight: lighter;
   letter-spacing: 2px;
   padding:1.5%;

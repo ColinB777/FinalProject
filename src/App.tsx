@@ -56,48 +56,46 @@ export function App() {
 
 
   return (
-    
-    <body>
-      <Container className = "app_container">
-      <BsFileBarGraph className = "logo"/> 
     <div>
+    <body>
     <Router> 
+
       <header>
-      
         <h1 className = "title-header"><BsFileBarGraph /> Career Helpi </h1>
       </header>
 
       
 
-     
+
       <div style={{alignItems:'center'}}>
 
 
       <div className = 'menu-bar'>
         
 
-      <Button className = "Career-Btn" hidden={buttonState} onClick={hideButtons}>
+      {/*<Button className = "Career-Btn" hidden={buttonState} onClick={hideButtons}>
       <Link to="/detailed_quiz">Detailed Career Assesment</Link>
-      </Button>
+  </Button>*/}
 
       <Button className = "home-btn" id="HOME" onClick={hideButtons}>
         <Link to="/"><BsFillHouseFill /></Link>
       </Button>
 
 
-      <Button className = "Career-Btn" id="HIDE_BASIC" hidden={buttonState} onClick={hideButtons}>
+      {/*<Button className = "Career-Btn" id="HIDE_BASIC" hidden={buttonState} onClick={hideButtons}>
       <Link to="/basic_quiz">Basic Career Assesment</Link>
-      </Button>
+  </Button>*/}
 
-      </div>
+  </div>
 
       <div id = "Typewriter">
-      <TypewriterComponent />
+      {/*<TypewriterComponent />*/}
 
-      </div>
+  </div>
 
 
-      <Container className = "description_flexbox" >
+
+      <Container className = "description_flexbox">
         <h3 style = {{paddingTop:25,fontWeight:'lighter',letterSpacing:3}}>What is The Difference Between the Simple and Detailed Quiz?</h3>
 
         
@@ -106,22 +104,32 @@ export function App() {
         <p>The basic career assessment is a compact, quicker version of the quiz 
           which will allow users to get a narrowed down answer based on the preferences 
           of the user through multiple choice.</p>
+
+
+
+        <Button className = "Career-Btn" onClick = {hideButtons}>
+          <Link to="/basic_quiz">Get Started!</Link>
+        </Button>
+          
         </div>
 
 
         <div className = "inner_description_flexbox">
         <h4 style = {{fontWeight:'bolder', paddingTop:15}}>Detailed</h4>
-        <p>The basic career assessment is a compact, quicker version of the quiz 
-          which will allow users to get a narrowed down answer based on the preferences 
-          of the user through multiple choice.</p>
+        <p>The detailed assessment is a longer version of a quiz giving the 
+          user an in-depth answer as to the career that would fit their 
+          preferences through free response questions.</p>
+
+          <Button className = "Career-Btn" onClick={hideButtons}>
+          <Link to="/detailed_quiz">Get Started</Link>
+        </Button>
         </div>
       </Container>
 
 
       </div>
-
       <Routes>
-          <Route path="/detailed_quiz" element={<Detailedquiz />} />
+            <Route path="/detailed_quiz" element={<Detailedquiz />} />
             <Route path="/basic_quiz" element={<Question1 responses={responses} setResponses={setResponses} />} />
             <Route path="/SimpleQuestions/Question2" element={<Question2 responses={responses} setResponses={setResponses} />} />
             <Route path="/SimpleQuestions/Question3" element={<Question3 responses={responses} setResponses={setResponses} />} />
@@ -131,7 +139,7 @@ export function App() {
             <Route path="/SimpleQuestions/Question7" element={<Question7 responses={responses} setResponses={setResponses} />} />
             <Route path="/SimpleQuestions/Results" element={<Results responses={responses} />} />
           </Routes>
-        </Router>
+      </Router>
 
     <div className = "page-bottom" style={{height: 50}}>
     {/*<footer>Colin Barry,Matias Sayanes,Samuel Zheng,Derek Johnson</footer>*/}
@@ -146,9 +154,8 @@ export function App() {
 
 
 
-    </div>
-    </Container>
-    </body>
+        </body>
+        </div>
   );
 }
 
