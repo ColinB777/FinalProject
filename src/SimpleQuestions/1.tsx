@@ -1,18 +1,26 @@
 import React, { useState } from 'react';
 import './simple.css';
+<<<<<<< HEAD
 import '../progressBar.css';
 import { Link, useNavigate } from 'react-router-dom';
+=======
+import { useNavigate } from 'react-router-dom';
+>>>>>>> 13343bcbcba1ae64738e12b89c25b7ffd8197ff2
 import { Button, Form } from 'react-bootstrap';
-import { OpenAI } from "openai";
 
-const key = localStorage.getItem("MYKEY");
 
-export function SimpleInterface(): React.JSX.Element {
-    const [firstAnswer, setFirstAnswer] = useState<string>("");
-    const [responses, setResponses] = useState<{ [key: string]: string }>({});
-    const [report, setReport] = useState<string>("");
+
+
+type QuestionProps = {
+    responses: { [key: string]: string };
+    setResponses: React.Dispatch<React.SetStateAction<{ [key: string]: string }>>;
+};
+
+export default function Question1({ responses, setResponses }: QuestionProps): React.JSX.Element {
+    const [answer, setAnswer] = useState<string>("");
     const navigate = useNavigate();
 
+<<<<<<< HEAD
     const firstAnswers = ["Strongly Agree", "Agree", "Neutral", "Disagree", "Strongly Disagree"];
     
     let blankQuestion = !firstAnswer;
@@ -25,37 +33,19 @@ export function SimpleInterface(): React.JSX.Element {
         setFirstAnswer("");  // Reset the answer for the next question
         localStorage.setItem("barProg", (barVal + 15).toString());
         navigate("/SimpleQuestions/SecondQuestion");
+=======
+    const options = ["Strongly Agree", "Agree", "Neutral", "Disagree", "Strongly Disagree"];
+    const blankQuestion = !answer;
+
+    const handleNext = () => {
+        setResponses(prev => ({ ...prev, question1: "I prefer jobs with clear routines and structured tasks over roles that are highly flexible or unpredictable. " + answer }));
+        navigate("/SimpleQuestions/Question2");
+>>>>>>> 13343bcbcba1ae64738e12b89c25b7ffd8197ff2
     };
-
-    // When the user finishes the quiz, send all responses to OpenAI
-    async function APIRequest() {
-        if (!key) {
-            return "Please input an API key to proceed.";
-        }
-
-        const formattedResponses = Object.entries(responses).map(([question, answer]) => `${question}: ${answer}`).join("\n");
-
-        const openai = new OpenAI({
-            organization: "org-EbrOwGpWn6qnLdFwzPY4qAsR",
-            apiKey: JSON.parse(key),
-            dangerouslyAllowBrowser: true
-        });
-
-        const completion = await openai.chat.completions.create({
-            model: "gpt-4o-mini",
-            messages: [
-                { role: "system", content: "You are a career assessment advisor..." }, // rest of the system prompt
-                { role: "user", content: formattedResponses }
-            ],
-            temperature: 0.2,
-            max_tokens: 850
-        });
-
-        setReport(completion.choices?.[0]?.message?.content ?? "Error: failed to retrieve answer");
-    }
 
     return (
         <div>
+<<<<<<< HEAD
             <h1>Basic Assessment</h1>
             <p>The basic career assessment is a compact, quicker version of the quiz...</p>
 
@@ -93,6 +83,22 @@ export function SimpleInterface(): React.JSX.Element {
             </div>
 
             <div>{report}</div>
+=======
+            <h4>1. I prefer jobs with clear routines and structured tasks over roles that are highly flexible or unpredictable.</h4>
+            {options.map((option, i) => (
+                <Form.Check
+                    inline
+                    key={i}
+                    type="radio"
+                    name="question1"
+                    label={option}
+                    onChange={(e) => setAnswer(e.target.value)}
+                    checked={answer === option}
+                    value={option}
+                />
+            ))}
+            <Button disabled={blankQuestion} onClick={handleNext}>Next</Button>
+>>>>>>> 13343bcbcba1ae64738e12b89c25b7ffd8197ff2
         </div>
     );
 }

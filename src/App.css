@@ -1,18 +1,21 @@
 /*Color Palette
 
-#e1fefb	
-#7dbbb2	
-#d1dbd7	
-#356965	
-#aea391
+#F4F1DE -> Eggshell	
+#E07A5F -> Burnt Sienna
+#3D405B -> Delft Blue
+#81B29A -> Cambridge Blue
+#F2CC8F -> Sunset
 
 */
 
 .title-header{
-  text-align:center;
-  font-weight:bold;
-  color:#356965;
+  font-family: Trebuchet,Helvetica, Arial, sans-serif;
+  font-size: 3em;
+  font-weight: lighter;
+  letter-spacing: 10px;
+  text-align: center;
 }
+
 .Career-Btn{
   width:25%;
   height: 10%;
@@ -32,34 +35,16 @@
   color:#282c34;
 }
 
-hr{
-  height:2px;
-}
-
-
 body{
   text-align: center;
   font-family: Helvetica, Arial, sans-serif;
   background-size:cover;
-  background:#5df6a2;
+  background:#F4F1DE;
   /*background-image: url('images/detailed.jpg');*/
 }
 
 
-#column{
-  float:left;
-  width:50%;
-  padding:10px;
-  height:300px;
-}
-
-#row::after{
-  content:"";
-  display:table;
-  clear:both;
-}
-
-#quiz-description{
+.quiz-description{
   text-align: center;
   text-wrap:balance;
   border-top-style: solid;
@@ -76,7 +61,8 @@ footer{
 .page-bottom{
   padding:10px;
   height:105px;
-  position: fixed;
+  /* position: fixed; */
+  /*position: fixed;*/
   font-size: 10px;
   left: 0;
   bottom: 0;
@@ -92,10 +78,12 @@ footer{
   text-align:center;
 }
 
-#menu-bar{
-  position:fixed;
-  bottom:0;
-  width:100%;
+.menu-bar{
+  align-items: center;
+  margin:auto;
+  width:95%;
+  background: #81B29A;
+  border-radius: 40px;
 
 }
 
@@ -113,4 +101,6 @@ footer{
   border-radius: 20px;
   border:none;
 }
+
+
 
