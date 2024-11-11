@@ -17,6 +17,7 @@ export function Question7({ responses, setResponses }: QuestionProps): React.JSX
     const handleFinish = async () => {
         setResponses(prev => ({ ...prev, question7: "I am motivated by the potential to earn a high salary and achieve financial security in my work. "+ answer }));
         navigate("/SimpleQuestions/Results")
+        localStorage.setItem("barProg", "15");
 
     };
 
@@ -36,6 +37,9 @@ export function Question7({ responses, setResponses }: QuestionProps): React.JSX
                 />
             ))}
             <Button disabled={!answer} onClick={handleFinish}>Get Career Assessment</Button>
+            <div className='progressBar' style={{width: localStorage.getItem("barProg") + "%"}}>
+            {"Current Progress"}
+        </div>
         </div>
     );
 }
