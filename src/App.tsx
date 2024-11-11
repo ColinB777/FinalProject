@@ -1,21 +1,23 @@
 import React, { useState } from 'react';
 import './App.css';
 import './progressBar.css'
-import { Button, Form} from 'react-bootstrap';
+import { Button, Container, Form} from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import {Detailedquiz} from "./Detailed"
-// import { HomeTest } from './Home';
-import Results from "./SimpleQuestions/Results";
-import Question1  from "./SimpleQuestions/1"
-import  Question2  from './SimpleQuestions/2';
-import Question3 from './SimpleQuestions/3';
-import Question4 from './SimpleQuestions/4';
-import Question5 from './SimpleQuestions/5';
-import Question6 from './SimpleQuestions/6';
-import Question7  from './SimpleQuestions/7';
+import { Question1 } from "./SimpleQuestions/1";
+import { Question2 } from './SimpleQuestions/2';
+import { Question3 } from './SimpleQuestions/3';
+import { Question4 } from './SimpleQuestions/4';
+import { Question5 } from './SimpleQuestions/5';
+import { Question6 } from './SimpleQuestions/6';
+import { Question7 } from './SimpleQuestions/7';
+import { Results } from './SimpleQuestions/Results';
 
 import { BsFillHouseFill } from "react-icons/bs";
 import { BsFileBarGraph } from "react-icons/bs";
+
+import TypewriterComponent from './Typewriter';
+
 
 
 
@@ -32,7 +34,6 @@ console.log(keyData);
 
 export function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
-  // const [barState, setBar] = useState<number>(0);
   const [buttonState, setVisible] = useState<boolean>(true);
   const [responses, setResponses] = useState<{ [key: string]: string }>({});
   
@@ -50,14 +51,16 @@ export function App() {
   function hideButtons()
   {
     setVisible(!buttonState);
+    localStorage.setItem('barProg', '0');
   }
 
 
   return (
     
     <body>
+      <Container className = "app_container">
+      <BsFileBarGraph className = "logo"/> 
     <div>
-
     <Router> 
       <header>
       
@@ -65,11 +68,7 @@ export function App() {
       </header>
 
       
-      {/* <Button onClick={() => setBar(barState + 25)}> Increase</Button>
-      <span>{} </span>
-      <div id="bar">
-        <div className="progress" style={{width: barState + "%"}}></div>
-      </div> */}
+
      
       <div style={{alignItems:'center'}}>
 
@@ -92,6 +91,32 @@ export function App() {
 
       </div>
 
+      <div id = "Typewriter">
+      <TypewriterComponent />
+
+      </div>
+
+
+      <Container className = "description_flexbox" >
+        <h3 style = {{paddingTop:25,fontWeight:'lighter',letterSpacing:3}}>What is The Difference Between the Simple and Detailed Quiz?</h3>
+
+        
+        <div className = "inner_description_flexbox">
+        <h4 style = {{fontWeight:'bolder', paddingTop:15}}>Basic</h4>
+        <p>The basic career assessment is a compact, quicker version of the quiz 
+          which will allow users to get a narrowed down answer based on the preferences 
+          of the user through multiple choice.</p>
+        </div>
+
+
+        <div className = "inner_description_flexbox">
+        <h4 style = {{fontWeight:'bolder', paddingTop:15}}>Detailed</h4>
+        <p>The basic career assessment is a compact, quicker version of the quiz 
+          which will allow users to get a narrowed down answer based on the preferences 
+          of the user through multiple choice.</p>
+        </div>
+      </Container>
+
 
       </div>
 
@@ -108,7 +133,7 @@ export function App() {
           </Routes>
         </Router>
 
-    <div className = "page-bottom">
+    <div className = "page-bottom" style={{height: 50}}>
     {/*<footer>Colin Barry,Matias Sayanes,Samuel Zheng,Derek Johnson</footer>*/}
 
     <Form>
@@ -122,6 +147,7 @@ export function App() {
 
 
     </div>
+    </Container>
     </body>
   );
 }

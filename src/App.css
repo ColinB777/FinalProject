@@ -22,7 +22,7 @@
   background:white;
   margin:20px;
   padding:5px;
-  font-size: 22px;
+  font-size: 130%;
   font-weight:bold;
   text-align: center;
   overflow-wrap: break-word;
@@ -32,7 +32,7 @@
 }
 
 .Career-Btn:hover{
-  color:#282c34;
+  color:#00ff26;
 }
 
 body{
@@ -40,7 +40,6 @@ body{
   font-family: Helvetica, Arial, sans-serif;
   background-size:cover;
   background:#F4F1DE;
-  /*background-image: url('images/detailed.jpg');*/
 }
 
 
@@ -59,17 +58,14 @@ footer{
 }
 
 .page-bottom{
-  padding:10px;
-  height:105px;
-  /* position: fixed; */
-  /*position: fixed;*/
+  padding:0.5%;
+  height:125px;
   font-size: 10px;
   left: 0;
   bottom: 0;
-  width: 100%;
+  width: 50%;
   background-color: white;
-  text-align: center;
-  border-top:10px;
+  text-align: left;
 }
 
 .Submit-Button{
@@ -102,5 +98,40 @@ footer{
   border:none;
 }
 
+.description_flexbox{
+  background-color: #3D405B;
+  color:white;
+  flex-direction: row;
+  border-radius: 20px;
+  margin:auto%;
+  align-items: center;
+
+}
+
+.inner_description_flexbox{
+
+  background-color: #E07A5F;
+  width:25%;
+  margin:2%;
+  display:inline-block;
+  flex-direction: row;
+  font-family: Trebuchet,Helvetica, Arial, sans-serif;
+  font-weight: lighter;
+  letter-spacing: 2px;
+  padding:1.5%;
+  border-radius: 20px;
+
+  
+}
+
+.app_container{
+  display:flex;
+  background-image:url("images/detailed.jpg") #E2E4E9;
+}
+
+.logo{
+  align-items: left;
+  font: size 100px;;
+}
 
 

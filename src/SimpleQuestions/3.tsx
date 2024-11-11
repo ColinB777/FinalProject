@@ -10,7 +10,7 @@ type QuestionProps = {
     setResponses: React.Dispatch<React.SetStateAction<{ [key: string]: string }>>;
 };
 
-export default function Question3({ responses, setResponses }: QuestionProps): React.JSX.Element {
+export function Question3({ responses, setResponses }: QuestionProps): React.JSX.Element {
     const [answer, setAnswer] = useState<string>("");
     const navigate = useNavigate();
 
