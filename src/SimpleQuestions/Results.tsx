@@ -5,7 +5,7 @@ type ResultsProps = {
   responses: { [key: string]: string };
 };
 
-export default function Results({ responses }: ResultsProps) {
+export function Results({ responses }: ResultsProps) {
   const [report, setReport] = useState<string>("");
   
 
