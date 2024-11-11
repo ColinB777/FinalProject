@@ -9,7 +9,7 @@ type QuestionProps = {
     setResponses: React.Dispatch<React.SetStateAction<{ [key: string]: string }>>;
 };
 
-export default function Question7({ responses, setResponses }: QuestionProps): React.JSX.Element {
+export function Question7({ responses, setResponses }: QuestionProps): React.JSX.Element {
     const [answer, setAnswer] = useState<string>("");
     const options = ["Strongly Agree", "Agree", "Neutral", "Disagree", "Strongly Disagree"];
     const navigate = useNavigate();
