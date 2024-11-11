@@ -4,13 +4,14 @@ import './progressBar.css'
 import { Button, Form} from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import {Detailedquiz} from "./Detailed"
-import {SimpleInterface} from "./SimpleQuestions/1";
-import { SecondQuestion } from './SimpleQuestions/2';
-import{ThirdQuestion} from './SimpleQuestions/3';
-import{FourthQuestion} from './SimpleQuestions/4';
-import{FifthQuestion} from './SimpleQuestions/5';
-import{SixthQuestion} from './SimpleQuestions/6';
-import { SeventhQuestion } from './SimpleQuestions/7';
+import { Question1 } from "./SimpleQuestions/1";
+import { Question2 } from './SimpleQuestions/2';
+import { Question3 } from './SimpleQuestions/3';
+import { Question4 } from './SimpleQuestions/4';
+import { Question5 } from './SimpleQuestions/5';
+import { Question6 } from './SimpleQuestions/6';
+import { Question7 } from './SimpleQuestions/7';
+import { Results } from './SimpleQuestions/Results';
 
 import { BsFillHouseFill } from "react-icons/bs";
 import { BsFileBarGraph } from "react-icons/bs";
