@@ -4,14 +4,14 @@ import './progressBar.css'
 import { Button, Container, Form} from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import {Detailedquiz} from "./Detailed"
-// import { HomeTest } from './Home';
-import {SimpleInterface} from "./SimpleQuestions/1"
-import { SecondQuestion } from './SimpleQuestions/2';
-import{ThirdQuestion} from './SimpleQuestions/3';
-import{FourthQuestion} from './SimpleQuestions/4';
-import{FifthQuestion} from './SimpleQuestions/5';
-import{SixthQuestion} from './SimpleQuestions/6';
-import { SeventhQuestion } from './SimpleQuestions/7';
+import { Question1 } from "./SimpleQuestions/1";
+import { Question2 } from './SimpleQuestions/2';
+import { Question3 } from './SimpleQuestions/3';
+import { Question4 } from './SimpleQuestions/4';
+import { Question5 } from './SimpleQuestions/5';
+import { Question6 } from './SimpleQuestions/6';
+import { Question7 } from './SimpleQuestions/7';
+import { Results } from './SimpleQuestions/Results';
 
 import { BsFillHouseFill } from "react-icons/bs";
 import { BsFileBarGraph } from "react-icons/bs";
@@ -25,6 +25,7 @@ import TypewriterComponent from './Typewriter';
 let keyData = "";
 const saveKeyData = "MYKEY";
 const prevKey = localStorage.getItem(saveKeyData); //so it'll look like: MYKEY: <api_key_value here> in the local storage when you inspect
+
 if (prevKey !== null) {
   keyData = JSON.parse(prevKey);
 }
@@ -33,8 +34,8 @@ console.log(keyData);
 
 export function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
-  // const [barState, setBar] = useState<number>(0);
   const [buttonState, setVisible] = useState<boolean>(true);
+  const [responses, setResponses] = useState<{ [key: string]: string }>({});
   
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
@@ -50,6 +51,7 @@ export function App() {
   function hideButtons()
   {
     setVisible(!buttonState);
+    localStorage.setItem('barProg', '0');
   }
 
 
@@ -66,11 +68,7 @@ export function App() {
       </header>
 
       
-      {/* <Button onClick={() => setBar(barState + 25)}> Increase</Button>
-      <span>{} </span>
-      <div id="bar">
-        <div className="progress" style={{width: barState + "%"}}></div>
-      </div> */}
+
      
       <div style={{alignItems:'center'}}>
 
@@ -123,18 +121,19 @@ export function App() {
       </div>
 
       <Routes>
-        <Route path="/detailed_quiz" element={<Detailedquiz />} />
-        <Route path="/basic_quiz" element={<SimpleInterface/>} />
-        <Route path ="/SimpleQuestions/secondQuestion" element = {<SecondQuestion/>} />
-        <Route path ="/SimpleQuestions/thirdQuestion" element = {<ThirdQuestion/>} />
-        <Route path ="/SimpleQuestions/fourthQuestion" element = {<FourthQuestion/>} />
-        <Route path ="/SimpleQuestions/fifthQuestion" element = {<FifthQuestion/>} />
-        <Route path ="/SimpleQuestions/sixthQuestion" element = {<SixthQuestion/>} />
-        <Route path ="/SimpleQuestions/seventhQuestion" element = {<SeventhQuestion/>} />
-      </Routes>
-    </Router>
+          <Route path="/detailed_quiz" element={<Detailedquiz />} />
+            <Route path="/basic_quiz" element={<Question1 responses={responses} setResponses={setResponses} />} />
+            <Route path="/SimpleQuestions/Question2" element={<Question2 responses={responses} setResponses={setResponses} />} />
+            <Route path="/SimpleQuestions/Question3" element={<Question3 responses={responses} setResponses={setResponses} />} />
+            <Route path="/SimpleQuestions/Question4" element={<Question4 responses={responses} setResponses={setResponses} />} />
+            <Route path="/SimpleQuestions/Question5" element={<Question5 responses={responses} setResponses={setResponses} />} />
+            <Route path="/SimpleQuestions/Question6" element={<Question6 responses={responses} setResponses={setResponses} />} />
+            <Route path="/SimpleQuestions/Question7" element={<Question7 responses={responses} setResponses={setResponses} />} />
+            <Route path="/SimpleQuestions/Results" element={<Results responses={responses} />} />
+          </Routes>
+        </Router>
 
-    <div className = "page-bottom">
+    <div className = "page-bottom" style={{height: 50}}>
     {/*<footer>Colin Barry,Matias Sayanes,Samuel Zheng,Derek Johnson</footer>*/}
 
     <Form>

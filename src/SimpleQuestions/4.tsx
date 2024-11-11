@@ -1,45 +1,44 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Button, Form } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+import { Form, Button } from 'react-bootstrap';
 import './simple.css';
-import { BsArrowRightCircleFill } from "react-icons/bs";
 
-export function FourthQuestion(): React.JSX.Element {
-    const [fourthAnswer, setFourthAnswer] = useState<string>("");
-    const fourthAnswers = ["Strongly Agree", "Agree", "Neutral", "Disagree", "Strongly Disagree"];
-    let blankQuestion = false;
-    if (fourthAnswer === "") {
-        blankQuestion = true 
-    }
+type QuestionProps = {
+    responses: { [key: string]: string };
+    setResponses: React.Dispatch<React.SetStateAction<{ [key: string]: string }>>;
+};
+
+export function Question4({ responses, setResponses }: QuestionProps): React.JSX.Element {
+    const [answer, setAnswer] = useState<string>("");
+    const navigate = useNavigate();
+
+    const options = ["Strongly Agree", "Agree", "Neutral", "Disagree", "Strongly Disagree"];
+    const blankQuestion = !answer;
+
+    const handleNext = () => {
+        setResponses(prev => ({ ...prev, question4: "I enjoy interacting with people throughout my workday and thrive in social work environments. " + answer }));
+        navigate("/SimpleQuestions/Question5");
+    };
+
     return (
-        <div>
-            <div>
-                <h1>Basic Assessment</h1>
-                <p>The basic career assessment is a compact, quicker version of the quiz which will allow users to get a narrowed down answer based on the preferences of the user through multiple choice.</p>
-            </div>
-        <div className = "simple_question">        
-            <h4 style = {{fontWeight:'bold',paddingBottom:10}}>4. I enjoy interacting with people throughout my workday and thrive in social work environments.</h4>
-                {fourthAnswers.map((Answer: string, i) => (
-                    <Form.Check
-                        inline
-                        key={`fourth-${i}`}
-                        type="radio"
-                        name="fourthAnswer"
-                        label={Answer}
-                        onChange={(e) => {
-                            setFourthAnswer(e.target.value);
-                        }}
-                        checked={fourthAnswer === Answer}
-                        value={Answer}
-                        style={{ display: "flex", paddingLeft:"40%"}}
-                    />
-                ))}
-                </div>
-                <div>You have chosen: {fourthAnswer}</div>
-                <footer> <Button className = "next-btn" disabled = {blankQuestion}  style={{background:'white',margin:10}} >
-      <Link to="/SimpleQuestions/FifthQuestion">Next Question <BsArrowRightCircleFill /></Link>
-      </Button></footer>
-                </div>
-                
-            );
+        <div className="question-container">
+            <h4>4. I enjoy interacting with people throughout my workday and thrive in social work environments.</h4>
+            {options.map((option, i) => (
+                <Form.Check
+                    inline
+                    key={i}
+                    type="radio"
+                    name="question4"
+                    label={option}
+                    onChange={(e) => setAnswer(e.target.value)}
+                    checked={answer === option}
+                    value={option}
+                    aria-label={`option-${i}`}
+                />
+            ))}
+            <Button disabled={blankQuestion} onClick={handleNext} className="next-button">
+                Next
+            </Button>
+        </div>
+    );
 }
