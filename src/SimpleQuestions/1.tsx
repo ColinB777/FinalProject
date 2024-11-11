@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import './SimpleQuestions/simple.css';
-import './progressBar.css';
+import './simple.css';
+import '../progressBar.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';
 import { OpenAI } from "openai";
@@ -16,11 +16,14 @@ export function SimpleInterface(): React.JSX.Element {
     const firstAnswers = ["Strongly Agree", "Agree", "Neutral", "Disagree", "Strongly Disagree"];
     
     let blankQuestion = !firstAnswer;
+    let barVal = 0;
+    
 
     // Store each response and go to the next question
     const handleNextQuestion = () => {
         setResponses(prev => ({ ...prev, firstQuestion: firstAnswer }));
         setFirstAnswer("");  // Reset the answer for the next question
+        localStorage.setItem("barProg", (barVal + 15).toString());
         navigate("/SimpleQuestions/SecondQuestion");
     };
 
@@ -58,6 +61,9 @@ export function SimpleInterface(): React.JSX.Element {
 
             <div className="simple_question">
                 <h4>1. I prefer jobs with clear routines and structured tasks over roles that are highly flexible or unpredictable.</h4>
+                <div className='progressBorder'>
+                    <div className='progressBar' style={{width: localStorage.getItem('barProg') + "%"}}></div>
+                </div>
                 {firstAnswers.map((Answer: string, i) => (
                     <Form.Check
                         inline
