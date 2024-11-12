@@ -17,7 +17,7 @@ import { BsFillHouseFill } from "react-icons/bs";
 import { BsFileBarGraph } from "react-icons/bs";
 
 import TypewriterComponent from './Typewriter';
-
+import Tree from './components/tree';
 
 
 
@@ -64,29 +64,17 @@ export function App() {
         <h1 className = "title-header"><BsFileBarGraph /> Career Helpi </h1>
       </header>
 
-      
+    <Tree />
 
 
       <div style={{alignItems:'center'}}>
 
 
       <div className = 'menu-bar'>
-        
-
-      {/*<Button className = "Career-Btn" hidden={buttonState} onClick={hideButtons}>
-      <Link to="/detailed_quiz">Detailed Career Assesment</Link>
-  </Button>*/}
-
       <Button className = "home-btn" id="HOME" onClick={hideButtons}>
         <Link to="/"><BsFillHouseFill /></Link>
       </Button>
-
-
-      {/*<Button className = "Career-Btn" id="HIDE_BASIC" hidden={buttonState} onClick={hideButtons}>
-      <Link to="/basic_quiz">Basic Career Assesment</Link>
-  </Button>*/}
-
-  </div>
+      </div>
 
       <div id = "Typewriter">
       {/*<TypewriterComponent />*/}

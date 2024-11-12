@@ -8,8 +8,21 @@
 
 */
 
-.title-header{
+body{
+  text-align: center;
   font-family: 'Trebuchet', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-size:cover;
+  background:#F4F1DE;
+  margin-bottom:0;
+  margin-top: 2%;
+  margin-left:2%;
+  margin-right:2%;
+  padding:20px;
+  border-radius: 20px;
+}
+
+.title-header{
+    font-family: 'Trebuchet', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 3em;
   font-weight: lighter;
   letter-spacing: 10px;
@@ -34,13 +47,6 @@
 
 .Career-Btn:hover{
   color:#00ff26;
-}
-
-body{
-  text-align: center;
-  font-family: 'Trebuchet', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  background-size:cover;
-  background:#F4F1DE;
 }
 
 
@@ -129,7 +135,6 @@ footer{
 
 .app_container{
   display:flex;
-  background-image:url("images/detailed.jpg") #E2E4E9;
 }
 
 .logo{

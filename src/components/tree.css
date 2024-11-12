@@ -1,0 +1,13 @@
+/* background.css */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('./treepondBG.gif'); /* Path to your GIF */
+    background-size: cover; /* Makes sure the GIF covers the entire viewport */
+    background-position: center;
+    background-repeat: no-repeat; /* Prevents the GIF from repeating */
+    z-index: -1; /* Puts the GIF behind other content */
+}
