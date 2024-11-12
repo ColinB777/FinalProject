@@ -76,7 +76,7 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (126 ms)
+  ✕ renders learn react link (123 ms)
 
   ● renders learn react link
 
@@ -308,28 +308,31 @@ ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
 your devDependencies to work around this error. This will make this message
 go away.[0m
   
----------------------|---------|----------|---------|---------|-------------------
-File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
----------------------|---------|----------|---------|---------|-------------------
-All files            |    7.74 |        5 |    3.38 |    8.33 |                   
- src                 |   19.35 |     6.25 |      10 |   20.68 |                   
-  App.tsx            |      60 |       50 |      25 |      60 | 30,42-54          
-  Detailed.tsx       |    2.94 |        0 |       0 |    3.33 | 20-157            
-  Typewriter.tsx     |     100 |      100 |     100 |     100 |                   
-  index.tsx          |       0 |      100 |     100 |       0 | 7-19              
-  reportWebVitals.ts |       0 |        0 |       0 |       0 | 3-10              
- src/SimpleQuestions |       0 |        0 |       0 |       0 |                   
-  1.tsx              |       0 |      100 |       0 |       0 | 15-36             
-  2.tsx              |       0 |      100 |       0 |       0 | 12-33             
-  3.tsx              |       0 |      100 |       0 |       0 | 14-35             
-  4.tsx              |       0 |      100 |       0 |       0 | 12-33             
-  5.tsx              |       0 |      100 |       0 |       0 | 13-34             
-  6.tsx              |       0 |      100 |       0 |       0 | 12-33             
-  7.tsx              |       0 |      100 |       0 |       0 | 13-33             
-  Results.tsx        |       0 |        0 |       0 |       0 | 9-54              
----------------------|---------|----------|---------|---------|-------------------
+-----------------------|---------|----------|---------|---------|-------------------
+File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-----------------------|---------|----------|---------|---------|-------------------
+All files              |    5.75 |     2.94 |    2.73 |    6.25 |                   
+ src                   |   17.74 |     5.55 |      10 |   18.96 |                   
+  App.tsx              |      60 |       50 |      25 |      60 | 30,42-54          
+  Detailed.tsx         |       0 |        0 |       0 |       0 | 20-158            
+  Typewriter.tsx       |     100 |      100 |     100 |     100 |                   
+  index.tsx            |       0 |      100 |     100 |       0 | 7-19              
+  reportWebVitals.ts   |       0 |        0 |       0 |       0 | 3-10              
+ src/DetailedQuestions |       0 |        0 |       0 |       0 |                   
+  Detailed.tsx         |       0 |        0 |       0 |       0 | 17-152            
+  Result.tsx           |       0 |      100 |       0 |       0 | 7-8               
+ src/SimpleQuestions   |       0 |        0 |       0 |       0 |                   
+  1.tsx                |       0 |      100 |       0 |       0 | 15-36             
+  2.tsx                |       0 |      100 |       0 |       0 | 12-33             
+  3.tsx                |       0 |      100 |       0 |       0 | 14-35             
+  4.tsx                |       0 |      100 |       0 |       0 | 12-33             
+  5.tsx                |       0 |      100 |       0 |       0 | 13-34             
+  6.tsx                |       0 |      100 |       0 |       0 | 12-33             
+  7.tsx                |       0 |      100 |       0 |       0 | 13-33             
+  Results.tsx          |       0 |        0 |       0 |       0 | 9-54              
+-----------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.35 s
+Time:        3.606 s
 Ran all test suites.
