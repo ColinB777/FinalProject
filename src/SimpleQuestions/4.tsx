@@ -21,10 +21,11 @@ export function Question4({ responses, setResponses }: QuestionProps): React.JSX
     };
 
     return (
-        <div className="question-container">
-            <h4>4. I enjoy interacting with people throughout my workday and thrive in social work environments.</h4>
+        <div className = "simple_question">
+            <h4 className = "question">4. I enjoy interacting with people throughout my workday and thrive in social work environments.</h4>
             {options.map((option, i) => (
                 <Form.Check
+                    className = "answerButtons"
                     inline
                     key={i}
                     type="radio"
@@ -36,7 +37,8 @@ export function Question4({ responses, setResponses }: QuestionProps): React.JSX
                     aria-label={`option-${i}`}
                 />
             ))}
-            <Button disabled={blankQuestion} onClick={handleNext} className="next-button">
+            <br></br>
+            <Button className = "next-btn" disabled={blankQuestion} onClick={handleNext}>
                 Next
             </Button>
         </div>

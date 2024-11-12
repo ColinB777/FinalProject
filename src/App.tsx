@@ -13,8 +13,16 @@ import { Question5 } from './SimpleQuestions/5';
 import { Question6 } from './SimpleQuestions/6';
 import { Question7 } from './SimpleQuestions/7';
 import { Results } from './SimpleQuestions/Results';
-import { BsFileBarGraph, BsFillHouseFill } from "react-icons/bs";
+
+import { BsFillHouseFill } from "react-icons/bs";
+
+
 import TypewriterComponent from './Typewriter';
+import Tree from './components/tree';
+import { isVisible } from '@testing-library/user-event/dist/utils';
+
+
+
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -61,30 +69,36 @@ export function App() {
 
 
   return (
-    
-    <body>
-      <Container className = "app_container">
-      <BsFileBarGraph className = "logo"/> 
     <div>
+    <body>
+
     <Router> 
+
       <header>
-      
-        <h1 className = "title-header"><BsFileBarGraph /> Career Helpi </h1>
-      </header>     
+        <h1 className = "title-header"> Career Helpi </h1>
+      </header> 
+
+
       <div style={{alignItems:'center'}}>
       <div className = 'menu-bar'>
-        
-      <Button className = "Career-Btn" id="HIDE_BASIC" hidden={buttonState} onClick={hideButtons}>
+
+      <Tree />
+
+        {/*Leave the buttons commented out, I doubt we will use them again but just leave them for now */}
+
+      {/*<Button className = "Career-Btn" id="HIDE_BASIC" hidden={buttonState} onClick={hideButtons}>
       <Link to="/basic_quiz" onClick={handleQuizLinkclick}>Basic Career Assessment</Link>
-      </Button>
+  </Button>*/}
 
       <Button className = "home-btn" id="HOME" onClick={hideButtons}>
         <Link to="/" onClick={handleHomeLinkclick}><BsFillHouseFill /></Link>
       </Button>
 
-      <Button className = "Career-Btn" hidden={buttonState} onClick={hideButtons}>
+      {/*<Button className = "Career-Btn" hidden={buttonState} onClick={hideButtons}>
       <Link to="/detailed_quiz" onClick={handleQuizLinkclick}>Detailed Career Assessment</Link>
-      </Button>
+</Button>*/}
+
+
 
       </div>
 
@@ -95,33 +109,41 @@ export function App() {
       {(visibility) ?
       <div>
       <div id = "Typewriter">
-      <TypewriterComponent />
+      {/*<TypewriterComponent />*/}
 
       </div>
-      <Container className = "description_flexbox" >
-        <h3 style = {{paddingTop:25,fontWeight:'lighter',letterSpacing:3}}>What is The Difference Between the Simple and Detailed Quiz?</h3>
 
-        
+      
+      <div className = "description_flexbox" >
+        <h3 className = "differenceTitle">What is The Difference Between the Simple and Detailed Quiz?</h3>
+
         <div className = "inner_description_flexbox">
-        <h4 style = {{fontWeight:'bolder', paddingTop:15}}>Basic</h4>
+        <h4 className = "description-title">Basic</h4>
         <p>The basic career assessment is a compact, quicker version of the quiz 
           which will allow users to get a narrowed down answer based on the preferences 
           of the user through multiple choice.</p>
+        <Button className = "Career-Btn" onClick = {hideButtons}>
+          <Link to="/basic_quiz" onClick={handleQuizLinkclick}>Start Simple Quiz!</Link>
+        </Button> 
         </div>
 
 
         <div className = "inner_description_flexbox">
-        <h4 style = {{fontWeight:'bolder', paddingTop:15}}>Detailed</h4>
+        <h4 className = "description-title">Detailed</h4>
         <p>The Detailed career assessment is an input based  quiz 
           which will allow users to express their answers with as many sentences 
           the might need. Then receive a tailored report from them made by AI assistant</p>
+          
+          <Button className = "Career-Btn" onClick={hideButtons}>
+            <Link to="/detailed_quiz" onClick={handleQuizLinkclick}>Start Detailed Quiz!</Link>
+          </Button>
+        
         </div>
-      </Container> 
+      </div> 
       </div>: null}
 
     
       </div>
-
       <Routes>
           <Route path="/detailed_quiz" element={<Detailedquiz Report={report} setReport={setReport} />} />
             <Route path="/DetailedResult" element={<DetailedResult report={report}/>} />
@@ -134,24 +156,23 @@ export function App() {
             <Route path="/SimpleQuestions/Question7" element={<Question7 responses={responses} setResponses={setResponses} />} />
             <Route path="/SimpleQuestions/Results" element={<Results responses={responses} />} />
           </Routes>
-        </Router>
+      </Router>
 
-    <div className = "page-bottom" style={{height: 50}}>
+    <div className = "page-bottom">
     {/*<footer>Colin Barry,Matias Sayanes,Samuel Zheng,Derek Johnson</footer>*/}
 
-    <Form>
-        <Form.Label style = {{fontSize:10}}>API Key:</Form.Label>
+    <Form className = "apiKey">
+        <Form.Label style = {{fontSize:10}}>API Key:
         <Form.Control style = {{width:300, fontSize:10}}type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
-        <br></br>
+        </Form.Label>
         <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
       </Form>
       </div>
 
 
 
-    </div>
-    </Container>
-    </body>
+        </body>
+        </div>
   );
 }
 

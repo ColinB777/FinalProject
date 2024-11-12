@@ -21,10 +21,11 @@ export function Question7({ responses, setResponses }: QuestionProps): React.JSX
     };
 
     return (
-        <div>
-            <h4>7. I am motivated by the potential to earn a high salary and achieve financial security in my work. </h4>
+        <div className = "simple_question">
+            <h4 className = "question">7. I am motivated by the potential to earn a high salary and achieve financial security in my work. </h4>
             {options.map((option, i) => (
                 <Form.Check
+                className='answerButtons'
                     inline
                     key={i}
                     type="radio"
@@ -35,7 +36,8 @@ export function Question7({ responses, setResponses }: QuestionProps): React.JSX
                     value={option}
                 />
             ))}
-            <Button disabled={!answer} onClick={handleFinish}>Get Career Assessment</Button>
+            <br></br>
+            <Button className = "submit-btn" disabled={!answer} onClick={handleFinish}>Get Career Assessment</Button>
         </div>
     );
 }

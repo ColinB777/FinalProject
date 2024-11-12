@@ -23,10 +23,11 @@ export function Question3({ responses, setResponses }: QuestionProps): React.JSX
     };
 
     return (
-        <div className="question-container">
-            <h4>3. I prefer jobs with clear routines and structured tasks over roles that are highly flexible or unpredictable.</h4>
+        <div className = "simple_question">
+            <h4 className = "question">3. I prefer jobs with clear routines and structured tasks over roles that are highly flexible or unpredictable.</h4>
             {options.map((option, i) => (
                 <Form.Check
+                    className='answerButtons'
                     inline
                     key={i}
                     type="radio"
@@ -38,7 +39,8 @@ export function Question3({ responses, setResponses }: QuestionProps): React.JSX
                     aria-label={`option-${i}`}
                 />
             ))}
-            <Button disabled={blankQuestion} onClick={handleNext} className="next-button">
+            <br></br>
+            <Button className = "next-btn" disabled={blankQuestion} onClick={handleNext}>
                 Next
             </Button>
         </div>
