@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import './progressBar.css'
-import { Button, Container, Form} from 'react-bootstrap';
+import { Button, Form} from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import {Detailedquiz} from "./DetailedQuestions/Detailed"
 import {DetailedResult} from "./DetailedQuestions/Result"
@@ -17,9 +17,9 @@ import { Results } from './SimpleQuestions/Results';
 import { BsFillHouseFill } from "react-icons/bs";
 
 
-import TypewriterComponent from './Typewriter';
+import TypewriterComponent from './components/Typewriter';
 import Tree from './components/tree';
-import { isVisible } from '@testing-library/user-event/dist/utils';
+//import { isVisible } from '@testing-library/user-event/dist/utils';
 
 
 
@@ -77,13 +77,11 @@ export function App() {
       <header>
         <h1 className = "title-header"> Career Helpi </h1>
       </header> 
+      <Tree />
 
 
       <div style={{alignItems:'center'}}>
       <div className = 'menu-bar'>
-
-      <Tree />
-
         {/*Leave the buttons commented out, I doubt we will use them again but just leave them for now */}
 
       {/*<Button className = "Career-Btn" id="HIDE_BASIC" hidden={buttonState} onClick={hideButtons}>
@@ -91,16 +89,14 @@ export function App() {
   </Button>*/}
 
       <Button className = "home-btn" id="HOME" onClick={hideButtons}>
-        <Link to="/" onClick={handleHomeLinkclick}><BsFillHouseFill /></Link>
+        <Link to="/" onClick={handleHomeLinkclick}><BsFillHouseFill className="homeIcon" /></Link>
       </Button>
 
       {/*<Button className = "Career-Btn" hidden={buttonState} onClick={hideButtons}>
       <Link to="/detailed_quiz" onClick={handleQuizLinkclick}>Detailed Career Assessment</Link>
 </Button>*/}
-
-
-
       </div>
+
 
       
 
@@ -109,7 +105,7 @@ export function App() {
       {(visibility) ?
       <div>
       <div id = "Typewriter">
-      {/*<TypewriterComponent />*/}
+      <TypewriterComponent />
 
       </div>
 

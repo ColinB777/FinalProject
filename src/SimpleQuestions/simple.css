@@ -1,11 +1,10 @@
 .questionList {
     padding-right: 50%;
-    background-color: #7dbbb2 ;
+    background-color: #A9AF57 ;
 
 }
 
 .answerButtons{
-    background-color: #7dbbb2 ;
     flex-direction: column;
     align-items: center;
     font-family: 'Trebuchet', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -22,7 +21,7 @@ header{
 
 
 .simple_question{
-    background-color: #7dbbb2 ;
+    background-color: #888d45 ;
     text-align: 50%;
     margin-top: 1%;
     margin-bottom: 10%;
