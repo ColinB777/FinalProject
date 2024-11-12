@@ -3,7 +3,8 @@ import './App.css';
 import './progressBar.css'
 import { Button, Container, Form} from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
-import {Detailedquiz} from "./Detailed"
+import {Detailedquiz} from "./DetailedQuestions/Detailed"
+import {DetailedResult} from "./DetailedQuestions/Result"
 import { Question1 } from "./SimpleQuestions/1";
 import { Question2 } from './SimpleQuestions/2';
 import { Question3 } from './SimpleQuestions/3';
@@ -36,6 +37,7 @@ export function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
   const [buttonState, setVisible] = useState<boolean>(true);
   const [responses, setResponses] = useState<{ [key: string]: string }>({});
+  const [report, setReport]= useState<string[]>([]);
   
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
@@ -121,7 +123,8 @@ export function App() {
       </div>
 
       <Routes>
-          <Route path="/detailed_quiz" element={<Detailedquiz />} />
+          <Route path="/detailed_quiz" element={<Detailedquiz Report={report} setReport={setReport} />} />
+            <Route path="/DetailedResult" element={<DetailedResult report={report}/>} />
             <Route path="/basic_quiz" element={<Question1 responses={responses} setResponses={setResponses} />} />
             <Route path="/SimpleQuestions/Question2" element={<Question2 responses={responses} setResponses={setResponses} />} />
             <Route path="/SimpleQuestions/Question3" element={<Question3 responses={responses} setResponses={setResponses} />} />
