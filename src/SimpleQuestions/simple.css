@@ -16,7 +16,9 @@
 }
 
 
-
+header{
+    display:flexbox;
+}
 
 
 .simple_question{
@@ -34,7 +36,7 @@
 .next-btn{
     padding:0.5%;
     margin-top:2%;
-    width:4%;
+    width:6%;
 }
 
 .submit-btn{
