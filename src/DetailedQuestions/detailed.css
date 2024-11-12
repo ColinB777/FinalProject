@@ -1,5 +1,5 @@
 .Question_Box{
-    background-color: #7dbbb2 ;
+    background-color: #8b8e5c ;
     text-align: 50%;
     padding:50px;
     margin-left: auto;
@@ -8,7 +8,7 @@
     margin-bottom: 3%;
     border-radius: 15px;
     font-family:Helvetica, Arial , sans-serif;
-    width:40%;
+    width:70%;
     align-items: center;
     font-weight: lighter;
     letter-spacing: 2px;
@@ -23,4 +23,7 @@
     padding: 1rem;
 }
 
-
+h5{
+    color:white;
+    font-weight:600;
+}

@@ -1,5 +1,4 @@
 import React from 'react'
-import treebg from './treepondBG.gif';
 import './tree.css';
 
 

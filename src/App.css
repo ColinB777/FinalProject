@@ -55,8 +55,8 @@ body{
   border:none;
 }
 
-.Career-Btn:link{
-  color:#81B29A;
+.Career-Btn:hover{
+  background-color:#818643;
 }
 
 
@@ -66,6 +66,8 @@ body{
   border-top-style: solid;
   border-color: #00674f;
   padding-top: 10px;
+  padding-left: 3%;
+  padding-right: 3%;
 
 }
 
@@ -98,24 +100,38 @@ footer{
   align-items: center;
   margin:auto;
   width:95%;
-  background: #8C8C8C;
-  border-radius: 40px;
+  height:9vh;
+  background: #784e48;
+  border-radius: 30px;
 
 }
 
 .home-btn{
-  width: 5%;
-  height: 10%;
+  width: 7%;
+  height:7vh;
   background:white;
   margin:20px;
-  padding:5px;
-  font-size: 22px;
+  padding:1%;
   font-weight:bold;
   text-align: center;
   overflow-wrap: break-word;
   align-items: auto;
   border-radius: 20px;
-  border:none;
+  border-color:transparent;
+}
+
+.home-btn:hover{
+  background-color: #573934;
+}
+
+.homeIcon{
+  padding:10%;
+  display:block;
+  color: #784e48;
+  border-color:transparent;
+  margin:auto;
+  font-size: xx-large;
+
 }
 
 .description_flexbox{
@@ -130,12 +146,14 @@ footer{
 }
 
 .description-title{
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
   margin-top:5%;
   font-weight: bold;
   margin-bottom:0.75em;
 }
 
 .inner_description_flexbox{
+
   margin:3%;
   background-color: #A9AF57;
   width:35%;
@@ -144,7 +162,7 @@ footer{
   font-family: 'Trebuchet', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-weight: lighter;
   letter-spacing: 2px;
-  padding:0.5%;
+  padding:1%;
   border-radius: 20px;
   box-sizing: border-box;
   
@@ -152,11 +170,6 @@ footer{
 
 .app_container{
   display:flex;
-}
-
-.logo{
-  align-items: left;
-  font: size 100px;;
 }
 
 
