@@ -13,7 +13,7 @@ import { Question5 } from './SimpleQuestions/5';
 import { Question6 } from './SimpleQuestions/6';
 import { Question7 } from './SimpleQuestions/7';
 import { Results } from './SimpleQuestions/Results';
-import { BsFileBarGraph } from "react-icons/bs";
+import { BsFileBarGraph, BsFillHouseFill } from "react-icons/bs";
 import TypewriterComponent from './Typewriter';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
