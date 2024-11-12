@@ -14,10 +14,11 @@ import { Question6 } from './SimpleQuestions/6';
 import { Question7 } from './SimpleQuestions/7';
 import { Results } from './SimpleQuestions/Results';
 
-import { BsFillHouseFill } from "react-icons/bs";
+import { BsDisplay, BsFillHouseFill } from "react-icons/bs";
 import { BsFileBarGraph } from "react-icons/bs";
 
 import TypewriterComponent from './Typewriter';
+import { isVisible } from '@testing-library/user-event/dist/utils';
 
 
 
@@ -38,6 +39,7 @@ export function App() {
   const [buttonState, setVisible] = useState<boolean>(true);
   const [responses, setResponses] = useState<{ [key: string]: string }>({});
   const [report, setReport]= useState<string[]>([]);
+  const [visibility,setVisibility] = useState<boolean>(true);
   
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
@@ -56,6 +58,14 @@ export function App() {
     localStorage.setItem('barProg', '0');
   }
 
+  function handleQuizLinkclick(){
+    setVisibility(false);
+  }
+
+  function handleHomeLinkclick(){
+    setVisibility(true);
+  }
+
 
   return (
     
@@ -67,38 +77,34 @@ export function App() {
       <header>
       
         <h1 className = "title-header"><BsFileBarGraph /> Career Helpi </h1>
-      </header>
-
-      
-
-     
+      </header>     
       <div style={{alignItems:'center'}}>
-
-
       <div className = 'menu-bar'>
         
-
-      <Button className = "Career-Btn" hidden={buttonState} onClick={hideButtons}>
-      <Link to="/detailed_quiz">Detailed Career Assesment</Link>
+      <Button className = "Career-Btn" id="HIDE_BASIC" hidden={buttonState} onClick={hideButtons}>
+      <Link to="/basic_quiz" onClick={handleQuizLinkclick}>Basic Career Assessment</Link>
       </Button>
 
       <Button className = "home-btn" id="HOME" onClick={hideButtons}>
-        <Link to="/"><BsFillHouseFill /></Link>
+        <Link to="/" onClick={handleHomeLinkclick}><BsFillHouseFill /></Link>
       </Button>
 
-
-      <Button className = "Career-Btn" id="HIDE_BASIC" hidden={buttonState} onClick={hideButtons}>
-      <Link to="/basic_quiz">Basic Career Assesment</Link>
+      <Button className = "Career-Btn" hidden={buttonState} onClick={hideButtons}>
+      <Link to="/detailed_quiz" onClick={handleQuizLinkclick}>Detailed Career Assessment</Link>
       </Button>
 
       </div>
 
+      
+
+      
+
+      {(visibility) ?
+      <div>
       <div id = "Typewriter">
       <TypewriterComponent />
 
       </div>
-
-
       <Container className = "description_flexbox" >
         <h3 style = {{paddingTop:25,fontWeight:'lighter',letterSpacing:3}}>What is The Difference Between the Simple and Detailed Quiz?</h3>
 
@@ -113,13 +119,14 @@ export function App() {
 
         <div className = "inner_description_flexbox">
         <h4 style = {{fontWeight:'bolder', paddingTop:15}}>Detailed</h4>
-        <p>The basic career assessment is a compact, quicker version of the quiz 
-          which will allow users to get a narrowed down answer based on the preferences 
-          of the user through multiple choice.</p>
+        <p>The Detailed career assessment is an input based  quiz 
+          which will allow users to express their answers with as many sentences 
+          the might need. Then receive a tailored report from them made by AI assistant</p>
         </div>
-      </Container>
+      </Container> 
+      </div>: null}
 
-
+    
       </div>
 
       <Routes>
