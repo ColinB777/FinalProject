@@ -5,7 +5,7 @@
   console.log
 
 
-      at Object.<anonymous> (src/App.tsx:32:9)
+      at Object.<anonymous> (src/App.tsx:27:9)
 
   console.warn
     No routes matched location "/"
@@ -44,7 +44,7 @@
   console.error
     Warning: validateDOMNesting(...): <body> cannot appear as a child of <div>.
         at body
-        at App (/home/runner/work/FinalProject/FinalProject/src/App.tsx:36:33)
+        at App (/home/runner/work/FinalProject/FinalProject/src/App.tsx:31:33)
 
       4 |
       5 | test('renders learn react link', () => {
@@ -76,7 +76,7 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (123 ms)
+  ✕ renders learn react link (130 ms)
 
   ● renders learn react link
 
@@ -139,12 +139,13 @@ FAIL src/App.test.tsx
                   [36m<button[39m
                     [33mclass[39m=[32m"Career-Btn btn btn-primary"[39m
                     [33mhidden[39m=[32m""[39m
+                    [33mid[39m=[32m"HIDE_BASIC"[39m
                     [33mtype[39m=[32m"button"[39m
                   [36m>[39m
                     [36m<a[39m
-                      [33mhref[39m=[32m"/detailed_quiz"[39m
+                      [33mhref[39m=[32m"/basic_quiz"[39m
                     [36m>[39m
-                      [0mDetailed Career Assesment[0m
+                      [0mBasic Career Assessment[0m
                     [36m</a>[39m
                   [36m</button>[39m
                   [36m<button[39m
@@ -176,71 +177,72 @@ FAIL src/App.test.tsx
                   [36m<button[39m
                     [33mclass[39m=[32m"Career-Btn btn btn-primary"[39m
                     [33mhidden[39m=[32m""[39m
-                    [33mid[39m=[32m"HIDE_BASIC"[39m
                     [33mtype[39m=[32m"button"[39m
                   [36m>[39m
                     [36m<a[39m
-                      [33mhref[39m=[32m"/basic_quiz"[39m
+                      [33mhref[39m=[32m"/detailed_quiz"[39m
                     [36m>[39m
-                      [0mBasic Career Assesment[0m
+                      [0mDetailed Career Assessment[0m
                     [36m</a>[39m
                   [36m</button>[39m
                 [36m</div>[39m
-                [36m<div[39m
-                  [33mid[39m=[32m"Typewriter"[39m
-                [36m>[39m
-                  [36m<div>[39m
-                    [36m<h1[39m
-                      [33mstyle[39m=[32m"padding-top: 20px;"[39m
-                    [36m>[39m
-                      [0mFinding You a New Career[0m
-                    [36m</h1>[39m
-                    [36m<div[39m
-                      [33mclass[39m=[32m"Typewriter"[39m
-                      [33mdata-testid[39m=[32m"typewriter-wrapper"[39m
-                    [36m>[39m
-                      [36m<span[39m
-                        [33mclass[39m=[32m"Typewriter__wrapper"[39m
-                      [36m/>[39m
-                      [36m<span[39m
-                        [33mclass[39m=[32m"Typewriter__cursor"[39m
+                [36m<div>[39m
+                  [36m<div[39m
+                    [33mid[39m=[32m"Typewriter"[39m
+                  [36m>[39m
+                    [36m<div>[39m
+                      [36m<h1[39m
+                        [33mstyle[39m=[32m"padding-top: 20px;"[39m
                       [36m>[39m
-                        [0m|[0m
-                      [36m</span>[39m
+                        [0mFinding You a New Career[0m
+                      [36m</h1>[39m
+                      [36m<div[39m
+                        [33mclass[39m=[32m"Typewriter"[39m
+                        [33mdata-testid[39m=[32m"typewriter-wrapper"[39m
+                      [36m>[39m
+                        [36m<span[39m
+                          [33mclass[39m=[32m"Typewriter__wrapper"[39m
+                        [36m/>[39m
+                        [36m<span[39m
+                          [33mclass[39m=[32m"Typewriter__cursor"[39m
+                        [36m>[39m
+                          [0m|[0m
+                        [36m</span>[39m
+                      [36m</div>[39m
                     [36m</div>[39m
                   [36m</div>[39m
-                [36m</div>[39m
-                [36m<div[39m
-                  [33mclass[39m=[32m"description_flexbox container"[39m
-                [36m>[39m
-                  [36m<h3[39m
-                    [33mstyle[39m=[32m"padding-top: 25px; font-weight: lighter; letter-spacing: 3px;"[39m
-                  [36m>[39m
-                    [0mWhat is The Difference Between the Simple and Detailed Quiz?[0m
-                  [36m</h3>[39m
                   [36m<div[39m
-                    [33mclass[39m=[32m"inner_description_flexbox"[39m
+                    [33mclass[39m=[32m"description_flexbox container"[39m
                   [36m>[39m
-                    [36m<h4[39m
-                      [33mstyle[39m=[32m"font-weight: bolder; padding-top: 15px;"[39m
+                    [36m<h3[39m
+                      [33mstyle[39m=[32m"padding-top: 25px; font-weight: lighter; letter-spacing: 3px;"[39m
                     [36m>[39m
-                      [0mBasic[0m
-                    [36m</h4>[39m
-                    [36m<p>[39m
-                      [0mThe basic career assessment is a compact, quicker version of the quiz which will allow users to get a narrowed down answer based on the preferences of the user through multiple choice.[0m
-                    [36m</p>[39m
-                  [36m</div>[39m
-                  [36m<div[39m
-                    [33mclass[39m=[32m"inner_description_flexbox"[39m
-                  [36m>[39m
-                    [36m<h4[39m
-                      [33mstyle[39m=[32m"font-weight: bolder; padding-top: 15px;"[39m
+                      [0mWhat is The Difference Between the Simple and Detailed Quiz?[0m
+                    [36m</h3>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"inner_description_flexbox"[39m
                     [36m>[39m
-                      [0mDetailed[0m
-                    [36m</h4>[39m
-                    [36m<p>[39m
-                      [0mThe basic career assessment is a compact, quicker version of the quiz which will allow users to get a narrowed down answer based on the preferences of the user through multiple choice.[0m
-                    [36m</p>[39m
+                      [36m<h4[39m
+                        [33mstyle[39m=[32m"font-weight: bolder; padding-top: 15px;"[39m
+                      [36m>[39m
+                        [0mBasic[0m
+                      [36m</h4>[39m
+                      [36m<p>[39m
+                        [0mThe basic career assessment is a compact, quicker version of the quiz which will allow users to get a narrowed down answer based on the preferences of the user through multiple choice.[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"inner_description_flexbox"[39m
+                    [36m>[39m
+                      [36m<h4[39m
+                        [33mstyle[39m=[32m"font-weight: bolder; padding-top: 15px;"[39m
+                      [36m>[39m
+                        [0mDetailed[0m
+                      [36m</h4>[39m
+                      [36m<p>[39m
+                        [0mThe Detailed career assessment is an input based  quiz which will allow users to express their answers with as many sentences the might need. Then receive a tailored report from them made by AI assistant[0m
+                      [36m</p>[39m
+                    [36m</div>[39m
                   [36m</div>[39m
                 [36m</div>[39m
               [36m</div>[39m
@@ -311,10 +313,9 @@ go away.[0m
 -----------------------|---------|----------|---------|---------|-------------------
 File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -----------------------|---------|----------|---------|---------|-------------------
-All files              |    5.75 |     2.94 |    2.73 |    6.25 |                   
- src                   |   17.74 |     5.55 |      10 |   18.96 |                   
-  App.tsx              |      60 |       50 |      25 |      60 | 30,42-54          
-  Detailed.tsx         |       0 |        0 |       0 |       0 | 20-158            
+All files              |    8.07 |     8.33 |    3.22 |    8.66 |                   
+ src                   |   40.62 |       25 |   22.22 |   40.62 |                   
+  App.tsx              |   57.89 |       50 |   16.66 |   57.89 | 25,39-59          
   Typewriter.tsx       |     100 |      100 |     100 |     100 |                   
   index.tsx            |       0 |      100 |     100 |       0 | 7-19              
   reportWebVitals.ts   |       0 |        0 |       0 |       0 | 3-10              
@@ -334,5 +335,5 @@ All files              |    5.75 |     2.94 |    2.73 |    6.25 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.606 s
+Time:        3.499 s
 Ran all test suites.
