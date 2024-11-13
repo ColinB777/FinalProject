@@ -9,7 +9,7 @@ type QuestionProps = {
     setResponses: React.Dispatch<React.SetStateAction<{ [key: string]: string }>>;
 };
 
-export default function Question5({ responses, setResponses }: QuestionProps): React.JSX.Element {
+export function Question5({ responses, setResponses }: QuestionProps): React.JSX.Element {
     const [answer, setAnswer] = useState<string>("");
     const navigate = useNavigate();
 
@@ -22,10 +22,11 @@ export default function Question5({ responses, setResponses }: QuestionProps): R
     };
 
     return (
-        <div className="question-container">
-            <h4>5. It’s important to me to have a job that allows me to see tangible results from my efforts.</h4>
+        <div className = "simple_question">
+            <h4 className='question'>5. It’s important to me to have a job that allows me to see tangible results from my efforts.</h4>
             {options.map((option, i) => (
                 <Form.Check
+                className ="answerButtons"
                     inline
                     key={i}
                     type="radio"
@@ -37,7 +38,8 @@ export default function Question5({ responses, setResponses }: QuestionProps): R
                     aria-label={`option-${i}`}
                 />
             ))}
-            <Button disabled={blankQuestion} onClick={handleNext} className="next-button">
+            <br></br>
+            <Button className = "next-btn" disabled={blankQuestion} onClick={handleNext}>
                 Next
             </Button>
         </div>

@@ -9,7 +9,7 @@ type QuestionProps = {
     setResponses: React.Dispatch<React.SetStateAction<{ [key: string]: string }>>;
 };
 
-export default function Question7({ responses, setResponses }: QuestionProps): React.JSX.Element {
+export function Question7({ responses, setResponses }: QuestionProps): React.JSX.Element {
     const [answer, setAnswer] = useState<string>("");
     const options = ["Strongly Agree", "Agree", "Neutral", "Disagree", "Strongly Disagree"];
     const navigate = useNavigate();
@@ -21,10 +21,11 @@ export default function Question7({ responses, setResponses }: QuestionProps): R
     };
 
     return (
-        <div>
-            <h4>7. I am motivated by the potential to earn a high salary and achieve financial security in my work. </h4>
+        <div className = "simple_question">
+            <h4 className = "question">7. I am motivated by the potential to earn a high salary and achieve financial security in my work. </h4>
             {options.map((option, i) => (
                 <Form.Check
+                className='answerButtons'
                     inline
                     key={i}
                     type="radio"
@@ -35,7 +36,8 @@ export default function Question7({ responses, setResponses }: QuestionProps): R
                     value={option}
                 />
             ))}
-            <Button disabled={!answer} onClick={handleFinish}>Get Career Assessment</Button>
+            <br></br>
+            <Button className = "submit-btn" disabled={!answer} onClick={handleFinish}>Get Career Assessment</Button>
         </div>
     );
 }

@@ -3,13 +3,18 @@ import './detailed.css';
 import { Button, Form, FormGroup } from "react-bootstrap";
 import { OpenAI } from "openai";
 import Confetti from "react-confetti";
-import gif from "./images/loading-gif.gif"
+import gif from "../images/loading-gif.gif"
+import { useNavigate } from 'react-router-dom';
+import React from "react";
 
-const key=localStorage.getItem("MYKEY");
+type DetailedProps={
+  Report:string[];
+  setReport: React.Dispatch<React.SetStateAction<string[]>>;
+};
 
-
-export function Detailedquiz() {
+export function Detailedquiz({Report,setReport}:DetailedProps):React.JSX.Element {
   
+  const navigate = useNavigate();
   //This type will help to organize the data
   type Question={
     body:string;
@@ -33,8 +38,6 @@ export function Detailedquiz() {
   //state that holds the message used in the API request
   const [msgtoAI,setMSG]=useState<string>("");
 
-  //states that holds the assesment
-  const [Report,setReport]=useState<string[]>([]);
 
   //Const to check you answer all questions
   const allAnswered = Object.values(qList).every((answer) => answer.answer.trim() !== '');
@@ -57,6 +60,7 @@ export function Detailedquiz() {
   //This will submit the API Request and get the assesment if succesful
   async function APIRequest(){
     console.log(msgtoAI);
+    const key =localStorage.getItem("MYKEY");
     if (key){
       const openai = new OpenAI({
         apiKey:JSON.parse(key),
@@ -107,6 +111,7 @@ export function Detailedquiz() {
     }
     finally{
       setLoading(false);
+      navigate("/DetailedResult")
     }
      
     }
@@ -119,6 +124,7 @@ export function Detailedquiz() {
   //by creating a string of the questions and their respective answers
   function submitAnswers(){
     APIRequest().then((report) => setReport(report.split("###").map(segment => `${segment}`)));
+   
   }
 
   
@@ -149,16 +155,10 @@ export function Detailedquiz() {
       </FormGroup>
       ))}
       <div className = "detailed_submit_btn" >
-      <Button disabled={!allAnswered} onClick={submitAnswers}>Submit your answers.</Button>
+      <Button disabled={!allAnswered || loading} onClick={submitAnswers}>Submit your answers.</Button>
       </div>
-      {(loading) && <h1><div>Processing your answers and generating Assesment</div><img src={gif} alt="loading..." /></h1>}
+      {(loading) && <h1><div>Processing your answers and generating assessment</div><img src={gif} alt="loading..." /></h1>}
       
-      {Report.slice(1).map((segment:string,i:number) =>(
-        <div>
-          <h1 style={{marginBottom:-30}}>{segment.slice(0,segment.indexOf("\n"))}</h1>
-          <span  style={{whiteSpace: "break-spaces"}}>{(segment.slice(segment.indexOf("\n")))}</span>
-        </div>
-      ))}
     
     </div>
     );

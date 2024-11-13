@@ -11,7 +11,7 @@ type QuestionProps = {
     setResponses: React.Dispatch<React.SetStateAction<{ [key: string]: string }>>;
 };
 
-export default function Question1({ responses, setResponses }: QuestionProps): React.JSX.Element {
+export function Question1({ responses, setResponses }: QuestionProps): React.JSX.Element {
     const [answer, setAnswer] = useState<string>("");
     const navigate = useNavigate();
 
@@ -24,10 +24,11 @@ export default function Question1({ responses, setResponses }: QuestionProps): R
     };
 
     return (
-        <div>
-            <h4>1. I prefer jobs with clear routines and structured tasks over roles that are highly flexible or unpredictable.</h4>
+        <div className = "simple_question">
+            <h4 className = "question">1. I prefer jobs with clear routines and structured tasks over roles that are highly flexible or unpredictable.</h4>
             {options.map((option, i) => (
                 <Form.Check
+                    className = "answerButtons"
                     inline
                     key={i}
                     type="radio"
@@ -39,7 +40,8 @@ export default function Question1({ responses, setResponses }: QuestionProps): R
                     style={{ maxWidth: 1000, marginLeft: 400, height: 100 }}
                 />
             ))}
-            <Button disabled={blankQuestion} onClick={handleNext}>Next</Button>
+            <br></br>
+            <Button className = "next-btn" disabled={blankQuestion} onClick={handleNext}>Next</Button>
         </div>
     );
 }
