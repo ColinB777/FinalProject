@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import './App.css';
 import './progressBar.css'
-import { Button, Container, Form} from 'react-bootstrap';
+import { Button, Form} from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
-import {Detailedquiz} from "./Detailed"
+import {Detailedquiz} from "./DetailedQuestions/Detailed"
+import {DetailedResult} from "./DetailedQuestions/Result"
 import { Question1 } from "./SimpleQuestions/1";
 import { Question2 } from './SimpleQuestions/2';
 import { Question3 } from './SimpleQuestions/3';
@@ -14,9 +15,11 @@ import { Question7 } from './SimpleQuestions/7';
 import { Results } from './SimpleQuestions/Results';
 
 import { BsFillHouseFill } from "react-icons/bs";
-import { BsFileBarGraph } from "react-icons/bs";
 
-import TypewriterComponent from './Typewriter';
+
+import TypewriterComponent from './components/Typewriter';
+import Tree from './components/tree';
+//import { isVisible } from '@testing-library/user-event/dist/utils';
 
 
 
@@ -36,6 +39,8 @@ export function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
   const [buttonState, setVisible] = useState<boolean>(true);
   const [responses, setResponses] = useState<{ [key: string]: string }>({});
+  const [report, setReport]= useState<string[]>([]);
+  const [visibility,setVisibility] = useState<boolean>(true);
   
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
@@ -54,74 +59,90 @@ export function App() {
     localStorage.setItem('barProg', '0');
   }
 
+  function handleQuizLinkclick(){
+    setVisibility(false);
+  }
+
+  function handleHomeLinkclick(){
+    setVisibility(true);
+  }
+
 
   return (
-    
-    <body>
-      <Container className = "app_container">
-      <BsFileBarGraph className = "logo"/> 
     <div>
+    <body>
+
     <Router> 
+
       <header>
-      
-        <h1 className = "title-header"><BsFileBarGraph /> Career Helpi </h1>
-      </header>
+        <h1 className = "title-header"> Career Helpi </h1>
+      </header> 
+      <Tree />
 
-      
 
-     
       <div style={{alignItems:'center'}}>
-
-
       <div className = 'menu-bar'>
-        
+        {/*Leave the buttons commented out, I doubt we will use them again but just leave them for now */}
 
-      <Button className = "Career-Btn" hidden={buttonState} onClick={hideButtons}>
-      <Link to="/detailed_quiz">Detailed Career Assesment</Link>
-      </Button>
+      {/*<Button className = "Career-Btn" id="HIDE_BASIC" hidden={buttonState} onClick={hideButtons}>
+      <Link to="/basic_quiz" onClick={handleQuizLinkclick}>Basic Career Assessment</Link>
+  </Button>*/}
 
       <Button className = "home-btn" id="HOME" onClick={hideButtons}>
-        <Link to="/"><BsFillHouseFill /></Link>
+        <Link to="/" onClick={handleHomeLinkclick}><BsFillHouseFill className="homeIcon" /></Link>
       </Button>
 
-
-      <Button className = "Career-Btn" id="HIDE_BASIC" hidden={buttonState} onClick={hideButtons}>
-      <Link to="/basic_quiz">Basic Career Assesment</Link>
-      </Button>
-
+      {/*<Button className = "Career-Btn" hidden={buttonState} onClick={hideButtons}>
+      <Link to="/detailed_quiz" onClick={handleQuizLinkclick}>Detailed Career Assessment</Link>
+</Button>*/}
       </div>
 
+
+      
+
+      
+
+      {(visibility) ?
+      <div>
       <div id = "Typewriter">
       <TypewriterComponent />
 
       </div>
 
+      
+      <div className = "description_flexbox" >
+        <h3 className = "differenceTitle">What is The Difference Between the Simple and Detailed Quiz?</h3>
 
-      <Container className = "description_flexbox" >
-        <h3 style = {{paddingTop:25,fontWeight:'lighter',letterSpacing:3}}>What is The Difference Between the Simple and Detailed Quiz?</h3>
+        <div className = "inner_description_flexbox">
+        <h4 className = "description-title">Basic</h4>
+        <p>The basic career assessment is a compact, quicker version of the quiz 
+          which will allow users to get a narrowed down answer based on the preferences 
+          of the user through multiple choice.</p>
+        <Button className = "Career-Btn" onClick = {hideButtons}>
+          <Link to="/basic_quiz" onClick={handleQuizLinkclick}>Start Simple Quiz!</Link>
+        </Button> 
+        </div>
 
+
+        <div className = "inner_description_flexbox">
+        <h4 className = "description-title">Detailed</h4>
+        <p>The Detailed career assessment is an input based  quiz 
+          which will allow users to express their answers with as many sentences 
+          the might need. Then receive a tailored report from them made by AI assistant</p>
+          
+          <Button className = "Career-Btn" onClick={hideButtons}>
+            <Link to="/detailed_quiz" onClick={handleQuizLinkclick}>Start Detailed Quiz!</Link>
+          </Button>
         
-        <div className = "inner_description_flexbox">
-        <h4 style = {{fontWeight:'bolder', paddingTop:15}}>Basic</h4>
-        <p>The basic career assessment is a compact, quicker version of the quiz 
-          which will allow users to get a narrowed down answer based on the preferences 
-          of the user through multiple choice.</p>
         </div>
+      </div> 
+      </div>: null}
 
-
-        <div className = "inner_description_flexbox">
-        <h4 style = {{fontWeight:'bolder', paddingTop:15}}>Detailed</h4>
-        <p>The basic career assessment is a compact, quicker version of the quiz 
-          which will allow users to get a narrowed down answer based on the preferences 
-          of the user through multiple choice.</p>
-        </div>
-      </Container>
-
-
+    
       </div>
-
       <Routes>
-          <Route path="/detailed_quiz" element={<Detailedquiz />} />
+          <Route path="/detailed_quiz" element={<Detailedquiz Report={report} setReport={setReport} />} />
+            <Route path="/DetailedResult" element={<DetailedResult report={report}/>} />
             <Route path="/basic_quiz" element={<Question1 responses={responses} setResponses={setResponses} />} />
             <Route path="/SimpleQuestions/Question2" element={<Question2 responses={responses} setResponses={setResponses} />} />
             <Route path="/SimpleQuestions/Question3" element={<Question3 responses={responses} setResponses={setResponses} />} />
@@ -131,24 +152,23 @@ export function App() {
             <Route path="/SimpleQuestions/Question7" element={<Question7 responses={responses} setResponses={setResponses} />} />
             <Route path="/SimpleQuestions/Results" element={<Results responses={responses} />} />
           </Routes>
-        </Router>
+      </Router>
 
-    <div className = "page-bottom" style={{height: 50}}>
+    <div className = "page-bottom">
     {/*<footer>Colin Barry,Matias Sayanes,Samuel Zheng,Derek Johnson</footer>*/}
 
-    <Form>
-        <Form.Label style = {{fontSize:10}}>API Key:</Form.Label>
+    <Form className = "apiKey">
+        <Form.Label style = {{fontSize:10}}>API Key:
         <Form.Control style = {{width:300, fontSize:10}}type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
-        <br></br>
+        </Form.Label>
         <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
       </Form>
       </div>
 
 
 
-    </div>
-    </Container>
-    </body>
+        </body>
+        </div>
   );
 }
 
