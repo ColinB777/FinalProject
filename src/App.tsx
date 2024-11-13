@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import './progressBar.css'
 import { Button, Form} from 'react-bootstrap';
-import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import {Detailedquiz} from "./DetailedQuestions/Detailed"
 import {DetailedResult} from "./DetailedQuestions/Result"
 import { Question1 } from "./SimpleQuestions/1";
