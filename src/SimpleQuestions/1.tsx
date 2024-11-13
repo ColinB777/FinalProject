@@ -36,6 +36,7 @@ export default function Question1({ responses, setResponses }: QuestionProps): R
                     onChange={(e) => setAnswer(e.target.value)}
                     checked={answer === option}
                     value={option}
+                    style={{ maxWidth: 1000, marginLeft: 400, height: 100 }}
                 />
             ))}
             <Button disabled={blankQuestion} onClick={handleNext}>Next</Button>
