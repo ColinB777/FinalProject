@@ -6,6 +6,8 @@ import Confetti from "react-confetti";
 import gif from "../images/loading-gif.gif"
 import { useNavigate } from 'react-router-dom';
 import React from "react";
+import { CircularProgressBar } from '../components/progressBar';
+
 
 type DetailedProps={
   Report:string[];
@@ -13,6 +15,7 @@ type DetailedProps={
 };
 
 export function Detailedquiz({Report,setReport}:DetailedProps):React.JSX.Element {
+  
   
   const navigate = useNavigate();
   //This type will help to organize the data
@@ -31,6 +34,9 @@ export function Detailedquiz({Report,setReport}:DetailedProps):React.JSX.Element
     {body:"6.What type of work drains or energizes you? (What tasks or responsibilities feel exhausting versus those that feel exciting and fulfilling?)",answer:""},
     {body:"7.What is your preferred learning style? (Do you prefer learning by doing, studying theory, or through hands-on experience? How do you like to grow professionally?)",answer:""}
   ]);
+
+  const answeredCount = qList.filter(q => q.answer.trim() !== "").length;
+  const totalQuestions = qList.length;
 
   //Loading State that will help display loading animations
   const [loading,setLoading]=useState<boolean>(false);
@@ -100,6 +106,8 @@ export function Detailedquiz({Report,setReport}:DetailedProps):React.JSX.Element
         temperature:0.2,
         max_tokens:850
       });
+
+
       //debugging purposes
       console.log(completion.choices[0].message.content);
       if(completion.choices[0].message.content){
@@ -139,7 +147,10 @@ export function Detailedquiz({Report,setReport}:DetailedProps):React.JSX.Element
     return(<div>
       {(allAnswered) ? <Confetti height={3.1*window.outerHeight} gravity={.7}  numberOfPieces={200}></Confetti> : null}
       <h1>Detailed Quiz</h1>
+
       <Button onClick={PauseButton}>Pause</Button>
+      <CircularProgressBar answeredCount={answeredCount} totalQuestions={totalQuestions} />
+
 
       {qList.map((question:Question,i:number) =>(
       
