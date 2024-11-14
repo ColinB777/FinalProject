@@ -1,4 +1,4 @@
-import {useState } from "react";
+import { useState } from "react";
 import './detailed.css';
 import { Button, Form, FormGroup } from "react-bootstrap";
 import { OpenAI } from "openai";
@@ -159,6 +159,8 @@ export function Detailedquiz({Report,setReport}:DetailedProps):React.JSX.Element
     alert("The quiz is paused, Click 'ok' to resume");
   }
 
+  
+
     //displays the questions and a text input box to each to answer them 
     //using map function
     return(<div>
@@ -167,7 +169,7 @@ export function Detailedquiz({Report,setReport}:DetailedProps):React.JSX.Element
       <CircularProgressBar answeredCount={answeredCount} totalQuestions={totalQuestions} />
       <Button onClick={PauseButton}>Pause</Button>
       
-
+      
 
       {qList.map((question:Question,i:number) =>(
       (displayedQ===i)?
