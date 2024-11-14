@@ -6,7 +6,7 @@ type DetailedResultprop={
 };
 export function DetailedResult(Report: DetailedResultprop ):React.JSX.Element{
     const [displayedSeg,setDisplayedSeg]=useState<number>(0);
-
+    
     
     return <div>
         <Button onClick={()=>setDisplayedSeg(0)}>Assessment Summary</Button>
