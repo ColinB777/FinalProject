@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';
 
 
-export const barVal = 0;
 
 type QuestionProps = {
     responses: { [key: string]: string };
@@ -21,7 +20,6 @@ export function Question1({ responses, setResponses }: QuestionProps): React.JSX
     const handleNext = () => {
         setResponses(prev => ({ ...prev, question1: "I prefer jobs with clear routines and structured tasks over roles that are highly flexible or unpredictable. " + answer }));
         navigate("/SimpleQuestions/Question2");
-        localStorage.setItem("barProg", (barVal + 15).toString());
     };
 
     return (
@@ -41,9 +39,6 @@ export function Question1({ responses, setResponses }: QuestionProps): React.JSX
                 />
             ))}
             <Button disabled={blankQuestion} onClick={handleNext}>Next</Button>
-            <div className='progressBar' style={{width: localStorage.getItem("barProg") + "%"}}>
-            {"Current Progress"}
-        </div>
         </div>
     );
 }

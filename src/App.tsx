@@ -13,6 +13,7 @@ import { Question5 } from './SimpleQuestions/5';
 import { Question6 } from './SimpleQuestions/6';
 import { Question7 } from './SimpleQuestions/7';
 import { Results } from './SimpleQuestions/Results';
+import { barVal } from './SimpleQuestions/1';
 
 import { BsFillHouseFill } from "react-icons/bs";
 
@@ -56,7 +57,7 @@ export function App() {
   function hideButtons()
   {
     setVisible(!buttonState);
-    localStorage.setItem('barProg', '0');
+    localStorage.setItem('barProg', (barVal * 0).toString());
   }
 
   function handleQuizLinkclick(){

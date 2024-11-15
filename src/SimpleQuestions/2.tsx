@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
-import { barVal } from './1';
 import './simple.css';
 
 type QuestionProps = {
@@ -19,7 +18,6 @@ export function Question2({ responses, setResponses }: QuestionProps): React.JSX
     const handleNext = () => {
         setResponses(prev => ({ ...prev, question2: "I am comfortable taking on leadership roles and making important decisions in a team. " + answer }));
         navigate("/SimpleQuestions/Question3");
-        localStorage.setItem("barProg", (barVal + 15).toString());
     };
 
     return (
@@ -43,9 +41,6 @@ export function Question2({ responses, setResponses }: QuestionProps): React.JSX
             <Button className = "next-btn"disabled={blankQuestion} onClick={handleNext}>
                 Next
             </Button>
-            <div className='progressBar' style={{width: localStorage.getItem("barProg") + "%"}}>
-            {"Current Progress"}
-        </div>
         </div>
     );
 }

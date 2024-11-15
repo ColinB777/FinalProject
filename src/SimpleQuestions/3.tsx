@@ -20,7 +20,6 @@ export function Question3({ responses, setResponses }: QuestionProps): React.JSX
     const handleNext = () => {
         setResponses(prev => ({ ...prev, question3: "I prefer jobs with clear routines and structured tasks over roles that are highly flexible or unpredictable. " + answer }));
         navigate("/SimpleQuestions/Question4");
-        localStorage.setItem("barProg", "15");
     };
 
     return (
@@ -44,9 +43,6 @@ export function Question3({ responses, setResponses }: QuestionProps): React.JSX
             <Button className = "next-btn" disabled={blankQuestion} onClick={handleNext}>
                 Next
             </Button>
-            <div className='progressBar' style={{width: localStorage.getItem("barProg") + "%"}}>
-            {"Current Progress"}
-        </div>
         </div>
     );
 }

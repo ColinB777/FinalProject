@@ -18,7 +18,6 @@ export function Question4({ responses, setResponses }: QuestionProps): React.JSX
     const handleNext = () => {
         setResponses(prev => ({ ...prev, question4: "I enjoy interacting with people throughout my workday and thrive in social work environments. " + answer }));
         navigate("/SimpleQuestions/Question5");
-        localStorage.setItem("barProg", "15");
     };
 
     return (
@@ -42,9 +41,6 @@ export function Question4({ responses, setResponses }: QuestionProps): React.JSX
             <Button className = "next-btn" disabled={blankQuestion} onClick={handleNext}>
                 Next
             </Button>
-            <div className='progressBar' style={{width: localStorage.getItem("barProg") + "%"}}>
-            {"Current Progress"}
-        </div>
         </div>
     );
 }
