@@ -20,6 +20,10 @@ export function Question6({ responses, setResponses }: QuestionProps): React.JSX
         navigate("/SimpleQuestions/Question7");
     };
 
+    const handlePrev = () => {
+        navigate("/SimpleQuestions/Question5");
+    };
+
     return (
         <div className = "simple_question">
             <h4 className = "question">6. I value opportunities to continuously learn and develop new skills within my career.</h4>
@@ -38,6 +42,9 @@ export function Question6({ responses, setResponses }: QuestionProps): React.JSX
                 />
             ))}
             <br></br>
+            <Button className = "next-btn" onClick={handlePrev}>
+                Previous
+            </Button>
             <Button className = "next-btn" disabled={blankQuestion} onClick={handleNext}>
                 Next
             </Button>

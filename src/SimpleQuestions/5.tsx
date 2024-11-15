@@ -21,6 +21,10 @@ export function Question5({ responses, setResponses }: QuestionProps): React.JSX
         navigate("/SimpleQuestions/Question6");
     };
 
+    const handlePrev = () => {
+        navigate("/SimpleQuestions/Question4");
+    };
+
     return (
         <div className = "simple_question">
             <h4 className='question'>5. It’s important to me to have a job that allows me to see tangible results from my efforts.</h4>
@@ -39,6 +43,9 @@ export function Question5({ responses, setResponses }: QuestionProps): React.JSX
                 />
             ))}
             <br></br>
+            <Button className = "next-btn" onClick={handlePrev}>
+                Previous
+            </Button>
             <Button className = "next-btn" disabled={blankQuestion} onClick={handleNext}>
                 Next
             </Button>

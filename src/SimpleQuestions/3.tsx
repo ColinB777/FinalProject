@@ -21,6 +21,9 @@ export function Question3({ responses, setResponses }: QuestionProps): React.JSX
         setResponses(prev => ({ ...prev, question3: "I prefer jobs with clear routines and structured tasks over roles that are highly flexible or unpredictable. " + answer }));
         navigate("/SimpleQuestions/Question4");
     };
+    const handlePrev = () => {
+        navigate("/SimpleQuestions/Question2");
+    };
 
     return (
         <div className = "simple_question">
@@ -40,6 +43,9 @@ export function Question3({ responses, setResponses }: QuestionProps): React.JSX
                 />
             ))}
             <br></br>
+            <Button  className = "next-btn" onClick={handlePrev}>
+                Previous
+            </Button>
             <Button className = "next-btn" disabled={blankQuestion} onClick={handleNext}>
                 Next
             </Button>

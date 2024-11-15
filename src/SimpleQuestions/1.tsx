@@ -23,6 +23,8 @@ export function Question1({ responses, setResponses }: QuestionProps): React.JSX
         navigate("/SimpleQuestions/Question2");
     };
 
+    
+
     return (
         <div className = "simple_question">
             <h4 className = "question">1. I prefer jobs with clear routines and structured tasks over roles that are highly flexible or unpredictable.</h4>
@@ -37,7 +39,6 @@ export function Question1({ responses, setResponses }: QuestionProps): React.JSX
                     onChange={(e) => setAnswer(e.target.value)}
                     checked={answer === option}
                     value={option}
-                    style={{ maxWidth: 1000, marginLeft: 400, height: 100 }}
                 />
             ))}
             <br></br>

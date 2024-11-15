@@ -20,6 +20,10 @@ export function Question2({ responses, setResponses }: QuestionProps): React.JSX
         navigate("/SimpleQuestions/Question3");
     };
 
+    const handlePrev = () => {
+        navigate("/basic_quiz");
+    };
+
     return (
         <div className="simple_question">
             <h4 className='question'>2. I am comfortable taking on leadership roles and making important decisions in a team.</h4>
@@ -38,6 +42,9 @@ export function Question2({ responses, setResponses }: QuestionProps): React.JSX
                 />
             ))}
             <br></br>
+            <Button className = "next-btn" onClick={handlePrev}>
+                Previous
+            </Button>
             <Button className = "next-btn"disabled={blankQuestion} onClick={handleNext}>
                 Next
             </Button>
