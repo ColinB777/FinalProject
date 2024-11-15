@@ -1,4 +1,4 @@
-import {useState } from "react";
+import { useState } from "react";
 import './detailed.css';
 import { Button, Form, FormGroup } from "react-bootstrap";
 import { OpenAI } from "openai";
@@ -6,6 +6,8 @@ import Confetti from "react-confetti";
 import gif from "../images/loading-gif.gif"
 import { useNavigate } from 'react-router-dom';
 import React from "react";
+import { CircularProgressBar } from '../components/progressBar';
+
 
 type DetailedProps={
   Report:string[];
@@ -13,6 +15,7 @@ type DetailedProps={
 };
 
 export function Detailedquiz({Report,setReport}:DetailedProps):React.JSX.Element {
+  
   
   const navigate = useNavigate();
   //This type will help to organize the data
@@ -32,12 +35,32 @@ export function Detailedquiz({Report,setReport}:DetailedProps):React.JSX.Element
     {body:"7.What is your preferred learning style? (Do you prefer learning by doing, studying theory, or through hands-on experience? How do you like to grow professionally?)",answer:""}
   ]);
 
+  //state that control the question being displayed
+  const [displayedQ,setDisplayedQ]=useState<number>(0);
+
+  function handleNext(){
+    if (displayedQ===6){
+      return;
+    }
+    setDisplayedQ(displayedQ+1);
+  }
+
+  function handlePrevious(){
+    if (displayedQ===0){
+      return;
+    }
+    setDisplayedQ(displayedQ-1);
+  }
+
+  //Constants that keep count of the answered questions and total ones.
+  const answeredCount = qList.filter(q => q.answer.trim() !== "").length;
+  const totalQuestions = qList.length;
+
   //Loading State that will help display loading animations
   const [loading,setLoading]=useState<boolean>(false);
 
   //state that holds the message used in the API request
   const [msgtoAI,setMSG]=useState<string>("");
-
 
   //Const to check you answer all questions
   const allAnswered = Object.values(qList).every((answer) => answer.answer.trim() !== '');
@@ -100,6 +123,8 @@ export function Detailedquiz({Report,setReport}:DetailedProps):React.JSX.Element
         temperature:0.2,
         max_tokens:850
       });
+
+
       //debugging purposes
       console.log(completion.choices[0].message.content);
       if(completion.choices[0].message.content){
@@ -134,15 +159,20 @@ export function Detailedquiz({Report,setReport}:DetailedProps):React.JSX.Element
     alert("The quiz is paused, Click 'ok' to resume");
   }
 
+  
+
     //displays the questions and a text input box to each to answer them 
     //using map function
     return(<div>
-      {(allAnswered) ? <Confetti height={3.1*window.outerHeight} gravity={.7}  numberOfPieces={200}></Confetti> : null}
+      {(allAnswered) ? <Confetti height={1.1*window.outerHeight} gravity={.7}  numberOfPieces={200}></Confetti> : null}
       <h1>Detailed Quiz</h1>
+      <CircularProgressBar answeredCount={answeredCount} totalQuestions={totalQuestions} />
       <Button onClick={PauseButton}>Pause</Button>
+      
+      
 
       {qList.map((question:Question,i:number) =>(
-      
+      (displayedQ===i)?
       <FormGroup className="Question_Box">
         <h5>{question.body}</h5>
       <div className = "text_area">
@@ -153,7 +183,12 @@ export function Detailedquiz({Report,setReport}:DetailedProps):React.JSX.Element
       </div>
       <span>Current Answer={question.answer}</span>
       </FormGroup>
+       : null
       ))}
+       <div>
+       <Button onClick={handlePrevious} disabled={displayedQ===0}>Previous</Button>
+        <Button onClick={handleNext} disabled={displayedQ===6}>Next</Button>
+       </div>
       <div className = "detailed_submit_btn" >
       <Button disabled={!allAnswered || loading} onClick={submitAnswers}>Submit your answers.</Button>
       </div>

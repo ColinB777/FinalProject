@@ -1,0 +1,40 @@
+
+.progress-circle-container {
+    position: fixed;
+    width: 150px;
+    height: 150px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .progress-circle {
+    transform: rotate(-90deg);
+  }
+  
+  .progress-circle .bg {
+    fill: none;
+    stroke: #e0e0e0;
+    stroke-width: 2.8;
+  }
+  
+  .progress-circle .progress {
+    fill: none;
+    stroke: #4caf50;
+    stroke-width: 2.8;
+    stroke-linecap: round;
+    transition: stroke-dasharray 0.5s;
+  }
+  
+  .plant-icon {
+    position: absolute;
+    width: 70px;
+    height: 60px;
+    z-index: 1;
+  }
+  
+  .progress-text {
+    position: absolute;
+    font-size: 0.1rem;
+    color: #4caf50;
+  }
