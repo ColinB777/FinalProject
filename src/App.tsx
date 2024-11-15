@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import './progressBar.css'
 import { Button, Form} from 'react-bootstrap';
-import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import {Route, Link, Routes, useNavigate} from 'react-router-dom';
 import {Detailedquiz} from "./DetailedQuestions/Detailed"
 import {DetailedResult} from "./DetailedQuestions/Result"
 import { Question1 } from "./SimpleQuestions/1";
@@ -38,10 +38,9 @@ console.log(keyData);
 
 export function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
-  const [buttonState, setVisible] = useState<boolean>(true);
+  // const [buttonState, setVisible] = useState<boolean>(true);
   const [responses, setResponses] = useState<{ [key: string]: string }>({});
   const [report, setReport]= useState<string[]>([]);
-  const [visibility,setVisibility] = useState<boolean>(true);
   
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
@@ -65,7 +64,7 @@ export function App() {
   }
 
   function handleHomeLinkclick(){
-    setVisibility(true);
+    navigate("/");
   }
 
 
@@ -73,7 +72,7 @@ export function App() {
     <div>
     <body>
 
-    <Router> 
+     
 
       <header>
         <h1 className = "title-header"> Career Helpi </h1>
@@ -89,7 +88,7 @@ export function App() {
       <Link to="/basic_quiz" onClick={handleQuizLinkclick}>Basic Career Assessment</Link>
   </Button>*/}
 
-      <Button className = "home-btn" id="HOME" onClick={hideButtons}>
+      <Button className = "home-btn" id="HOME">
         <Link to="/" onClick={handleHomeLinkclick}><BsFillHouseFill className="homeIcon" /></Link>
       </Button>
 
@@ -103,48 +102,23 @@ export function App() {
 
       
 
-      {(visibility) ?
+      
       <div>
       <div id = "Typewriter">
       <TypewriterComponent />
-
       </div>
 
       
-      <div className = "description_flexbox" >
-        <h3 className = "differenceTitle">What is The Difference Between the Simple and Detailed Quiz?</h3>
-
-        <div className = "inner_description_flexbox">
-        <h4 className = "description-title">Basic</h4>
-        <p>The basic career assessment is a compact, quicker version of the quiz 
-          which will allow users to get a narrowed down answer based on the preferences 
-          of the user through multiple choice.</p>
-        <Button className = "Career-Btn" onClick = {hideButtons}>
-          <Link to="/basic_quiz" onClick={handleQuizLinkclick}>Start Simple Quiz!</Link>
-        </Button> 
-        </div>
-
-
-        <div className = "inner_description_flexbox">
-        <h4 className = "description-title">Detailed</h4>
-        <p>The Detailed career assessment is an input based  quiz 
-          which will allow users to express their answers with as many sentences 
-          the might need. Then receive a tailored report from them made by AI assistant</p>
-          
-          <Button className = "Career-Btn" onClick={hideButtons}>
-            <Link to="/detailed_quiz" onClick={handleQuizLinkclick}>Start Detailed Quiz!</Link>
-          </Button>
-        
-        </div>
-      </div> 
-      </div>: null}
+      
+      </div>
 
     
       </div>
       <Routes>
+          <Route path ="/" element={<Homepage/>} />
           <Route path="/detailed_quiz" element={<Detailedquiz Report={report} setReport={setReport} />} />
             <Route path="/DetailedResult" element={<DetailedResult report={report}/>} />
-            <Route path="/basic_quiz" element={<Question1 responses={responses} setResponses={setResponses} />} />
+          <Route path="/basic_quiz" element={<Question1 responses={responses} setResponses={setResponses} />} />
             <Route path="/SimpleQuestions/Question2" element={<Question2 responses={responses} setResponses={setResponses} />} />
             <Route path="/SimpleQuestions/Question3" element={<Question3 responses={responses} setResponses={setResponses} />} />
             <Route path="/SimpleQuestions/Question4" element={<Question4 responses={responses} setResponses={setResponses} />} />
@@ -153,7 +127,7 @@ export function App() {
             <Route path="/SimpleQuestions/Question7" element={<Question7 responses={responses} setResponses={setResponses} />} />
             <Route path="/SimpleQuestions/Results" element={<Results responses={responses} />} />
           </Routes>
-      </Router>
+      
 
     <div className = "page-bottom">
     {/*<footer>Colin Barry,Matias Sayanes,Samuel Zheng,Derek Johnson</footer>*/}
