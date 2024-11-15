@@ -3,10 +3,13 @@ import './detailed.css';
 import { Button, Form, FormGroup } from "react-bootstrap";
 import { OpenAI } from "openai";
 import Confetti from "react-confetti";
-import gif from "../images/loading-gif.gif"
+import gif from "../images/loading.gif"
 import { useNavigate } from 'react-router-dom';
 import React from "react";
 import { CircularProgressBar } from '../components/progressBar';
+
+import { BsArrowRightCircleFill } from "react-icons/bs";
+import { BsArrowLeftCircleFill } from "react-icons/bs";
 
 
 type DetailedProps={
@@ -152,22 +155,12 @@ export function Detailedquiz({Report,setReport}:DetailedProps):React.JSX.Element
    
   }
 
-  
-
-  //Pause button
-  function PauseButton(){
-    alert("The quiz is paused, Click 'ok' to resume");
-  }
-
-  
 
     //displays the questions and a text input box to each to answer them 
     //using map function
     return(<div>
       {(allAnswered) ? <Confetti height={1.1*window.outerHeight} gravity={.7}  numberOfPieces={200}></Confetti> : null}
-      <h1>Detailed Quiz</h1>
       <CircularProgressBar answeredCount={answeredCount} totalQuestions={totalQuestions} />
-      <Button onClick={PauseButton}>Pause</Button>
       
       
 
@@ -185,13 +178,17 @@ export function Detailedquiz({Report,setReport}:DetailedProps):React.JSX.Element
       </FormGroup>
        : null
       ))}
-       <div>
-       <Button onClick={handlePrevious} disabled={displayedQ===0}>Previous</Button>
-        <Button onClick={handleNext} disabled={displayedQ===6}>Next</Button>
+
+
+
+       <div className = "detailed-question-nav">
+        <Button className="detailed-prev-btn" onClick={handlePrevious} disabled={displayedQ===0}><BsArrowLeftCircleFill /> Prev</Button>
+        <Button className="detailed-next-btn" onClick={handleNext} disabled={displayedQ===6}>Next <BsArrowRightCircleFill /></Button>
        </div>
-      <div className = "detailed_submit_btn" >
-      <Button disabled={!allAnswered || loading} onClick={submitAnswers}>Submit your answers.</Button>
-      </div>
+
+
+      <Button className = "detailed-submit-btn" disabled={!allAnswered || loading} onClick={submitAnswers}>Submit</Button>
+
       {(loading) && <h1><div>Processing your answers and generating assessment</div><img src={gif} alt="loading..." /></h1>}
       
     

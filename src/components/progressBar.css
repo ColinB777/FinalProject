@@ -1,6 +1,6 @@
 
 .progress-circle-container {
-    position: fixed;
+    position: absolute;
     width: 150px;
     height: 150px;
     display:flex;
