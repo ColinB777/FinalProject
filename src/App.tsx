@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import './progressBar.css'
 import { Button, Form} from 'react-bootstrap';
-import {Route, Link, Routes, useNavigate} from 'react-router-dom';
+import {Route, Link, Routes, useNavigate, Router} from 'react-router-dom';
 import {Detailedquiz} from "./DetailedQuestions/Detailed"
 import {DetailedResult} from "./DetailedQuestions/Result"
 import { Question1 } from "./SimpleQuestions/1";
@@ -13,7 +13,7 @@ import { Question5 } from './SimpleQuestions/5';
 import { Question6 } from './SimpleQuestions/6';
 import { Question7 } from './SimpleQuestions/7';
 import { Results } from './SimpleQuestions/Results';
-import { barVal } from './SimpleQuestions/1';
+import { Homepage } from './Home';
 
 import { BsFillHouseFill } from "react-icons/bs";
 
@@ -41,6 +41,9 @@ export function App() {
   // const [buttonState, setVisible] = useState<boolean>(true);
   const [responses, setResponses] = useState<{ [key: string]: string }>({});
   const [report, setReport]= useState<string[]>([]);
+  const [visibility,setVisibility] = useState<boolean>(true);
+  const navigate = useNavigate();
+
   
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
@@ -53,11 +56,10 @@ export function App() {
     setKey(event.target.value);
   }
 
-  function hideButtons()
-  {
-    setVisible(!buttonState);
-    localStorage.setItem('barProg', (barVal * 0).toString());
-  }
+  // function hideButtons()
+  // {
+  //   setVisible(!buttonState);
+  // }
 
   function handleQuizLinkclick(){
     setVisibility(false);
@@ -72,7 +74,6 @@ export function App() {
     <div>
     <body>
 
-     
 
       <header>
         <h1 className = "title-header"> Career Helpi </h1>
@@ -114,6 +115,7 @@ export function App() {
 
     
       </div>
+      
       <Routes>
           <Route path ="/" element={<Homepage/>} />
           <Route path="/detailed_quiz" element={<Detailedquiz Report={report} setReport={setReport} />} />
@@ -127,7 +129,7 @@ export function App() {
             <Route path="/SimpleQuestions/Question7" element={<Question7 responses={responses} setResponses={setResponses} />} />
             <Route path="/SimpleQuestions/Results" element={<Results responses={responses} />} />
           </Routes>
-      
+          
 
     <div className = "page-bottom">
     {/*<footer>Colin Barry,Matias Sayanes,Samuel Zheng,Derek Johnson</footer>*/}
