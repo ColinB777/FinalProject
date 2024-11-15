@@ -190,7 +190,7 @@ export function Detailedquiz({Report,setReport}:DetailedProps):React.JSX.Element
         <Button onClick={handleNext} disabled={displayedQ===6}>Next</Button>
        </div>
       <div className = "detailed_submit_btn" >
-      <Button disabled={!allAnswered || loading} onClick={submitAnswers}>Submit your answers.</Button>
+      {(allAnswered) ?<Button disabled={loading} onClick={submitAnswers}>Submit your answers.</Button> : null}
       </div>
       {(loading) && <h1><div>Processing your answers and generating assessment</div><img src={gif} alt="loading..." /></h1>}
       
