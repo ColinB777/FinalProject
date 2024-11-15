@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './App.css';
-import './progressBar.css'
 import { Button, Form} from 'react-bootstrap';
 import {Route, Link, Routes, useNavigate} from 'react-router-dom';
 import {Detailedquiz} from "./DetailedQuestions/Detailed"
