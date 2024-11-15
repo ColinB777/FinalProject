@@ -165,7 +165,6 @@ export function Detailedquiz({Report,setReport}:DetailedProps):React.JSX.Element
     //using map function
     return(<div>
       {(allAnswered) ? <Confetti height={1.1*window.outerHeight} gravity={.7}  numberOfPieces={200}></Confetti> : null}
-      <h1>Detailed Quiz</h1>
       <CircularProgressBar answeredCount={answeredCount} totalQuestions={totalQuestions} />
       <Button onClick={PauseButton}>Pause</Button>
       

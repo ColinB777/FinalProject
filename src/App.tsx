@@ -4,7 +4,7 @@ import './progressBar.css'
 import { Button, Form} from 'react-bootstrap';
 import {Route, Link, Routes, useNavigate} from 'react-router-dom';
 import {Detailedquiz} from "./DetailedQuestions/Detailed"
-import {DetailedResult} from "./DetailedQuestions/Result"
+import {DetailedResult} from "./DetailedQuestions/detailed-result"
 import { Question1 } from "./SimpleQuestions/1";
 import { Question2 } from './SimpleQuestions/2';
 import { Question3 } from './SimpleQuestions/3';
@@ -12,22 +12,18 @@ import { Question4 } from './SimpleQuestions/4';
 import { Question5 } from './SimpleQuestions/5';
 import { Question6 } from './SimpleQuestions/6';
 import { Question7 } from './SimpleQuestions/7';
-import { Results } from './SimpleQuestions/Results';
+import { Results } from './SimpleQuestions/simple-result';
 import { Homepage } from './Home';
 import { BsFillHouseFill } from "react-icons/bs";
 
-
-import TypewriterComponent from './components/Typewriter';
 import Tree from './components/tree';
 //import { isVisible } from '@testing-library/user-event/dist/utils';
-
-
-
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
 const saveKeyData = "MYKEY";
 const prevKey = localStorage.getItem(saveKeyData); //so it'll look like: MYKEY: <api_key_value here> in the local storage when you inspect
+
 
 if (prevKey !== null) {
   keyData = JSON.parse(prevKey);
@@ -63,7 +59,6 @@ export function App() {
     navigate("/");
   }
 
-
   return (
     <div>
     <body>
@@ -78,37 +73,11 @@ export function App() {
 
       <div style={{alignItems:'center'}}>
       <div className = 'menu-bar'>
-        {/*Leave the buttons commented out, I doubt we will use them again but just leave them for now */}
-
-      {/*<Button className = "Career-Btn" id="HIDE_BASIC" hidden={buttonState} onClick={hideButtons}>
-      <Link to="/basic_quiz" onClick={handleQuizLinkclick}>Basic Career Assessment</Link>
-  </Button>*/}
-
       <Button className = "home-btn" id="HOME">
         <Link to="/" onClick={handleHomeLinkclick}><BsFillHouseFill className="homeIcon" /></Link>
       </Button>
-
-      {/*<Button className = "Career-Btn" hidden={buttonState} onClick={hideButtons}>
-      <Link to="/detailed_quiz" onClick={handleQuizLinkclick}>Detailed Career Assessment</Link>
-</Button>*/}
       </div>
 
-
-      
-
-      
-
-      
-      <div>
-      <div id = "Typewriter">
-      <TypewriterComponent />
-      </div>
-
-      
-      
-      </div>
-
-    
       </div>
       <Routes>
           <Route path ="/" element={<Homepage/>} />
@@ -126,8 +95,6 @@ export function App() {
       
 
     <div className = "page-bottom">
-    {/*<footer>Colin Barry,Matias Sayanes,Samuel Zheng,Derek Johnson</footer>*/}
-
     <Form className = "apiKey">
         <Form.Label style = {{fontSize:10}}>API Key:
         <Form.Control style = {{width:300, fontSize:10}}type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
