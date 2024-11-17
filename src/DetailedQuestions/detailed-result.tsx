@@ -15,8 +15,17 @@ export function DetailedResult(Report: DetailedResultprop ):React.JSX.Element{
         {Report.report.slice(1).map((segment:string,i:number) =>(
         (displayedSeg===i)?
         <div>
+          {/* Section Header */}
           <h1 style={{marginBottom:-30}}>{segment.slice(0,segment.indexOf("\n"))}</h1>
-          <span  style={{whiteSpace: "break-spaces"}}>{(segment.slice(segment.indexOf("\n")))}</span>
+          {/* Section Body */}
+          {(segment.slice(segment.indexOf("\n")+1)
+            .split("**")
+              .map((subheader:string,i:number)=>(
+              (i%2 === 1) ?
+               <h2 style={{whiteSpace: "break-spaces"}}>{subheader}</h2>
+              :
+              <span  style={{whiteSpace: "break-spaces"}}>{subheader} </span>)
+          ))}
         </div>
         : null
       ))}
