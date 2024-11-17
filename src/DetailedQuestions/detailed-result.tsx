@@ -20,12 +20,25 @@ export function DetailedResult(Report: DetailedResultprop ):React.JSX.Element{
           {/* Section Body */}
           {(segment.slice(segment.indexOf("\n")+1)
             .split("**")
-              .map((subheader:string,i:number)=>(
-              (i%2 === 1) ?
-               <h3 style={{whiteSpace: "break-spaces" , margin:25  }}>{subheader}</h3>
+              .map((subheader:string,segI:number)=>(
+              //this ternary if will return true if the section is Recommended Career paths
+              (i !== 1) ?
+              //this ternary if will return true if the text is a subheader 
+                (segI%2 === 1) ?
+                <h3 style={{whiteSpace: "break-spaces" , margin:25  }}>{subheader}</h3>
+                :
+                <span  style={{whiteSpace: "break-spaces"}}>{subheader.trim()} </span>
               :
-              <span  style={{whiteSpace: "break-spaces"}}>{subheader.trim()} </span>)
-          ))}
+                //this ternary if will return true if the text is a subheader 
+                (segI%2 === 1) ?
+                  //this ternary if will return true if the text is a Career path
+                  (subheader != "Actionable Steps:" && subheader != "Reason:" ) ?
+                  <h3 style={{whiteSpace: "break-spaces" , marginTop:25,marginBottom:-25  }}>{subheader}</h3>
+                  :
+                  <h4 style={{whiteSpace: "break-spaces" , margin:25  }}>{subheader}</h4>
+                :
+                <span  style={{whiteSpace: "break-spaces"}}>{subheader.replaceAll("-", "").trim()} </span>
+            )))}
         </div>
         : null
       ))}
