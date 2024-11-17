@@ -22,9 +22,9 @@ export function DetailedResult(Report: DetailedResultprop ):React.JSX.Element{
             .split("**")
               .map((subheader:string,i:number)=>(
               (i%2 === 1) ?
-               <h2 style={{whiteSpace: "break-spaces"}}>{subheader}</h2>
+               <h3 style={{whiteSpace: "break-spaces" , margin:25  }}>{subheader}</h3>
               :
-              <span  style={{whiteSpace: "break-spaces"}}>{subheader} </span>)
+              <span  style={{whiteSpace: "break-spaces"}}>{subheader.trim()} </span>)
           ))}
         </div>
         : null
