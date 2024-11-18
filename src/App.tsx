@@ -34,7 +34,6 @@ export function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
   // const [buttonState, setVisible] = useState<boolean>(true);
   const [responses, setResponses] = useState<{ [key: string]: string }>({});
-  const [report, setReport]= useState<string[]>([]);
   
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
@@ -80,8 +79,8 @@ export function App() {
       </div>
       <Routes>
           <Route path ="/" element={<Homepage/>} />
-          <Route path="/detailed_quiz" element={<Detailedquiz Report={report} setReport={setReport} />} />
-            <Route path="/DetailedResult" element={<DetailedResult report={report}/>} />
+          <Route path="/detailed_quiz" element={<Detailedquiz />} />
+            <Route path="/DetailedResult" element={<DetailedResult/>} />
           <Route path="/basic_quiz" element={<Question1 responses={responses} setResponses={setResponses} />} />
             <Route path="/SimpleQuestions/Question2" element={<Question2 responses={responses} setResponses={setResponses} />} />
             <Route path="/SimpleQuestions/Question3" element={<Question3 responses={responses} setResponses={setResponses} />} />
