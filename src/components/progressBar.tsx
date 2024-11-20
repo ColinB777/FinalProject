@@ -32,7 +32,7 @@ export function CircularProgressBar({ answeredCount, totalQuestions }: ProgressB
             a 15.9155 15.9155 0 0 1 0 -31.831"
         />
       </svg>
-      <img src={plantImage} className="plant-icon" alt="growing plant" />
+      <img style = {{position: 'absolute', height: '40%', width: '65%', top: '28%', left:'19%'}} src={plantImage} className="plant-icon" alt="growing plant" />
       <div className="progress-text">{Math.round(progress)}%</div>
     </div>
   );
