@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
 import { PlantProgressBar } from '../components/progressSimple';
 import './simple.css';
+import { BsArrowRightCircleFill } from "react-icons/bs";
+import { BsArrowLeftCircleFill } from "react-icons/bs";
 
 
 
@@ -49,10 +51,12 @@ export function Question3({ responses, setResponses }: QuestionProps): React.JSX
             ))}
             <br></br>
             <Button  className = "next-btn" onClick={handlePrev}>
+            <BsArrowLeftCircleFill/>
                 Previous
             </Button>
             <Button className = "next-btn" disabled={blankQuestion} onClick={handleNext}>
                 Next
+                <BsArrowRightCircleFill/>
             </Button>
             {answer !== '' ? PlantProgressBar({answer: answer, currentQuestion: questionNum}) 
             :

@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
 import { PlantProgressBar } from '../components/progressSimple';
 import Confetti from 'react-confetti';
+import { BsArrowRightCircleFill } from "react-icons/bs";
+import { BsArrowLeftCircleFill } from "react-icons/bs";
 
 
 type QuestionProps = {
@@ -46,17 +48,19 @@ export function Question7({ responses, setResponses }: QuestionProps): React.JSX
                     value={option}
                 />
             ))}
-            <Button disabled={!answer} onClick={handleFinish}>Get Career Assessment</Button>
-            <br></br>
             <Button className = "next-btn" onClick={handlePrev}>
+            <BsArrowLeftCircleFill/>
                 Previous
             </Button>
-            <br></br>
-            <Button className = "submit-btn" disabled={!answer} onClick={handleFinish}>Get Career Assessment</Button>
+            <Button className = "submit-btn" disabled={!answer} onClick={handleFinish}>Get Career Assessment <BsArrowRightCircleFill/></Button>
             {answer !== '' ? PlantProgressBar({answer: answer, currentQuestion: questionNum}) 
             :
             PlantProgressBar({answer: answer, currentQuestion: questionNum -= 1})}
             {answer !== '' ? <Confetti height={1.1*window.outerHeight} gravity={.7}  numberOfPieces={200}></Confetti> : null}
+            <br></br>
+            
+            <br></br>
+            
         </div>
     );
 }

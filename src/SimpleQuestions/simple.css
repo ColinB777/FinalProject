@@ -19,6 +19,10 @@ header{
     display:flexbox;
 }
 
+Button {
+    
+}
+
 
 .simple_question{
     background-color: #888d45 ;
@@ -30,18 +34,39 @@ header{
     margin-right: 15%;
     border-radius: 15px;
     font-family: Arial, Helvetica, sans-serif;
+    
 }
 
-.next-btn{
-    padding:0.5%;
-    margin-top:2%;
-    width:10%;
+.next-btn, .next-btn:disabled{
+    margin:1%;
+    border-radius: 10%;
+    background:#4c755b;
+    border-color:transparent;
+    box-shadow: none;
 }
 
-.submit-btn{
-    padding:0.5%;
-    margin-top:3%;
-    width:20%;
+.next-btn:hover {
+    margin:1%;
+    border-radius: 10%;
+    background:#35513f;;
+    border-color:transparent;
+    box-shadow: none;
+}
+
+.submit-btn, .submit-btn:disabled{
+    margin:1%;
+    border-radius: 10%;
+    background:#4c755b;
+    border-color:transparent;
+    box-shadow: none;
+}
+
+.submit-btn:hover{
+    margin:1%;
+    border-radius: 10%;
+    background:#35513f;;
+    border-color:transparent;
+    box-shadow: none;
 }
 
 .question{
