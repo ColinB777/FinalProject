@@ -7,7 +7,7 @@ type ResultsProps = {
 
 export function Results({ responses }: ResultsProps) {
   const [report, setReport] = useState<string>("");
-  const [displayedSeg,setDisplayedSeg]=useState<number>(0);
+ 
   
 
   useEffect(() => {
