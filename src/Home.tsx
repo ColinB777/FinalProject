@@ -1,9 +1,14 @@
 import { Button } from 'react-bootstrap';
 import './App.css';
 import { Link } from 'react-router-dom';
+import TypewriterComponent from './components/Typewriter';
 
 export function Homepage(){
     return <div>
+        <div id = "Typewriter">
+      <TypewriterComponent />
+      </div>
+
         <div className = "description_flexbox" >
         <h3 className = "differenceTitle">What is The Difference Between the Simple and Detailed Quiz?</h3>
 

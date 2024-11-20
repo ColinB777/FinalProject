@@ -3,18 +3,21 @@ import './detailed.css';
 import { Button, Form, FormGroup } from "react-bootstrap";
 import { OpenAI } from "openai";
 import Confetti from "react-confetti";
-import gif from "../images/loading-gif.gif"
+import gif from "../images/loading.gif"
 import { useNavigate } from 'react-router-dom';
 import React from "react";
 import { CircularProgressBar } from '../components/progressBar';
 
+import { BsArrowRightCircleFill } from "react-icons/bs";
+import { BsArrowLeftCircleFill } from "react-icons/bs";
 
-type DetailedProps={
-  Report:string[];
-  setReport: React.Dispatch<React.SetStateAction<string[]>>;
-};
 
-export function Detailedquiz({Report,setReport}:DetailedProps):React.JSX.Element {
+// type DetailedProps={
+//   Report:string[];
+//   setReport: React.Dispatch<React.SetStateAction<string[]>>;
+// };
+
+export function Detailedquiz():React.JSX.Element {
   
   
   const navigate = useNavigate();
@@ -58,6 +61,7 @@ export function Detailedquiz({Report,setReport}:DetailedProps):React.JSX.Element
 
   //Loading State that will help display loading animations
   const [loading,setLoading]=useState<boolean>(false);
+  const [resultsReady,setResultsReady]=useState<boolean>(false);
 
   //state that holds the message used in the API request
   const [msgtoAI,setMSG]=useState<string>("");
@@ -128,15 +132,16 @@ export function Detailedquiz({Report,setReport}:DetailedProps):React.JSX.Element
       //debugging purposes
       console.log(completion.choices[0].message.content);
       if(completion.choices[0].message.content){
-        return completion.choices[0].message.content;
+        localStorage.setItem("DetailedReport", JSON.stringify(completion.choices[0].message.content.split("###").map(segment => `${segment}`)));
       }
       else{
         return "An error ocurred and failed to retrived answer";
       }
     }
     finally{
+      setResultsReady(true);
       setLoading(false);
-      navigate("/DetailedResult")
+      
     }
      
     }
@@ -148,26 +153,22 @@ export function Detailedquiz({Report,setReport}:DetailedProps):React.JSX.Element
   //This funtion will handle the answers submission 
   //by creating a string of the questions and their respective answers
   function submitAnswers(){
-    APIRequest().then((report) => setReport(report.split("###").map(segment => `${segment}`)));
-   
+    
+    APIRequest();
+    
   }
 
-  
-
-  //Pause button
-  function PauseButton(){
-    alert("The quiz is paused, Click 'ok' to resume");
+  function goToResults(){
+    navigate("/DetailedResult")
+    window.location.reload();
   }
 
-  
 
     //displays the questions and a text input box to each to answer them 
     //using map function
     return(<div>
       {(allAnswered) ? <Confetti height={1.1*window.outerHeight} gravity={.7}  numberOfPieces={200}></Confetti> : null}
-      <h1>Detailed Quiz</h1>
       <CircularProgressBar answeredCount={answeredCount} totalQuestions={totalQuestions} />
-      <Button onClick={PauseButton}>Pause</Button>
       
       
 
@@ -185,15 +186,19 @@ export function Detailedquiz({Report,setReport}:DetailedProps):React.JSX.Element
       </FormGroup>
        : null
       ))}
-       <div>
-       <Button onClick={handlePrevious} disabled={displayedQ===0}>Previous</Button>
-        <Button onClick={handleNext} disabled={displayedQ===6}>Next</Button>
+
+
+
+       <div className = "detailed-question-nav">
+        <Button className="detailed-prev-btn" onClick={handlePrevious} disabled={displayedQ===0}><BsArrowLeftCircleFill /> Prev</Button>
+        <Button className="detailed-next-btn" onClick={handleNext} disabled={displayedQ===6}>Next <BsArrowRightCircleFill /></Button>
        </div>
       <div className = "detailed_submit_btn" >
-      <Button disabled={!allAnswered || loading} onClick={submitAnswers}>Submit your answers.</Button>
+      {(allAnswered) ?<Button disabled={loading} onClick={submitAnswers}>Submit your answers.</Button> : null}
       </div>
       {(loading) && <h1><div>Processing your answers and generating assessment</div><img src={gif} alt="loading..." /></h1>}
       
+      {(resultsReady) ?<Button disabled={loading} onClick={goToResults}>See your Results</Button> : null}
     
     </div>
     );

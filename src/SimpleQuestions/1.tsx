@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './simple.css';
 import { useNavigate } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';
-
+import { PlantProgressBar } from '../components/progressSimple';
 
 
 
@@ -17,6 +17,9 @@ export function Question1({ responses, setResponses }: QuestionProps): React.JSX
 
     const options = ["Strongly Agree", "Agree", "Neutral", "Disagree", "Strongly Disagree"];
     const blankQuestion = !answer;
+
+    localStorage.setItem('questionNum', '1');
+    let questionNum = parseInt(localStorage.getItem('questionNum') || "1");
 
     const handleNext = () => {
         setResponses(prev => ({ ...prev, question1: "I feel most fulfilled when working on tasks that allow me to be creative and explore new ideas. " + answer }));
@@ -41,8 +44,10 @@ export function Question1({ responses, setResponses }: QuestionProps): React.JSX
                     value={option}
                 />
             ))}
-            <br></br>
-            <Button className = "next-btn" disabled={blankQuestion} onClick={handleNext}>Next</Button>
+            <Button disabled={blankQuestion} onClick={handleNext}>Next</Button>
+            {answer !== '' ? PlantProgressBar({answer: answer, currentQuestion: questionNum}) 
+            :
+            PlantProgressBar({answer: answer, currentQuestion: questionNum -= 1})}
         </div>
     );
 }

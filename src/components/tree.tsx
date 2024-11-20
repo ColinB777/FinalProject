@@ -7,7 +7,6 @@ const Tree = () => {
 
     return(
         <div className = "background">
-            
         </div>
     );
 }
