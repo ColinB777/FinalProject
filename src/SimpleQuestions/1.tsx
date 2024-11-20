@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';
 import { PlantProgressBar } from '../components/progressSimple';
 import { BsArrowRightCircleFill } from "react-icons/bs";
-import { BsArrowLeftCircleFill } from "react-icons/bs";
 
 
 

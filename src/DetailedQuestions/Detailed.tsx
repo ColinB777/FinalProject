@@ -168,7 +168,9 @@ export function Detailedquiz():React.JSX.Element {
     //using map function
     return(<div>
       {(allAnswered) ? <Confetti height={1.1*window.outerHeight} gravity={.7}  numberOfPieces={200}></Confetti> : null}
+      <div className = "circularProgressBar">
       <CircularProgressBar answeredCount={answeredCount} totalQuestions={totalQuestions} />
+      </div>
       
       
 

@@ -1,8 +1,8 @@
 
 .progress-circle-container {
     position: absolute;
-    width: 150px;
-    height: 150px;
+    width: 10%;
+    height:25%;
     display:flex;
     justify-content: center;
     align-items: center;
@@ -27,10 +27,10 @@
   }
   
   .plant-icon {
-    position: absolute;
-    width: 70px;
-    height: 60px;
-    z-index: 1;
+    margin-right:-90%;
+    width: 50%;
+    height:50%;
+    
   }
   
   .progress-text {
