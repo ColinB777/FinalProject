@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
 import { PlantProgressBar } from '../components/progressSimple';
 import './simple.css';
+import { BsArrowRightCircleFill } from "react-icons/bs";
+import { BsArrowLeftCircleFill } from "react-icons/bs";
 
 
 type QuestionProps = {
@@ -25,6 +27,11 @@ export function Question5({ responses, setResponses }: QuestionProps): React.JSX
         navigate("/SimpleQuestions/Question6");
     };
 
+    const handlePrev = () => {
+        setResponses(prev => ({...prev, question4:""}))
+        navigate("/SimpleQuestions/Question4");
+    };
+
     return (
         <div className = "simple_question">
             <h4 className='question'>5. It’s important to me to have a job that allows me to see tangible results from my efforts.</h4>
@@ -43,8 +50,13 @@ export function Question5({ responses, setResponses }: QuestionProps): React.JSX
                 />
             ))}
             <br></br>
+            <Button className = "next-btn" onClick={handlePrev}>
+            <BsArrowLeftCircleFill/>
+                Previous
+            </Button>
             <Button className = "next-btn" disabled={blankQuestion} onClick={handleNext}>
                 Next
+                <BsArrowRightCircleFill/>
             </Button>
             {answer !== '' ? PlantProgressBar({answer: answer, currentQuestion: questionNum}) 
             :
