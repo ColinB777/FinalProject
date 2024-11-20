@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './simple.css';
 import { useNavigate } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';
-import { plantProgressBar } from '../components/progressSimple';
+import { PlantProgressBar } from '../components/progressSimple';
 
 
 
@@ -19,7 +19,6 @@ export function Question1({ responses, setResponses }: QuestionProps): React.JSX
     const blankQuestion = !answer;
 
     const handleNext = () => {
-        <plantProgressBar answer={answer} currentQuestion={1}/>
         setResponses(prev => ({ ...prev, question1: "I prefer jobs with clear routines and structured tasks over roles that are highly flexible or unpredictable. " + answer }));
         navigate("/SimpleQuestions/Question2");
     };
@@ -41,6 +40,7 @@ export function Question1({ responses, setResponses }: QuestionProps): React.JSX
                 />
             ))}
             <Button disabled={blankQuestion} onClick={handleNext}>Next</Button>
+            {PlantProgressBar({answer: answer, currentQuestion:0})}
         </div>
     );
 }
