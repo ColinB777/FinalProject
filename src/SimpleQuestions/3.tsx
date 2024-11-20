@@ -22,6 +22,7 @@ export function Question3({ responses, setResponses }: QuestionProps): React.JSX
         navigate("/SimpleQuestions/Question4");
     };
     const handlePrev = () => {
+        setResponses(prev => ({...prev, question2:""}))
         navigate("/SimpleQuestions/Question2");
     };
 
