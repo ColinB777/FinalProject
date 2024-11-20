@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
+import { PlantProgressBar } from '../components/progressSimple';
+import Confetti from 'react-confetti';
 
 
 type QuestionProps = {
@@ -13,6 +15,9 @@ export function Question7({ responses, setResponses }: QuestionProps): React.JSX
     const [answer, setAnswer] = useState<string>("");
     const options = ["Strongly Agree", "Agree", "Neutral", "Disagree", "Strongly Disagree"];
     const navigate = useNavigate();
+
+    localStorage.setItem('questionNum', '7');
+    let questionNum = parseInt(localStorage.getItem('questionNum') || "1");
 
     const handleFinish = async () => {
         setResponses(prev => ({ ...prev, question7: "I am motivated by the potential to earn a high salary and achieve financial security in my work. "+ answer }));
@@ -36,8 +41,13 @@ export function Question7({ responses, setResponses }: QuestionProps): React.JSX
                     value={option}
                 />
             ))}
+            <Button disabled={!answer} onClick={handleFinish}>Get Career Assessment</Button>
             <br></br>
             <Button className = "submit-btn" disabled={!answer} onClick={handleFinish}>Get Career Assessment</Button>
+            {answer !== '' ? PlantProgressBar({answer: answer, currentQuestion: questionNum}) 
+            :
+            PlantProgressBar({answer: answer, currentQuestion: questionNum -= 1})}
+            {answer !== '' ? <Confetti height={1.1*window.outerHeight} gravity={.7}  numberOfPieces={200}></Confetti> : null}
         </div>
     );
 }
