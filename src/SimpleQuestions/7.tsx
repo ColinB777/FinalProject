@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
 import { PlantProgressBar } from '../components/progressSimple';
+import Confetti from 'react-confetti';
 
 
 type QuestionProps = {
@@ -46,6 +47,7 @@ export function Question7({ responses, setResponses }: QuestionProps): React.JSX
             {answer !== '' ? PlantProgressBar({answer: answer, currentQuestion: questionNum}) 
             :
             PlantProgressBar({answer: answer, currentQuestion: questionNum -= 1})}
+            {answer !== '' ? <Confetti height={1.1*window.outerHeight} gravity={.7}  numberOfPieces={200}></Confetti> : null}
         </div>
     );
 }

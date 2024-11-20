@@ -13,7 +13,8 @@ type SimpleConstraints = {
 
 export function PlantProgressBar({answer, currentQuestion}: SimpleConstraints)
 {
-    const currentPlant = largePlant;
+    const currentPlant = currentQuestion === 7 ? largePlant :
+    currentQuestion >= 4 ? mediumPlant : smallPlant
     
     return (
         <div>
