@@ -18,6 +18,9 @@ export function Question1({ responses, setResponses }: QuestionProps): React.JSX
     const options = ["Strongly Agree", "Agree", "Neutral", "Disagree", "Strongly Disagree"];
     const blankQuestion = !answer;
 
+    localStorage.setItem('questionNum', '1');
+    let questionNum = parseInt(localStorage.getItem('questionNum') || "1");
+
     const handleNext = () => {
         setResponses(prev => ({ ...prev, question1: "I prefer jobs with clear routines and structured tasks over roles that are highly flexible or unpredictable. " + answer }));
         navigate("/SimpleQuestions/Question2");
@@ -40,7 +43,9 @@ export function Question1({ responses, setResponses }: QuestionProps): React.JSX
                 />
             ))}
             <Button disabled={blankQuestion} onClick={handleNext}>Next</Button>
-            {PlantProgressBar({answer: answer, currentQuestion:0})}
+            {answer !== '' ? PlantProgressBar({answer: answer, currentQuestion: questionNum}) 
+            :
+            PlantProgressBar({answer: answer, currentQuestion: questionNum -= 1})}
         </div>
     );
 }
