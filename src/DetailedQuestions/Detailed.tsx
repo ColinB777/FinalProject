@@ -12,12 +12,12 @@ import { BsArrowRightCircleFill } from "react-icons/bs";
 import { BsArrowLeftCircleFill } from "react-icons/bs";
 
 
-type DetailedProps={
-  Report:string[];
-  setReport: React.Dispatch<React.SetStateAction<string[]>>;
-};
+// type DetailedProps={
+//   Report:string[];
+//   setReport: React.Dispatch<React.SetStateAction<string[]>>;
+// };
 
-export function Detailedquiz({Report,setReport}:DetailedProps):React.JSX.Element {
+export function Detailedquiz():React.JSX.Element {
   
   
   const navigate = useNavigate();
@@ -61,6 +61,7 @@ export function Detailedquiz({Report,setReport}:DetailedProps):React.JSX.Element
 
   //Loading State that will help display loading animations
   const [loading,setLoading]=useState<boolean>(false);
+  const [resultsReady,setResultsReady]=useState<boolean>(false);
 
   //state that holds the message used in the API request
   const [msgtoAI,setMSG]=useState<string>("");
@@ -131,15 +132,16 @@ export function Detailedquiz({Report,setReport}:DetailedProps):React.JSX.Element
       //debugging purposes
       console.log(completion.choices[0].message.content);
       if(completion.choices[0].message.content){
-        return completion.choices[0].message.content;
+        localStorage.setItem("DetailedReport", JSON.stringify(completion.choices[0].message.content.split("###").map(segment => `${segment}`)));
       }
       else{
         return "An error ocurred and failed to retrived answer";
       }
     }
     finally{
+      setResultsReady(true);
       setLoading(false);
-      navigate("/DetailedResult")
+      
     }
      
     }
@@ -151,8 +153,14 @@ export function Detailedquiz({Report,setReport}:DetailedProps):React.JSX.Element
   //This funtion will handle the answers submission 
   //by creating a string of the questions and their respective answers
   function submitAnswers(){
-    APIRequest().then((report) => setReport(report.split("###").map(segment => `${segment}`)));
-   
+    
+    APIRequest();
+    
+  }
+
+  function goToResults(){
+    navigate("/DetailedResult")
+    window.location.reload();
   }
 
 
@@ -190,6 +198,7 @@ export function Detailedquiz({Report,setReport}:DetailedProps):React.JSX.Element
       </div>
       {(loading) && <h1><div>Processing your answers and generating assessment</div><img src={gif} alt="loading..." /></h1>}
       
+      {(resultsReady) ?<Button disabled={loading} onClick={goToResults}>See your Results</Button> : null}
     
     </div>
     );
