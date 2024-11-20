@@ -1,5 +1,5 @@
 .universal{
-    display:flexbox;
+    display:inline-flex;
     flex-direction: row;
     overflow: hidden;
     gap:1rem;
@@ -7,6 +7,7 @@
 }
 
 .sectionHead {
+    flex-direction: column;
     width:33%;
     font-size: 1.75em;       
     font-weight: 700;        
@@ -18,12 +19,12 @@
     font-family: 'Arial', sans-serif; 
     text-transform: uppercase; 
     letter-spacing: 0.05em; 
+    text-align: center;
 }
 
 .answer{
-    flex-direction: column;
-    width:33%;
-    height: 33%;
+    width:100%;
+    text-align: center;
     font-size: 1em;
     margin-top: 1em;
     margin-bottom: 1em;
@@ -58,4 +59,11 @@
 .detailed-answer-navigation:hover{
     border-color: #573934;
     background-color: #573934;
+}
+
+.section {
+    display: table-row;
+    flex-direction: column;    /* Stack title above answer */
+    align-items: center;
+    width: 33%;                /* Each section takes one-third of the width */
 }

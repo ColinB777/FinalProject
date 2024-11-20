@@ -101,7 +101,7 @@ export function Detailedquiz():React.JSX.Element {
             { role: "system", 
               content: 
               `You are a career assessment advisor. I am providing you with a set of questions and the user will input the answers. Generate a detailed career assessment based on the insights from these responses.
-               Provide a summary of the following points:
+              Provide a summary of the following points:
               Strengths
               Passions and Interests
               Ideal Work Environment
@@ -153,9 +153,7 @@ export function Detailedquiz():React.JSX.Element {
   //This funtion will handle the answers submission 
   //by creating a string of the questions and their respective answers
   function submitAnswers(){
-    
     APIRequest();
-    
   }
 
   function goToResults(){

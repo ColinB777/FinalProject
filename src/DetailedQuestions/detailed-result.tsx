@@ -22,11 +22,13 @@ export function DetailedResult( ):React.JSX.Element{
         <Button className = "detailed-answer-navigation" onClick={()=>setDisplayedSeg(1)}>Recommended Career Paths</Button>
         <Button className = "detailed-answer-navigation" onClick={()=>setDisplayedSeg(2)}>Conclusion</Button>
         </div>
+
         {Report.slice(1).map((segment:string,i:number) =>(
         (displayedSeg===i)?
-          <div className = "universal">          {/* Section Header */}
+          <div>          {/* Section Header */}
           <h1>{segment.slice(0,segment.indexOf("\n"))}</h1>
           {/* Section Body */}
+          <div className = "section">
           {(segment.slice(segment.indexOf("\n")+1)
             .split("**")
               .map((subheader:string,segI:number)=>(
@@ -55,6 +57,7 @@ export function DetailedResult( ):React.JSX.Element{
                 <span>{subheader.replaceAll("-", "").trim()} </span>
                 </div>
             )))}
+            </div>
         </div>
         : null
       ))}

@@ -19,7 +19,7 @@
     align-items: center;
 }
 
-.detailed-submit-btn, .detailed-submit-btn:disabled, .detailed-submit-btn:focus{
+.detailed-submit-btn, .detailed-submit-btn:disabled, .detailed-submit-btn:focus, .detailed-next-btn:hover{
     margin:1%;
     border-radius: 10%;
     background:#35513f;
