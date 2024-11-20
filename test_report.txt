@@ -5,7 +5,7 @@
   console.log
 
 
-      at Object.<anonymous> (src/App.tsx:30:9)
+      at Object.<anonymous> (src/App.tsx:31:9)
 
   console.error
     Error: Uncaught [Error: useNavigate() may be used only in the context of a <Router> component.]
@@ -49,7 +49,7 @@
         at Object.invariant [as UNSAFE_invariant] (/home/runner/work/FinalProject/FinalProject/node_modules/@remix-run/router/history.ts:494:11)
         at useNavigateUnstable (/home/runner/work/FinalProject/FinalProject/node_modules/react-router/lib/hooks.tsx:189:3)
         at useNavigate (/home/runner/work/FinalProject/FinalProject/node_modules/react-router/lib/hooks.tsx:185:46)
-        at App (/home/runner/work/FinalProject/FinalProject/src/App.tsx:54:31)
+        at App (/home/runner/work/FinalProject/FinalProject/src/App.tsx:38:31)
         at renderWithHooks (/home/runner/work/FinalProject/FinalProject/node_modules/react-dom/cjs/react-dom.development.js:16305:18)
         at mountIndeterminateComponent (/home/runner/work/FinalProject/FinalProject/node_modules/react-dom/cjs/react-dom.development.js:20074:13)
         at beginWork (/home/runner/work/FinalProject/FinalProject/node_modules/react-dom/cjs/react-dom.development.js:21587:16)
@@ -168,7 +168,7 @@
         at Object.invariant [as UNSAFE_invariant] (/home/runner/work/FinalProject/FinalProject/node_modules/@remix-run/router/history.ts:494:11)
         at useNavigateUnstable (/home/runner/work/FinalProject/FinalProject/node_modules/react-router/lib/hooks.tsx:189:3)
         at useNavigate (/home/runner/work/FinalProject/FinalProject/node_modules/react-router/lib/hooks.tsx:185:46)
-        at App (/home/runner/work/FinalProject/FinalProject/src/App.tsx:54:31)
+        at App (/home/runner/work/FinalProject/FinalProject/src/App.tsx:38:31)
         at renderWithHooks (/home/runner/work/FinalProject/FinalProject/node_modules/react-dom/cjs/react-dom.development.js:16305:18)
         at mountIndeterminateComponent (/home/runner/work/FinalProject/FinalProject/node_modules/react-dom/cjs/react-dom.development.js:20074:13)
         at beginWork (/home/runner/work/FinalProject/FinalProject/node_modules/react-dom/cjs/react-dom.development.js:21587:16)
@@ -249,7 +249,7 @@
   console.error
     The above error occurred in the <App> component:
     
-        at App (/home/runner/work/FinalProject/FinalProject/src/App.tsx:34:33)
+        at App (/home/runner/work/FinalProject/FinalProject/src/App.tsx:35:33)
     
     Consider adding an error boundary to your tree to customize error handling behavior.
     Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.
@@ -286,24 +286,24 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (116 ms)
+  ✕ renders learn react link (134 ms)
 
   ● renders learn react link
 
     useNavigate() may be used only in the context of a <Router> component.
 
-      52 |   //   localStorage.setItem('barProg', '0');
-      53 |   // }
-    > 54 |   const navigate = useNavigate();
+      36 |   // const [buttonState, setVisible] = useState<boolean>(true);
+      37 |   const [responses, setResponses] = useState<{ [key: string]: string }>({});
+    > 38 |   const navigate = useNavigate();
          |                               ^
-      55 |   
-      56 |   function handleHomeLinkclick(){
-      57 |     navigate("/");
+      39 |
+      40 |   
+      41 |   //sets the local storage item to the api key the user inputed
 
       at Object.invariant [as UNSAFE_invariant] (node_modules/@remix-run/router/history.ts:494:11)
       at useNavigateUnstable (node_modules/react-router/lib/hooks.tsx:189:3)
       at useNavigate (node_modules/react-router/lib/hooks.tsx:185:46)
-      at App (src/App.tsx:54:31)
+      at App (src/App.tsx:38:31)
       at renderWithHooks (node_modules/react-dom/cjs/react-dom.development.js:16305:18)
       at mountIndeterminateComponent (node_modules/react-dom/cjs/react-dom.development.js:20074:13)
       at beginWork (node_modules/react-dom/cjs/react-dom.development.js:21587:16)
@@ -339,31 +339,32 @@ go away.[0m
 -----------------------|---------|----------|---------|---------|-------------------
 File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -----------------------|---------|----------|---------|---------|-------------------
-All files              |     7.1 |     4.16 |    1.44 |    7.55 |                   
+All files              |    5.82 |     2.43 |    1.21 |    6.31 |                   
  src                   |   30.76 |    16.66 |   14.28 |   30.76 |                   
-  App.tsx              |   57.14 |       50 |      25 |   57.14 | 28,40-46,57-60    
+  App.tsx              |   57.14 |       50 |      25 |   57.14 | 29,43-63          
   Home.tsx             |       0 |      100 |       0 |       0 | 7                 
   index.tsx            |       0 |      100 |     100 |       0 | 8-24              
   reportWebVitals.ts   |       0 |        0 |       0 |       0 | 3-10              
  src/DetailedQuestions |    5.26 |     2.94 |       0 |    5.66 |                   
-  Detailed.tsx         |       0 |        0 |       0 |       0 | 23-183            
+  Detailed.tsx         |       0 |        0 |       0 |       0 | 23-185            
   detailed-result.tsx  |      25 |     7.14 |       0 |      25 | 10-31             
  src/SimpleQuestions   |       0 |        0 |       0 |       0 |                   
-  1.tsx                |       0 |      100 |       0 |       0 | 15-37             
-  2.tsx                |       0 |      100 |       0 |       0 | 12-34             
-  3.tsx                |       0 |      100 |       0 |       0 | 14-36             
-  4.tsx                |       0 |      100 |       0 |       0 | 12-34             
-  5.tsx                |       0 |      100 |       0 |       0 | 13-35             
-  6.tsx                |       0 |      100 |       0 |       0 | 12-34             
-  7.tsx                |       0 |      100 |       0 |       0 | 13-34             
-  simple-result.tsx    |       0 |        0 |       0 |       0 | 9-54              
- src/components        |   28.57 |        0 |       0 |   28.57 |                   
+  1.tsx                |       0 |        0 |       0 |       0 | 16-43             
+  2.tsx                |       0 |        0 |       0 |       0 | 15-45             
+  3.tsx                |       0 |        0 |       0 |       0 | 17-46             
+  4.tsx                |       0 |        0 |       0 |       0 | 15-45             
+  5.tsx                |       0 |        0 |       0 |       0 | 16-46             
+  6.tsx                |       0 |        0 |       0 |       0 | 15-45             
+  7.tsx                |       0 |        0 |       0 |       0 | 17-46             
+  simple-result.tsx    |       0 |        0 |       0 |       0 | 9-75              
+ src/components        |   22.22 |        0 |       0 |   22.22 |                   
   Typewriter.tsx       |      50 |      100 |       0 |      50 | 6                 
   progressBar.tsx      |       0 |        0 |       0 |       0 | 13-18             
+  progressSimple.tsx   |       0 |        0 |       0 |       0 | 16-19             
   tree.tsx             |      50 |      100 |       0 |      50 | 8                 
 -----------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.461 s
+Time:        3.71 s
 Ran all test suites.
