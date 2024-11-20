@@ -1,0 +1,45 @@
+
+
+.border
+{
+    position: relative;
+    left: 255px;
+    top: 10px;
+    width: 50%;
+    max-width: 200px;
+    border-radius: 10px;
+    border: 2px solid lightgreen;
+    overflow: hidden;
+}
+
+
+
+.bar
+{
+    position: relative;
+    height: 20px; /* Height of the progress bar */
+    width: 0%; /* Initial width, this will change with progress */
+    background-color: lightblue; /* Green color for progress */
+    border-radius: 10px 0 0 10px; /* Rounded corners on the left side */
+    text-align:center; /* Center the text inside the bar */
+    color:brown; /* Text color */
+    line-height: 20px; /* Vertically center the text */
+    font-weight: bold; /* Make the text bold */
+    transition: width 0.75s ease-in-out; /* Smooth transition for the width */
+}
+
+.can-icon
+{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    left: 95px;
+    top: 0px;
+}
+
+.plant-icon
+{
+    position: relative;
+    right: 65px;
+    top: 0px;
+}
