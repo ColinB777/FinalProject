@@ -30,16 +30,18 @@
 
 .can-icon
 {
-    position: relative;
+    position:relative;
     width: 100px;
-    height: 100px;
-    left: 95px;
-    top: 0px;
+    left:13%;
 }
 
 .plant-icon
 {
-    position: relative;
+    position:relative;
     right: 65px;
-    top: 0px;
+    width:90px;
+}
+
+.progressBarCan {
+    position:relative;
 }
