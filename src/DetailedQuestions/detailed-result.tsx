@@ -12,19 +12,32 @@ if (StoredReport){
 
 
 
+
 export function DetailedResult( ):React.JSX.Element{
     console.log("This is the report:  " , Report)
     const [displayedSeg,setDisplayedSeg]=useState<number>(0);
     const SectionedReport = Report.slice(1);
 
+    
+
+    type jobReccomendation={
+      header:string,
+      reasons:string,
+      Actions:string
+    }
+
     const SummarySec ={
       header: SectionedReport[0].slice(0,SectionedReport[0].indexOf("\n")),
 
-      subsections: SectionedReport[0]
-      .slice(SectionedReport[0].indexOf("\n")+2)
-      .split("**")
-      .filter((item,index) => (index !== 0) && item !== null)
+      // subsections: SectionedReport[0]
+      // .slice(SectionedReport[0].indexOf("\n")+2)
+      // .split("**")
+      // .filter((item,index) => (index !== 0) && item !== null)
       
+      subsections: {
+          headers: [] ,
+          bodies: []
+      }
     };
 
     const CareerPathsSec = {
