@@ -29,14 +29,20 @@ export function DetailedResult( ):React.JSX.Element{
     const SummarySec ={
       header: SectionedReport[0].slice(0,SectionedReport[0].indexOf("\n")),
 
-      // subsections: SectionedReport[0]
-      // .slice(SectionedReport[0].indexOf("\n")+2)
-      // .split("**")
-      // .filter((item,index) => (index !== 0) && item !== null)
-      
       subsections: {
-          headers: [] ,
-          bodies: []
+          headers: 
+          SectionedReport[0]
+          .slice(SectionedReport[0].indexOf("\n")+2)
+          .split("**")
+          .filter((item,index) => (index !== 0) && item !== null)
+          .filter((item,index) => !(index % 2)) ,
+
+          bodies:
+          SectionedReport[0]
+          .slice(SectionedReport[0].indexOf("\n")+2)
+          .split("**")
+          .filter((item,index) => (index !== 0) && item !== null)
+          .filter((item,index) => (index % 2)) ,
       }
     };
 
@@ -56,7 +62,7 @@ export function DetailedResult( ):React.JSX.Element{
       .split("**")
       .filter(item => item !== null)
     };
-    
+    console.log(SummarySec.subsections.bodies[0])
     return <div>
 
         <Button onClick={()=>setDisplayedSeg(0)}>Assessment Summary</Button>
@@ -65,7 +71,14 @@ export function DetailedResult( ):React.JSX.Element{
         
       {(displayedSeg === 0) ? <div>
           <h1>{SummarySec.header}</h1>
-          <body style={{whiteSpace: "break-spaces"}}>{SummarySec.subsections}</body>
+          <body style={{whiteSpace: "break-spaces"}}>
+            {SummarySec.subsections.headers.map((header:string,index:number) => 
+            (<div>
+              <h3>{header}</h3>
+              <span>{SummarySec.subsections.bodies[index]}</span>
+            </div>)
+          ) }
+            </body>
         </div> : null}
 
         {(displayedSeg === 1) ? <div>
