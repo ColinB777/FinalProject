@@ -20,11 +20,7 @@ export function DetailedResult( ):React.JSX.Element{
 
     
 
-    type jobReccomendation={
-      header:string,
-      reasons:string,
-      Actions:string
-    }
+
 
     const SummarySec ={
       header: SectionedReport[0].slice(0,SectionedReport[0].indexOf("\n")),
@@ -99,7 +95,7 @@ export function DetailedResult( ):React.JSX.Element{
             </div>
         </div> : null}
         
-        
+
         {(displayedSeg === 2) ? <div>
           <h1>{Conclusion.header}</h1>
           <body style={{whiteSpace: "break-spaces"}}>{Conclusion.subsections}</body>

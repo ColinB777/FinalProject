@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import { Button, Form} from 'react-bootstrap';
-import {Route, Link, Routes, useNavigate, Router} from 'react-router-dom';
+import {Route, Link, Routes, useNavigate} from 'react-router-dom';
 import {Detailedquiz} from "./DetailedQuestions/Detailed"
 import {DetailedResult} from "./DetailedQuestions/detailed-result"
 import { Question1 } from "./SimpleQuestions/1";
@@ -35,8 +35,6 @@ export function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
   // const [buttonState, setVisible] = useState<boolean>(true);
   const [responses, setResponses] = useState<{ [key: string]: string }>({});
-  const [report, setReport]= useState<string[]>([]);
-  const [visibility,setVisibility] = useState<boolean>(true);
   const navigate = useNavigate();
 
   
@@ -56,9 +54,7 @@ export function App() {
   //   setVisible(!buttonState);
   // }
 
-  function handleQuizLinkclick(){
-    setVisibility(false);
-  }
+
 
   function handleHomeLinkclick(){
     navigate("/");
