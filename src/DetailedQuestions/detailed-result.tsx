@@ -51,7 +51,7 @@ export function DetailedResult( ):React.JSX.Element{
       subsections: SectionedReport[1].slice(SectionedReport[1].indexOf("\n")+1)
       .split(/(?=\d+\.)/)
       .filter((item,index) => (index !== 0) && item !== null )
-      .map(item => item.replaceAll("**","").replaceAll("-",""))
+      .map((item:string) => item.replaceAll("-","").split("**").filter((item,index) => (index !== 0) && item.trim() !== ""))
     };
 
     const Conclusion = {
@@ -62,13 +62,14 @@ export function DetailedResult( ):React.JSX.Element{
       .split("**")
       .filter(item => item !== null)
     };
-    console.log(SummarySec.subsections.bodies[0])
+    console.log(CareerPathsSec.subsections[1])
     return <div>
 
         <Button onClick={()=>setDisplayedSeg(0)}>Assessment Summary</Button>
         <Button onClick={()=>setDisplayedSeg(1)}>Recommended Career Paths</Button>
         <Button onClick={()=>setDisplayedSeg(2)}>Conclusion</Button>
         
+
       {(displayedSeg === 0) ? <div>
           <h1>{SummarySec.header}</h1>
           <body style={{whiteSpace: "break-spaces"}}>
@@ -81,10 +82,23 @@ export function DetailedResult( ):React.JSX.Element{
             </body>
         </div> : null}
 
+
         {(displayedSeg === 1) ? <div>
           <h1>{CareerPathsSec.header}</h1>
-          <body style={{whiteSpace: "break-spaces"}}>{CareerPathsSec.subsections}</body>
+          <div style={{whiteSpace: "break-spaces"}}>
+            {CareerPathsSec.subsections.map((Career:string[]) =>
+              (<div>
+                <h3>{Career[0]}</h3>
+                <h4>{Career[1]}</h4>
+                <span>{Career[2]}</span>
+                <h4>{Career[3]}</h4>
+                <span>{Career[4]}</span>
+              </div>
+              )
+            )}
+            </div>
         </div> : null}
+        
         
         {(displayedSeg === 2) ? <div>
           <h1>{Conclusion.header}</h1>
