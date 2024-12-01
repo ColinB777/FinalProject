@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
+import "./Result.css"
 
 // type DetailedResultprop={
 //     report:string[];
@@ -68,9 +69,9 @@ export function DetailedResult( ):React.JSX.Element{
 
       {(displayedSeg === 0) ? <div>
           <h1>{SummarySec.header}</h1>
-          <body style={{whiteSpace: "break-spaces"}}>
+          <body className="horizontal-container">
             {SummarySec.subsections.headers.map((header:string,index:number) => 
-            (<div>
+            (<div className="component">
               <h3>{header}</h3>
               <span>{SummarySec.subsections.bodies[index]}</span>
             </div>)
