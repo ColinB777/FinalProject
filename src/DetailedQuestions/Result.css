@@ -1,0 +1,16 @@
+.horizontal-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; /* Wrap items to the next line */
+    gap: 2%;
+    white-space: break-spaces;
+  }
+
+.component {
+    min-width: 10px;
+    width: 20%; /* Fixed width for items */
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+    margin: 1%;
+}
