@@ -2,7 +2,7 @@ import smallPlant from "../images/small-plant.png";
 import mediumPlant from "../images/medium-plant.png";
 import largePlant from "../images/large-plant.png";
 import wateringCan from "../images/watering-can.gif";
-import './simpleBar.css';
+import './Simplebar.css';
 
 
 type SimpleConstraints = {

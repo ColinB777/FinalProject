@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
 import { PlantProgressBar } from '../components/progressSimple';
 import './simple.css';
+import { BsArrowRightCircleFill } from "react-icons/bs";
+import { BsArrowLeftCircleFill } from "react-icons/bs";
 
 type QuestionProps = {
     responses: { [key: string]: string };
@@ -24,6 +26,11 @@ export function Question4({ responses, setResponses }: QuestionProps): React.JSX
         navigate("/SimpleQuestions/Question5");
     };
 
+    const handlePrev = () => {
+        setResponses(prev => ({...prev, question3:""}))
+        navigate("/SimpleQuestions/Question3");
+    };
+
     return (
         <div className = "simple_question">
             <h4 className = "question">4. I enjoy interacting with people throughout my workday and thrive in social work environments.</h4>
@@ -42,8 +49,13 @@ export function Question4({ responses, setResponses }: QuestionProps): React.JSX
                 />
             ))}
             <br></br>
+            <Button className = "next-btn" onClick={handlePrev}>
+            <BsArrowLeftCircleFill/>
+                Previous
+            </Button>
             <Button className = "next-btn" disabled={blankQuestion} onClick={handleNext}>
                 Next
+                <BsArrowRightCircleFill/>
             </Button>
             {answer !== '' ? PlantProgressBar({answer: answer, currentQuestion: questionNum}) 
             :
