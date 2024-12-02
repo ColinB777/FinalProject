@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/FinalProject/static/css/main.edbabb57.css",
-    "main.js": "/FinalProject/static/js/main.e00edfc5.js",
+    "main.css": "/FinalProject/static/css/main.caaf63f0.css",
+    "main.js": "/FinalProject/static/js/main.5abf3493.js",
     "static/js/453.bad6c33a.chunk.js": "/FinalProject/static/js/453.bad6c33a.chunk.js",
     "static/media/treeBG.gif": "/FinalProject/static/media/treeBG.ee6d0518742c5397d1ca.gif",
     "static/media/watering-can.gif": "/FinalProject/static/media/watering-can.30b6bc75a75d273c620d.gif",
@@ -9,12 +9,12 @@
     "static/media/large-plant.png": "/FinalProject/static/media/large-plant.d4ad121bf98385b05993.png",
     "static/media/medium-plant.png": "/FinalProject/static/media/medium-plant.ff45edc6a314bb02cb4c.png",
     "index.html": "/FinalProject/index.html",
-    "main.edbabb57.css.map": "/FinalProject/static/css/main.edbabb57.css.map",
-    "main.e00edfc5.js.map": "/FinalProject/static/js/main.e00edfc5.js.map",
+    "main.caaf63f0.css.map": "/FinalProject/static/css/main.caaf63f0.css.map",
+    "main.5abf3493.js.map": "/FinalProject/static/js/main.5abf3493.js.map",
     "453.bad6c33a.chunk.js.map": "/FinalProject/static/js/453.bad6c33a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.edbabb57.css",
-    "static/js/main.e00edfc5.js"
+    "static/css/main.caaf63f0.css",
+    "static/js/main.5abf3493.js"
   ]
 }
