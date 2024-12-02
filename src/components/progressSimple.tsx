@@ -19,7 +19,7 @@ export function PlantProgressBar({answer, currentQuestion}: SimpleConstraints)
     return (
         <div>
         <img  className="can-icon" src={wateringCan} alt="can-Icon" />
-        <img className="plant-icon" src={currentPlant} alt="plant-Icon" />
+        <img className="Plant-icon" src={currentPlant} alt="plant-Icon" />
         <div className="border">
             <div className="bar" style={{width: currentQuestion * 15 + '%'}}> {currentQuestion}</div>
         </div>
