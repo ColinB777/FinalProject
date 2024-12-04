@@ -26,12 +26,7 @@
     transition: stroke-dasharray 0.5s;
   }
   
-  .plant-icon {
-    margin-right:-90%;
-    width: 50%;
-    height:50%;
-    
-  }
+  
   
   .progress-text {
     position: absolute;
