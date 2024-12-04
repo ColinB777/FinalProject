@@ -3,7 +3,7 @@ import './detailed.css';
 import { Button, Form, FormGroup } from "react-bootstrap";
 import { OpenAI } from "openai";
 import Confetti from "react-confetti";
-import gif from "../images/loading.gif"
+import gif from "../images/loading.gif";
 import { useNavigate } from 'react-router-dom';
 import React from "react";
 import { CircularProgressBar } from '../components/progressBar';
