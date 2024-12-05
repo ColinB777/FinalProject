@@ -24,17 +24,17 @@ export function Question3({ responses, setResponses }: QuestionProps): React.JSX
     let questionNum = parseInt(localStorage.getItem('questionNum') || "1");
 
     const handleNext = () => {
-        setResponses(prev => ({ ...prev, question3: "I prefer jobs with clear routines and structured tasks over roles that are highly flexible or unpredictable. " + answer }));
+        setResponses(prev => ({ ...prev, question3: "I thrive in creative environments where I can express my ideas through art, writing, or design. " + answer }));
         navigate("/SimpleQuestions/Question4");
     };
     const handlePrev = () => {
-        setResponses(prev => ({...prev, question2:""}))
+        setResponses(prev => ({...prev, question2:"", question3:""}))
         navigate("/SimpleQuestions/Question2");
     };
 
     return (
         <div className = "simple_question">
-            <h4 className = "question">3. I prefer jobs with clear routines and structured tasks over roles that are highly flexible or unpredictable.</h4>
+            <h4 className = "question">3. I thrive in creative environments where I can express my ideas through art, writing, or design.</h4>
             {options.map((option, i) => (
                 <Form.Check
                     className='answerButtons'
