@@ -63,10 +63,11 @@ export function DetailedResult( ):React.JSX.Element{
     console.log(CareerPathsSec.subsections[1])
     return <div>
 
-        <Button onClick={()=>setDisplayedSeg(0)}>Assessment Summary</Button>
-        <Button onClick={()=>setDisplayedSeg(1)}>Recommended Career Paths</Button>
-        <Button onClick={()=>setDisplayedSeg(2)}>Conclusion</Button>
-        
+      <div className = "detailed-result-nav-bar">
+        <Button className = "detailed-result-nav-btn" onClick={()=>setDisplayedSeg(0)}>Assessment Summary</Button>
+        <Button className = "detailed-result-nav-btn" onClick={()=>setDisplayedSeg(1)}>Recommended Career Paths</Button>
+        <Button className = "detailed-result-nav-btn" onClick={()=>setDisplayedSeg(2)}>Conclusion</Button>
+      </div>
 
       {(displayedSeg === 0) ? <div>
           <h1>{SummarySec.header}</h1>
@@ -105,4 +106,3 @@ export function DetailedResult( ):React.JSX.Element{
       </div>
 
 }
-

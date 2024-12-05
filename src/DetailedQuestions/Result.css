@@ -7,10 +7,42 @@
   }
 
 .component {
-    min-width: 10px;
+		min-width: 10px;
     width: 20%; /* Fixed width for items */
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #bfbfbf;
     text-align: center;
     margin: 1%;
+}
+
+.detailed-result-nav-bar{
+	background-color: #784e48;
+	border-radius: 20px;
+	width:60%;
+	display: inline-block;
+	margin-top:1%;
+	padding:1%;
+
+}
+
+.detailed-result-nav-btn{
+	background-color: white;
+	color: #784e48;
+	outline-color: #784e48;
+	border-radius: 20px;
+	margin-left:0.25rem;
+	margin-right:0.25rem;
+	border-color:transparent;
+}
+.detailed-result-nav-btn:hover{
+	background-color: #68443f;
+	color: white;
+	outline-color: #68443f;
+	border-color: transparent;
+}
+
+.detailed-result-nav-btn:focus{
+	background-color: white;
+	color: #784e48;
+	outline-color: #784e48;
 }
