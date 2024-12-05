@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
-import "./Result.css"
+import "../Result.css"
 
 // type DetailedResultprop={
 //     report:string[];
