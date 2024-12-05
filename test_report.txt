@@ -286,7 +286,7 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (116 ms)
+  ✕ renders learn react link (112 ms)
 
   ● renders learn react link
 
@@ -339,7 +339,7 @@ go away.[0m
 -----------------------|---------|----------|---------|---------|-------------------
 File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -----------------------|---------|----------|---------|---------|-------------------
-All files              |    6.53 |     3.12 |       1 |    7.07 |                   
+All files              |    6.03 |     2.83 |    0.96 |    6.53 |                   
  src                   |   30.76 |    16.66 |   14.28 |   30.76 |                   
   App.tsx              |   57.14 |       50 |      25 |   57.14 | 29,43-63          
   Home.tsx             |       0 |      100 |       0 |       0 | 7                 
@@ -348,14 +348,14 @@ All files              |    6.53 |     3.12 |       1 |    7.07 |
  src/DetailedQuestions |    4.22 |     2.77 |       0 |    4.54 |                   
   Detailed.tsx         |       0 |        0 |       0 |       0 | 23-183            
   detailed-result.tsx  |   11.53 |     6.25 |       0 |      12 | 11-89             
- src/SimpleQuestions   |    2.15 |     2.17 |       0 |     2.4 |                   
+ src/SimpleQuestions   |    1.88 |     1.78 |       0 |    2.08 |                   
   1.tsx                |       0 |        0 |       0 |       0 | 16-43             
   2.tsx                |       0 |        0 |       0 |       0 | 15-45             
   3.tsx                |       0 |        0 |       0 |       0 | 17-46             
   4.tsx                |       0 |        0 |       0 |       0 | 15-45             
   5.tsx                |       0 |        0 |       0 |       0 | 16-46             
   6.tsx                |       0 |        0 |       0 |       0 | 15-45             
-  7.tsx                |       0 |        0 |       0 |       0 | 17-46             
+  7.tsx                |       0 |        0 |       0 |       0 | 18-122            
   simple-result.tsx    |      12 |     6.25 |       0 |    12.5 | 11-91             
  src/components        |   22.22 |        0 |       0 |   22.22 |                   
   Typewriter.tsx       |      50 |      100 |       0 |      50 | 6                 
@@ -366,5 +366,5 @@ All files              |    6.53 |     3.12 |       1 |    7.07 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        4.031 s
+Time:        3.768 s
 Ran all test suites.
