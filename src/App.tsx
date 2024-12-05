@@ -66,7 +66,7 @@ export function App() {
 
 
       <header>
-        <h1 className = "title-header"> Career Helpi </h1>
+        <h1 className = "title-header"> Future Forest </h1>
       </header> 
       <Tree />
 
