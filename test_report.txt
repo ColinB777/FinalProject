@@ -346,8 +346,8 @@ All files              |     5.5 |     2.38 |    1.11 |    5.96 |
   index.tsx            |       0 |      100 |     100 |       0 | 8-24              
   reportWebVitals.ts   |       0 |        0 |       0 |       0 | 3-10              
  src/DetailedQuestions |    4.28 |     2.77 |       0 |    4.61 |                   
-  Detailed.tsx         |       0 |        0 |       0 |       0 | 23-185            
-  detailed-result.tsx  |      12 |     6.25 |       0 |    12.5 | 11-87             
+  Detailed.tsx         |       0 |        0 |       0 |       0 | 23-183            
+  detailed-result.tsx  |      12 |     6.25 |       0 |    12.5 | 11-88             
  src/SimpleQuestions   |       0 |        0 |       0 |       0 |                   
   1.tsx                |       0 |        0 |       0 |       0 | 16-43             
   2.tsx                |       0 |        0 |       0 |       0 | 15-45             
@@ -366,5 +366,5 @@ All files              |     5.5 |     2.38 |    1.11 |    5.96 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.467 s
+Time:        3.59 s
 Ran all test suites.
