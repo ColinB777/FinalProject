@@ -1,81 +1,111 @@
-import React, { useEffect, useState } from 'react';
-import { OpenAI } from 'openai';
+import React, { useState } from 'react';
+import { Button } from 'react-bootstrap';
 
 type ResultsProps = {
   responses: { [key: string]: string };
 };
 
-export function Results({ responses }: ResultsProps) {
-  const [report, setReport] = useState<string>("");
- 
-  
-
-  useEffect(() => {
-    async function APIRequest() {
-      const key = localStorage.getItem("MYKEY");
-      if (!key) {
-        setReport("Please input an API key to proceed.");
-        return;
-      }
-
-      // Format responses for OpenAI
-      const formattedResponses = Object.entries(responses)
-        .map(([question, answer]) => `${question}: ${answer}`)
-        .join("\n");
-
-        console.log(formattedResponses);
-
-      try {
-        const openai = new OpenAI({
-          apiKey: JSON.parse(key),
-          organization: "org-EbrOwGpWn6qnLdFwzPY4qAsR",
-          dangerouslyAllowBrowser: true,
-        });
-
-        const completion = await openai.chat.completions.create({
-          model: "gpt-4o-mini",
-          messages: [
-            { role: "system", 
-              content: 
-              `You are a career assessment advisor. I am providing you with a set of questions and the user will input the answers. Generate a detailed career assessment based on the insights from these responses.
-               Provide a summary of the following points:
-              Strengths
-              Passions and Interests
-              Ideal Work Environment
-              Long-Term Career Path
-              Values and Motivations
-              Energy and Engagement
-              Learning and Growth
-              Based on these insights, recommend three specific career paths or job roles that best match the user’s profile, with reasons for each suggestion and actionable steps for pursuing these roles.
-              Questions:
-              1.What are your core strengths? (Think about skills, talents, or areas where you consistently excel, both professionally and personally.)
-              2.What are your interests and passions? (What activities or subjects excite you and keep you engaged, even when you’re not being paid?)
-              3.What work environment do you thrive in? (Do you prefer a structured or flexible environment? Do you work better alone or in teams?)
-              4.What are your long-term career goals? (Where do you see yourself in 5, 10, or 20 years? Do you aspire to leadership roles, or would you prefer to be a specialist?)
-              5.What are your values and priorities in a job? (Is work-life balance important to you? Do you seek financial security, creativity, or the opportunity to make a difference?)
-              6.What type of work drains or energizes you? (What tasks or responsibilities feel exhausting versus those that feel exciting and fulfilling?)
-              7.What is your preferred learning style? (Do you prefer learning by doing, studying theory, or through hands-on experience? How do you like to grow professionally?)
-              Make sure to divide into 3 sections: Assesment Summary, Recommended Career paths, and Conclusion`},
-            { role: "user", content: formattedResponses },
-          ],
-          temperature: 0.2,
-          max_tokens: 850,
-        });
-
-        setReport(completion.choices?.[0]?.message?.content ?? "Error: Failed to retrieve the assessment.");
-      } catch (error) {
-        setReport("There was an error fetching the report.");
-        console.error("API request error:", error);
-      }
-    }
-
-    APIRequest();
-  }, [responses]);
-
-  return (
-    <div>
-      <h1>Career Assessment Report</h1>
-      <p>{report}</p>
-    </div>
-  );
+const StoredReport = localStorage.getItem("BasicReport");
+let Report = [""];
+if (StoredReport){
+  console.log("hurray")
+  Report=JSON.parse(StoredReport);
 }
+
+export function Results({ responses }: ResultsProps) {
+  // Format responses for OpenAI
+  
+  
+    
+    const SectionedReport = Report.slice(1);
+    const [displayedSeg,setDisplayedSeg]=useState<number>(0);
+    console.log(Report)
+    
+    
+    const SummarySec ={
+      header: SectionedReport[0].slice(0,SectionedReport[0].indexOf("\n")),
+
+      subsections: {
+          headers: 
+          SectionedReport[0]
+          .slice(SectionedReport[0].indexOf("\n")+2)
+          .split("**")
+          .filter((item,index) => (index !== 0) && item !== null)
+          .filter((item,index) => !(index % 2)) ,
+
+          bodies:
+          SectionedReport[0]
+          .slice(SectionedReport[0].indexOf("\n")+2)
+          .split("**")
+          .filter((item,index) => (index !== 0) && item !== null)
+          .filter((item,index) => (index % 2)) ,
+      }
+    };
+    
+
+    const CareerPathsSec = {
+      header: SectionedReport[1].slice(0,SectionedReport[1].indexOf("\n")),
+      subsections: SectionedReport[1].slice(SectionedReport[1].indexOf("\n")+1)
+      .split(/(?=\d+\.)/)
+      .filter((item:string,index:number) => (index !== 0) && item !== null )
+      .map((item:string) => item.replaceAll("-","").split("**").filter((item,index) => (index !== 0) && item.trim() !== ""))
+    };
+
+    const Conclusion = {
+      header: SectionedReport[2].slice(0,SectionedReport[2].indexOf("\n")),
+
+      subsections: SectionedReport[2]
+      .slice(SectionedReport[2].indexOf("\n")+2)
+      .split("**")
+      .filter((item:string) => item !== null)
+    };
+    
+    return <div>
+
+          
+
+      <div className = "detailed-result-nav-bar">
+        <Button className = "detailed-result-nav-btn" onClick={()=>setDisplayedSeg(0)}>Assessment Summary</Button>
+        <Button className = "detailed-result-nav-btn" onClick={()=>setDisplayedSeg(1)}>Recommended Career Paths</Button>
+        <Button className = "detailed-result-nav-btn" onClick={()=>setDisplayedSeg(2)}>Conclusion</Button>
+      </div>
+        
+
+          {(displayedSeg === 0) ? <div>
+          <h1>{SummarySec.header}</h1>
+          <body className="horizontal-container">
+            {SummarySec.subsections.headers.map((header:string,index:number) => 
+            (<div className="component">
+              <h3>{header}</h3>
+              <span>{SummarySec.subsections.bodies[index]}</span>
+            </div>)
+          ) }
+            </body>
+        </div> : null}
+
+
+         {(displayedSeg === 1) ? <div>
+          <h1>{CareerPathsSec.header}</h1>
+          <div style={{whiteSpace: "break-spaces"}}>
+            {CareerPathsSec.subsections.map((Career:string[]) =>
+              (<div>
+                <h3>{Career[0]}</h3>
+                <h4>{Career[1]}</h4>
+                <span>{Career[2]}</span>
+                <h4>{Career[3]}</h4>
+                <span>{Career[4]}</span>
+              </div>
+              )
+            )}
+            </div>
+        </div> : null}
+        
+
+        {(displayedSeg === 2) ? <div>
+          <h1>{Conclusion.header}</h1>
+          <body style={{whiteSpace: "break-spaces"}}>{Conclusion.subsections}</body>
+        </div> : null}  
+      </div>
+
+}
+
