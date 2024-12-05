@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import "./Result.css"
-import './detailed-result.css';
 
 // type DetailedResultprop={
 //     report:string[];
@@ -62,40 +61,46 @@ export function DetailedResult( ):React.JSX.Element{
     };
     console.log(CareerPathsSec.subsections[1])
     return <div>
+
         <Button onClick={()=>setDisplayedSeg(0)}>Assessment Summary</Button>
         <Button onClick={()=>setDisplayedSeg(1)}>Recommended Career Paths</Button>
         <Button onClick={()=>setDisplayedSeg(2)}>Conclusion</Button>
-        {Report.slice(1).map((segment:string,i:number) =>(
-        (displayedSeg===i)?
-        <div>
-          {/* Section Header */}
-          <h1>{segment.slice(0,segment.indexOf("\n"))}</h1>
-          {/* Section Body */}
-          {(segment.slice(segment.indexOf("\n")+1)
-            .split("**")
-              .map((subheader:string,segI:number)=>(
-              //this ternary if will return true if the section is Recommended Career paths
-              (i !== 1) ?
-              //this ternary if will return true if the text is a subheader 
-                (segI%2 === 1) ?
-                <h3 style={{whiteSpace: "break-spaces" , margin:25  }}>{subheader}</h3>
-                :
-                <span  style={{whiteSpace: "break-spaces"}}>{subheader.trim()} </span>
-              :
-                //this ternary if will return true if the text is a subheader 
-                (segI%2 === 1) ?
-                  //this ternary if will return true if the text is a Career path
-                  (subheader !== "Actionable Steps:" && subheader !== "Reason:" ) ?
-                  <h3 style={{whiteSpace: "break-spaces" , marginTop:25,marginBottom:-20  }}>{subheader}</h3>
-                  :
-                  <h4 style={{whiteSpace: "break-spaces" , margin:25  }}>{subheader}</h4>
-                :
-                <span  style={{whiteSpace: "break-spaces"}}>{subheader.replaceAll("-", "").trim()} </span>
-            )))}
-        </div>
-        : null
-      ))}
+        
+
+      {(displayedSeg === 0) ? <div>
+          <h1>{SummarySec.header}</h1>
+          <body className="horizontal-container">
+            {SummarySec.subsections.headers.map((header:string,index:number) => 
+            (<div className="component">
+              <h3>{header}</h3>
+              <span>{SummarySec.subsections.bodies[index]}</span>
+            </div>)
+          ) }
+            </body>
+        </div> : null}
+
+
+        {(displayedSeg === 1) ? <div>
+          <h1>{CareerPathsSec.header}</h1>
+          <div style={{whiteSpace: "break-spaces"}}>
+            {CareerPathsSec.subsections.map((Career:string[]) =>
+              (<div>
+                <h3>{Career[0]}</h3>
+                <h4>{Career[1]}</h4>
+                <span>{Career[2]}</span>
+                <h4>{Career[3]}</h4>
+                <span>{Career[4]}</span>
+              </div>
+              )
+            )}
+            </div>
+        </div> : null}
+        
+
+        {(displayedSeg === 2) ? <div>
+          <h1>{Conclusion.header}</h1>
+          <body style={{whiteSpace: "break-spaces"}}>{Conclusion.subsections}</body>
+        </div> : null}
       </div>
 
 }
-
