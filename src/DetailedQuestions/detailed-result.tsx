@@ -18,6 +18,7 @@ export function DetailedResult( ):React.JSX.Element{
     console.log("This is the report:  " , Report)
     const [displayedSeg,setDisplayedSeg]=useState<number>(0);
     const SectionedReport = Report.slice(1);
+    console.log(Report[1]);
 
     
 
