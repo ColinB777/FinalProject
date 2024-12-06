@@ -27,7 +27,7 @@ export function Question7({ responses, setResponses }: QuestionProps): React.JSX
     let questionNum = parseInt(localStorage.getItem('questionNum') || "1");
 
     const handleFinish = async () => {
-        setResponses(prev => ({ ...prev, question7: "I am motivated by the potential to earn a high salary and achieve financial security in my work. "+ answer }));
+        setResponses(prev => ({ ...prev, question7: "I enjoy working with technology and exploring how it can be used to improve processes or create innovative solutions. "+ answer }));
         const formattedResponses = Object.entries(responses)
         .map(([question, answer]) => `${question}: ${answer}`)
         .join("\n");
@@ -110,7 +110,7 @@ export function Question7({ responses, setResponses }: QuestionProps): React.JSX
 
     return (
         <div className = "simple_question">
-            <h4 className = "question">7. I am motivated by the potential to earn a high salary and achieve financial security in my work. </h4>
+            <h4 className = "question">7. I enjoy working with technology and exploring how it can be used to improve processes or create innovative solutions. </h4>
             {options.map((option, i) => (
                 <Form.Check
                 className='answerButtons'
